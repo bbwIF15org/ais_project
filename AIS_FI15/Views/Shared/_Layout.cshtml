@@ -71,9 +71,24 @@
                     </li>
                     <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+
+                if (Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                }
+
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("service"))
             {
@@ -127,9 +142,23 @@
                     </li>
                     <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+
+                if (Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                }
 
             }
 
@@ -186,9 +215,23 @@
                     </li>
                     <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+
+                if (Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                }
 
             }
 
@@ -244,9 +287,23 @@
                     </li>
                     <li class="active">@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+
+                if (Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                }
 
             }
 
@@ -302,9 +359,23 @@
                     </li>
                     <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+
+                if (Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                }
 
             }
 
@@ -362,9 +433,24 @@
                     </li>
                     <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+
+                if (Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                }
+
 
             }
 
