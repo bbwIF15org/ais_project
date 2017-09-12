@@ -7,10 +7,9 @@ namespace AIS_FI15.Controllers
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage = "Der Benutzername ist erforderlich.")]
         public string  Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Das Passwort ist erforderlich.")]
         public string Password { get; set; }
-
     }
 }
