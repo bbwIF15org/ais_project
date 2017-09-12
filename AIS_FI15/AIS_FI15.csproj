@@ -132,6 +132,7 @@
     <Compile Include="Controllers\IntegrationsberatungController.cs" />
     <Compile Include="Controllers\KundendienstController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MensaController.cs" />
     <Compile Include="Controllers\OeffnungszeitenController.cs" />
     <Compile Include="Controllers\PsychologischerDienstController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
@@ -170,6 +171,7 @@
     <Content Include="Views\Dokumente\Index.cshtml" />
     <Content Include="Views\Formulare\Index.cshtml" />
     <Content Include="Views\Belehrungen\Index.cshtml" />
+    <Content Include="Views\Mensa\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
