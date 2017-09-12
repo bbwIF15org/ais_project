@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Ais_Test</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    @if(0 == 2) {// TODO Downloaden damit es auch Offline verfügbar ist. Und das if(0==2) entfernen. 
+    }
+             
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+</head>
+<body style="padding-top: 70px">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+
+
+            @if (Request.Url.AbsoluteUri.ToLower().Contains("home") || Request.Url.PathAndQuery == "/")
+            {
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("Home", "Index", "Home/Index")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Service<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
+                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">
+                                    ausbildungsbegleitende Dienste
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
+                                            psychologischer Dienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
+                                            Kundendienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
+                                            Wohnheim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
+                                            Integrationsberatung
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                            </li>
+                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
+                        </ul>
+                    </li>
+                    <li class ="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Ausbildung<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
+                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
+                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            }
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("service"))
+            {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home/Index")</li>
+                    <li class="dropdown active">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Service<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
+                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">
+                                    ausbildungsbegleitende Dienste
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
+                                            psychologischer Dienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
+                                            Kundendienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
+                                            Wohnheim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
+                                            Integrationsberatung
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Ausbildung<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
+                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
+                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+            }
+
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("ausbildung"))
+            {
+
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home/Index")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Service<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
+                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">
+                                    ausbildungsbegleitende Dienste
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
+                                            psychologischer Dienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
+                                            Kundendienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
+                                            Wohnheim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
+                                            Integrationsberatung
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown active">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Ausbildung<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
+                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
+                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+            }
+
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("telefonbuch"))
+            {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home/Index")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Service<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
+                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">
+                                    ausbildungsbegleitende Dienste
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
+                                            psychologischer Dienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
+                                            Kundendienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
+                                            Wohnheim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
+                                            Integrationsberatung
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Ausbildung<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
+                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
+                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
+                        </ul>
+                    </li>
+                    <li class="active">@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+            }
+
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("login"))
+            {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home/Index")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Service<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
+                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">
+                                    ausbildungsbegleitende Dienste
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
+                                            psychologischer Dienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
+                                            Kundendienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
+                                            Wohnheim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
+                                            Integrationsberatung
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Ausbildung<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
+                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
+                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+            }
+
+
+
+            else
+            {
+                <ul class="nav navbar-nav">
+                    <li class="active">@Html.ActionLink("Home", "Index", "Home/Index")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Service<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
+                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">
+                                    ausbildungsbegleitende Dienste
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
+                                            psychologischer Dienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
+                                            Kundendienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
+                                            Wohnheim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
+                                            Integrationsberatung
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Ausbildung<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
+                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
+                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+
+            }
+
+
+
+
+
+
+        </div>
+
+        <div class="container-fluid" id="blueRow">
+        </div>
+    </nav>
+    <div class="container-fluid">
+
+
+        <div id="content">
+
+
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
