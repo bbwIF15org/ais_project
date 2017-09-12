@@ -129,6 +129,7 @@
     <Compile Include="Controllers\DokumenteController.cs" />
     <Compile Include="Controllers\FormulareController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImpressumController.cs" />
     <Compile Include="Controllers\IntegrationsberatungController.cs" />
     <Compile Include="Controllers\KundendienstController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -172,6 +173,7 @@
     <Content Include="Views\Formulare\Index.cshtml" />
     <Content Include="Views\Belehrungen\Index.cshtml" />
     <Content Include="Views\Mensa\Index.cshtml" />
+    <Content Include="Views\Impressum\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
