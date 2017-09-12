@@ -27,7 +27,7 @@ namespace AIS_FI15.Controllers
                 }
 
                 {
-                    ModelState.AddModelError("", "Username oder Passwort ist falsch :("); // TODO besser beschreibung 
+                    ModelState.AddModelError("", ""); // TODO besser beschreibung 
                 }
                 
             }
