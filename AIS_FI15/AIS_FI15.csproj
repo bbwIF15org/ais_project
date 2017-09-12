@@ -120,6 +120,11 @@
     <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +137,10 @@
     <Compile Include="Controllers\IntegrationsberatungController.cs" />
     <Compile Include="Controllers\KundendienstController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginFailController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
+    <Compile Include="Controllers\VerwaltungController.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\MensaController.cs" />
     <Compile Include="Controllers\OeffnungszeitenController.cs" />
     <Compile Include="Controllers\PsychologischerDienstController.cs" />
@@ -172,6 +181,10 @@
     <Content Include="Views\Formulare\Index.cshtml" />
     <Content Include="Views\Belehrungen\Index.cshtml" />
     <Content Include="Views\Mensa\Index.cshtml" />
+    <Content Include="Views\Verwaltung\Index.cshtml" />
+    <Content Include="Views\LoginFail\View.cshtml" />
+    <Content Include="Views\LoginFail\Index.cshtml" />
+    <Content Include="Views\Logout\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,8 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="scripts\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
