@@ -143,7 +143,7 @@
                     <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
                 </ul>
 
-                if (Request.IsAuthenticated)
+                @*if (Request.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav navbar-right">
                         <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -158,7 +158,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
-                }
+                }*@
 
             }
 
@@ -453,11 +453,7 @@
 
 
             }
-
-
-
-
-
+                        
 
         </div>
 
@@ -465,23 +461,37 @@
         </div>
     </nav>
     <div class="container-fluid">
-
-        <div id="wrap">
+       
             <div id="content">
-
 
                 <div class="container body-content">
                     @RenderBody()
                 </div>
 
             </div>
-        </div>
+        
     </div>
 
     <!-- FOOTER-->
 
-    <footer id="footer">        
-        <p class="h4"><a style ="color: black" href="@Url.Action("Index", "Impressum/Index")"><span class="glyphicon glyphicon-info-sign"></span>Impressum</a></p>
+    <footer class="footer navbar-fixed-bottom" id="footer">        
+        <p class="h4 text-center"><a style ="color: black" href="@Url.Action("Index", "Impressum/Index")"><span class="glyphicon glyphicon-info-sign" style="padding: 5px"></span>Impressum</a></p>
+                        if (Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                }
     </footer>
 
 </body>

@@ -99,17 +99,6 @@
   background-color: #e9ecef;
 }
 
-/*   -------  FOOTER  ------- */
-/* Wrapper for page content to push down footer */
-#wrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  /* Negative indent footer by its height */
-  margin: 0 auto -30px;
-  /* Pad the bottom by footer height */
-  padding: 0 0 30px;
-}
 
 /* Set the fixed height of the footer here */
 footer {
@@ -117,13 +106,6 @@ footer {
   background: url(http://www.bbw-dresden.de/typo3temp/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg);
   border-top: 1px solid #000000;
   
-}
-
-
-/* Custom page CSS */
-footer > p {
-  padding: 0 125px;
-
 }
 
 /*   ------- ENDE --- FOOTER  ------- */
