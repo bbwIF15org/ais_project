@@ -19,7 +19,7 @@
         <div class="container-fluid">
 
 
-            @if (Request.Url.AbsoluteUri.ToLower().Contains("home") || Request.Url.PathAndQuery == "/")
+            @if (Request.Url.AbsoluteUri.ToLower().Contains("home") || Request.Url.PathAndQuery == "/")    // TODO In der if Abfrage gibt es viele Redundanzen. -> Muss geändert werden yo. 
             {
                 <ul class="nav navbar-nav">
                     <li class="active">@Html.ActionLink("Home", "Index", "Home/Index")</li>
@@ -74,20 +74,19 @@
 
                 if (Request.IsAuthenticated)
                 {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <ul class="nav navbar-nav">
+                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
                     </ul>
+                }
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                }
+                // #################  FÜR DIE SUCHE YO
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
+                </ul>
+
+                // #################  FÜR DIE SUCHE YO
+
 
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("service"))
@@ -143,22 +142,20 @@
                     <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch/Index")</li>
                 </ul>
 
-                @*if (Request.IsAuthenticated)
+                if (Request.IsAuthenticated)
                 {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                    <ul class="nav navbar-nav">
+                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
                     </ul>
                 }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                }*@
+
+                // #################  FÜR DIE SUCHE YO
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
+                </ul>
+
+                // #################  FÜR DIE SUCHE YO
 
             }
 
@@ -218,20 +215,18 @@
 
                 if (Request.IsAuthenticated)
                 {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <ul class="nav navbar-nav">
+                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
                     </ul>
+                }
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                }
+                // #################  FÜR DIE SUCHE YO
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
+                </ul>
+
+                // #################  FÜR DIE SUCHE YO
 
             }
 
@@ -290,20 +285,18 @@
 
                 if (Request.IsAuthenticated)
                 {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <ul class="nav navbar-nav">
+                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
                     </ul>
+                }
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                }
+                // #################  FÜR DIE SUCHE YO
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
+                </ul>
+
+                // #################  FÜR DIE SUCHE YO
 
             }
 
@@ -362,20 +355,18 @@
 
                 if (Request.IsAuthenticated)
                 {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <ul class="nav navbar-nav">
+                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
                     </ul>
+                }
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                }
+                // #################  FÜR DIE SUCHE YO
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
+                </ul>
+
+                // #################  FÜR DIE SUCHE YO
 
             }
 
@@ -436,21 +427,18 @@
 
                 if (Request.IsAuthenticated)
                 {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <ul class="nav navbar-nav">
+                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
                     </ul>
                 }
 
+// #################  FÜR DIE SUCHE YO
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
+                </ul>
+
+// #################  FÜR DIE SUCHE YO
 
             }
                         
@@ -475,24 +463,26 @@
     <!-- FOOTER-->
 
     <footer class="footer navbar-fixed-bottom" id="footer">        
-        <p class="h4 text-center"><a style ="color: black" href="@Url.Action("Index", "Impressum/Index")"><span class="glyphicon glyphicon-info-sign" style="padding: 5px"></span>Impressum</a></p>
-                        if (Request.IsAuthenticated)
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    </ul>
+        <ul class="nav navbar-nav">
+            <li style="border:none; padding-left: 15px; padding-top: 0px"><a style="color: black; padding-top: 11px" href="@Url.Action("Index", "Impressum/Index")"><span class="glyphicon glyphicon-info-sign" style="padding: 5px"></span>Impressum</a></li>
+         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 5px"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                }
-    </footer>
+            @if (Request.IsAuthenticated)
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="padding-top: 0px; padding-right: 20px;"><a style="color: black;" href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            }
+            else
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="padding-top: 0px; padding-right: 20px;"><a style="color: black;" href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            }
+
+
+
+</footer>
 
 </body>
 
