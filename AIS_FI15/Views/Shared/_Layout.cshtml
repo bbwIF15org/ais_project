@@ -82,7 +82,12 @@
                 // #################  FÜR DIE SUCHE YO
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
+                    <li>
+                        <form id="contentSearchbar">
+                            <input type="text" name="input" class="input">
+                            <button type="reset" class="search"></button>
+                        </form>
+                    </li>
                 </ul>
 
                 // #################  FÜR DIE SUCHE YO
@@ -483,6 +488,8 @@
 
 
 </footer>
+
+    <script src="~/scripts/FunctionScripts/searchbar.js" type="text/javascript" language="javascript"></script>
 
 </body>
 

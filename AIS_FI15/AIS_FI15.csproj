@@ -136,6 +136,7 @@
     <None Include="scripts\jquery.validate-vsdoc.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\FunctionScripts\searchbar.js" />
     <Content Include="scripts\jquery-3.2.1.min.js" />
     <Content Include="scripts\jquery.validate.js" />
     <Content Include="scripts\jquery.validate.min.js" />
