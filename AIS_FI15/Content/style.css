@@ -75,8 +75,8 @@ input { /* Kreis der Lupe */
 .search { /* Positionierung Griff */
   background: none;
   position: absolute;
-  top: 0px;
-  left: 5px;
+  top: -2px;
+  left: 2px;
   height: 50px;
   width: 50px;
   padding: 0;
@@ -117,10 +117,10 @@ input { /* Kreis der Lupe */
 .close:before { /* linksOben -> RechtsUnten Balken vom Kreuz in der Suchleiste */
   content: "";
   position: absolute;
-  width: 27px;
+  width: 23px;
   height: 4px;
   margin-top: -1px;
-  margin-left: -13px;
+  margin-left: -7px;
   background-color: #fff;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -132,11 +132,11 @@ input { /* Kreis der Lupe */
 .close:after { /* linksUnten -> RechtsOben Balken vom Kreuz in der Suchleiste */
   content: "";
   position: absolute;
-  width: 27px;
+  width: 23px;
   height: 4px;
   background-color: #fff;
   margin-top: -1px;
-  margin-left: -13px;
+  margin-left: -7px;
   cursor: pointer;
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
