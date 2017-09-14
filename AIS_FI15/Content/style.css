@@ -27,6 +27,7 @@
 }
 
 /* --------- SEARCHBAR ------- */
+/* TODO: Anpassung an Internet Explorer */
 
 #contentSearchbar { /* Positionierung der Lupe */
   position: absolute;
