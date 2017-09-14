@@ -6,13 +6,22 @@
   background: url(http://www.bbw-dresden.de/typo3temp/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg); 
   font-size: 22px;
   /*border:  10px 0 10px 0px; */
+  color : #ffffff;        
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-  font-weight: bold;
-  color: #000;
+  font-weight: bold;  
   background-color: transparent;
+  color : black;
+}
 
+.navbar-default .navbar-nav>li>a:hover {
+  color: white;
+  background-color: transparent;  
+}
+
+.navbar-default .navbar-nav > li > a {
+     color : black;       
 }
 
 .navbar-nav>li:first-child{
@@ -23,7 +32,12 @@
 .navbar-nav li {
   height: 70px;
   padding-top: 10px;
+}
 
+/*keine ungewollten Hintergrundfarbänderungen beim anklicken der Menüpunkte*/
+ul.nav.navbar-nav .dropdown.open .dropdown-toggle{  
+  color: #000;
+  background-color: transparent;
 }
 
 /* --------- SEARCHBAR ------- */
@@ -247,6 +261,15 @@ footer {
   background: url(http://www.bbw-dresden.de/typo3temp/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg);
   border-top: 1px solid #000000;
   color: black !important;
+}
+
+footer a {
+      color: black;      
+    }
+
+.footer>ul>li>a:focus, .footer>ul>li>a:hover {
+    color : #ffffff;
+    background-color: transparent;
 }
 
 /*   ------- ENDE --- FOOTER  ------- */

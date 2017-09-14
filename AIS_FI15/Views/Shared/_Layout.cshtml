@@ -469,7 +469,7 @@
 
     <footer class="footer navbar-fixed-bottom" id="footer">        
         <ul class="nav navbar-nav">
-            <li style="border:none; padding-left: 15px; padding-top: 0px"><a style="color: black; padding-top: 11px" href="@Url.Action("Index", "Impressum/Index")"><span class="glyphicon glyphicon-info-sign" style="padding: 5px"></span>Impressum</a></li>
+            <li style="border:none; padding-left: 15px; padding-top: 0px"><a style="padding-top: 11px" href="@Url.Action("Index", "Impressum/Index")"><span class="glyphicon glyphicon-info-sign" style="padding: 5px"></span>Impressum</a></li>
          </ul>
 
             @if (Request.IsAuthenticated)
@@ -481,7 +481,7 @@
             else
             {
                 <ul class="nav navbar-nav navbar-right">
-                    <li style="padding-top: 0px; padding-right: 20px;"><a style="color: black;" href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li style="padding-top: 0px; padding-right: 20px;"><a href="@Url.Action("Index", "Login/Index")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             }
 
