@@ -158,6 +158,7 @@
     <Compile Include="Controllers\LoginFailController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\SucheController.cs" />
+    <Compile Include="Controllers\SuchenController.cs" />
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\MensaController.cs" />
@@ -211,6 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Profile\" />
+    <Folder Include="Views\Suchen\" />
     <Folder Include="Views\Suche\" />
   </ItemGroup>
   <PropertyGroup>
