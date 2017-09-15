@@ -18,6 +18,9 @@ namespace AIS_FI15.Controllers
         [HttpPost]
         public ActionResult CheckTerm(SuchenModel model)
         {
+            /* MySql-Verweis muss eingefügt werden!! */
+            /* MySql.data.dll sowie ein Tutorial zum Einfügen liegen auf der 25 */
+
             string Suchwort = model.Suchwort;
 
             string conString = "server=localhost;uid=root;pwd=;database=ais_fi15;";
