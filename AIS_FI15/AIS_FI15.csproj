@@ -76,6 +76,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mysql.data">
+      <HintPath>..\..\..\..\AIS\mysql-for-visualstudio-1.2.7-noinstall\v461\mysql.data.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -157,7 +160,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginFailController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
-    <Compile Include="Controllers\SucheController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -171,6 +173,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SuchenModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

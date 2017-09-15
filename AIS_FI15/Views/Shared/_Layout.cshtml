@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Ais_Test</title>
@@ -85,7 +86,9 @@
                     <li>
                         <form id="Searchbar">
 
-                            @Html.TextBox("Suche", null, new { @class = "input", @list = "users", @onkeypress = "onchangeevent();" })
+                            @model AIS_FI15.Controllers.SuchenController
+
+                            @Html.TextBox("Suchwort", null, new { @class = "input", @list = "users", @onkeypress = "onchangeevent();" })
 
                        
 
@@ -93,7 +96,7 @@
 
                                 function onchangeevent() {
 
-                                   window.location = "@Url.Action("Index", "Suchen")";
+                                   window.location = "@Html.Action("Index", "Suchen")";
 
                                 }
                             </script>
