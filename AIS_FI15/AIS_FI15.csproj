@@ -138,6 +138,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="pictures\logo_bbwd.gif" />
+    <Content Include="pictures\vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\FunctionScripts\searchbar.js" />
