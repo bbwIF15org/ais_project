@@ -8,11 +8,15 @@
 	<link rel="stylesheet" href="~/Content/bootstrap.min.css">
 	<script src="~/scripts/jquery-3.2.1.min.js"></script>
     <script src="~/scripts/bootstrap.min.js"></script>	
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    @if(0 == 2) {// TODO Downloaden damit es auch Offline verfügbar ist. Und das if(0==2) entfernen. 
-    }
-             
-    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> @* // TODO Downloaden damit es auch Offline verfügbar ist.*@
+   
+    @*############ Styles ############*@ 
+
+    <link href="~/Content/Styles/style.css" rel="stylesheet" />
+    <link href="~/Content/Styles/home.css" rel="stylesheet" />
+
+    @*############ Styles ############*@
+
 </head>
 <body style="padding-top: 70px">
 
@@ -466,21 +470,15 @@
                         
 
         </div>
+      </nav>
+    
+    
+ @*############################################## Inhalt ####################################################*@
 
-        <div class="container-fluid" id="blueRow">
-        </div>
-    </nav>
-    <div class="container-fluid" style="padding-bottom: 50px;">
-       
-            <div id="content">
-
-                <div class="container body-content">
-                    @RenderBody()
-                </div>
-
-            </div>
-        
-    </div>
+       @RenderBody()
+               
+ @*############################################## Inhalt ####################################################*@         
+    
 
     <!-- FOOTER-->
 
