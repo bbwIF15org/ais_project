@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-// Das ist einen Kommentar
+
 namespace AIS_FI15
 {
     public class RouteConfig
