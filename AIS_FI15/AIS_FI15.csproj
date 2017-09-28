@@ -77,7 +77,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="mysql.data">
-      <HintPath>..\..\..\..\AIS\mysql-for-visualstudio-1.2.7-noinstall\v461\mysql.data.dll</HintPath>
+      <HintPath>\\10.4.54.25\data\IT15\AIS Projekt\MySQL_Einbindung\dll_inside\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
