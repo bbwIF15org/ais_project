@@ -120,6 +120,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Physio.xml" />
     <Content Include="pictures\Speise.PNG" />
     <Content Include="App_Data\Login.xml" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -177,6 +178,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PhysioModel.cs" />
     <Compile Include="Models\SuchenModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
