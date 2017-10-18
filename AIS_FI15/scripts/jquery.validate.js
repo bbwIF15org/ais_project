@@ -916,7 +916,7 @@ $.extend($.validator, {
 		}
 		return rules;
 	},
-
+    
 	normalizeRules: function( rules, element ) {
 		// handle dependency check
 		$.each(rules, function( prop, val ) {
@@ -1219,7 +1219,7 @@ $.format = $.validator.format;
 				port = ( "port" in settings ? settings : $.ajaxSettings ).port;
 			if ( mode === "abort" ) {
 				if ( pendingRequests[port] ) {
-					pendingRequests[port].abort();
+				    pendingRequests[port].abort();
 				}
 				pendingRequests[port] = ajax.apply(this, arguments);
 				return pendingRequests[port];
