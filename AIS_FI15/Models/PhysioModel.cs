@@ -11,14 +11,13 @@ namespace AIS_FI15.Models
     public class PhysioModel
     {
         [XmlElement("Wochentage")]
-        [Required(ErrorMessage = "Der Benutzername ist erforderlich.")]
+        [Required(ErrorMessage = "Bitte geben sie einene Wochentag an.")]
         public string Username { get; set; }
 
         [XmlElement]
 
         [XmlElement("Zeiten")]
-        [Required(ErrorMessage = "Das Passwort ist erforderlich.")]
+        [Required(ErrorMessage = "Eine Uhr Zeit ist erforderlich.")]
         public string Password { get; set; }
     }
 }
-
