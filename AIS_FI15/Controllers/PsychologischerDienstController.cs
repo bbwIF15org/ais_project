@@ -31,15 +31,15 @@ namespace AIS_FI15.Controllers
 
                 doc.Load(Server.MapPath("/App_Data/Physio.xml"));
 
-                foreach (XmlNode node in doc.SelectNodes("//user"))
+                foreach (XmlNode node in doc.SelectNodes("//wochentag"))
 
                 {
-                    String Username = node.SelectSingleNode("username").InnerText;
-                    String Password = node.SelectSingleNode("password").InnerText;
+                    String Wochentag = node.SelectSingleNode("wochentag").InnerText;
+                    String Uhrzeit = node.SelectSingleNode("uhrzeit").InnerText;
 
                     //Crypto
 
-                    byte[] hashBytes = Convert.FromBase64String(Password);  //Extract
+                    byte[] hashBytes = Convert.FromBase64String(Uhrzeit);  //Extract
 
                     byte[] salt = new byte[16];                             //Salt nehmen
                     Array.Copy(hashBytes, 0, salt, 0, 16);
@@ -60,7 +60,7 @@ namespace AIS_FI15.Controllers
                     }
 
 
-                    if (model.Username == Username)
+                    if (model.Username == Wochentag)
                     {
                         FormsAuthentication.SetAuthCookie(model.Username, false);
                         return RedirectToAction("index", "Verwaltung/Index");
