@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Physio.xml" />
+    <Content Include="DokumentationAIS.xml" />
     <Content Include="pictures\Speise.PNG" />
     <Content Include="App_Data\Login.xml">
       <SubType>Designer</SubType>
