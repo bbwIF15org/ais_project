@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace AIS_FI15.Controllers
 {
-    [XmlRoot("Benutzer")]
+    [XmlRoot("Wochen")]
     public class SaveLoadController
     {
         [XmlElement("Benutzername")]
