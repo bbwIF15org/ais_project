@@ -11,7 +11,7 @@ namespace AIS_FI15.Controllers
         // GET: Verwaltung
         public ActionResult Index()
         {
-            if(Request.IsAuthenticated)
+            if (Request.IsAuthenticated)
             {
                 return View();
             }
@@ -19,8 +19,6 @@ namespace AIS_FI15.Controllers
             {
                 return RedirectToAction("index", "Login/Index");
             }
-
-            
         }
     }
 }
