@@ -121,7 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Physio.xml" />
-    <Content Include="DokumentationAIS.xml" />
+    <Content Include="DokumentationAIS.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="pictures\Speise.PNG" />
     <Content Include="App_Data\Login.xml">
       <SubType>Designer</SubType>
@@ -160,6 +162,7 @@
     <Compile Include="Controllers\AusbildungController.cs" />
     <Compile Include="Controllers\BelehrungenController.cs" />
     <Compile Include="Controllers\DokumenteController.cs" />
+    <Compile Include="Controllers\FlyerController.cs" />
     <Compile Include="Controllers\FormulareController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImpressumController.cs" />
@@ -216,6 +219,7 @@
     <Content Include="Views\LoginFail\Index.cshtml" />
     <Content Include="Views\Logout\Index.cshtml" />
     <Content Include="Views\Impressum\Index.cshtml" />
+    <Content Include="Views\Flyer\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -251,6 +255,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties Content_4bootstrap_1css_1map__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
