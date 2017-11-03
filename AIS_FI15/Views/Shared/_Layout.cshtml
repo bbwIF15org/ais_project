@@ -61,13 +61,81 @@
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-
+            @{ 
+                string home, service, ausbildung, telefonbuch, verwaltung;
+             }
 
             @if (Request.Url.AbsoluteUri.ToLower().Contains("home") || Request.Url.PathAndQuery == "/")    // TODO In der if Abfrage gibt es viele Redundanzen. -> Muss geändert werden yo. 
             {
+                home = "active";
+                service = "dropdown";
+                ausbildung = "dropdown";
+                telefonbuch = "";
+                verwaltung = "";
+            }
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("service") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("oeffnungszeiten") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("mensa") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("psychologischerDienst") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("kundendienst") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("wohnheim") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("integrationsberatung") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("teilnehmervertretung"))
+            {
+                home = "";
+                service = "dropdown active";
+                ausbildung = "dropdown";
+                telefonbuch = "";
+                verwaltung = "";
+            }
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("ausbildung") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("dokumente") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("formulare") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("belehrungen"))
+            {
+                home = "";
+                service = "dropdown";
+                ausbildung = "dropdown active";
+                telefonbuch = "";
+                verwaltung = "";
+            }
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("telefonbuch"))
+            {
+                home = "";
+                service = "dropdown";
+                ausbildung = "dropdown";
+                telefonbuch = "active";
+                verwaltung = "";
+            }
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("login"))
+            {
+                home = "active";
+                service = "dropdown";
+                ausbildung = "dropdown";
+                telefonbuch = "";
+                verwaltung = "";
+            }
+            else if (Request.Url.AbsoluteUri.ToLower().Contains("verwaltung"))
+            {
+                home = "";
+                service = "dropdown";
+                ausbildung = "dropdown";
+                telefonbuch = "";
+                verwaltung = "active";
+            }
+            else
+            {
+                home = "active";
+                service = "dropdown";
+                ausbildung = "dropdown";
+                telefonbuch = "";
+                verwaltung = "";
+            }
+
+
                 <ul class="nav navbar-nav">
-                    <li class="active">@Html.ActionLink("HOME", "Index", "Home/Index")</li>
-                    <li class="dropdown">
+                    <li class="@home">@Html.ActionLink("HOME", "Index", "Home/Index")</li>
+                    <li class="@service">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">SERVICE<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
@@ -103,7 +171,7 @@
                             <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
                         </ul>
                     </li>
-                    <li class ="dropdown">
+                    <li class ="@ausbildung">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             AUSBILDUNG<b class="caret"></b>
                         </a>
@@ -113,17 +181,17 @@
                             <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("TELEFONBUCH", "Index", "Telefonbuch/Index")</li>
+                    <li class="@telefonbuch">@Html.ActionLink("TELEFONBUCH", "Index", "Telefonbuch/Index")</li>
                 </ul>
 
-                if (Request.IsAuthenticated)
+                @if (Request.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav">
-                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                        <li class=@verwaltung style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
                     </ul>
                 }
 
-                // #################  FÜR DIE SUCHE YO
+                @*// #################  FÜR DIE SUCHE YO*@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -160,363 +228,9 @@
                     </li>
                 </ul>
 
-                // #################  FÜR DIE SUCHE YO
+                @*// #################  FÜR DIE SUCHE YO*@
 
-
-            }
-            else if (Request.Url.AbsoluteUri.ToLower().Contains("service"))
-            {
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("HOME", "Index", "Home/Index")</li>
-                    <li class="dropdown active">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SERVICE<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
-                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle disabled" tabindex="-1" href="#">
-                                    Ausbildungsbegleitende Dienste
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
-                                            Psychologischer Dienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
-                                            Kundendienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
-                                            Wohnheim
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
-                                            Integrationsberatung
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            AUSBILDUNG<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
-                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
-                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("TELEFONBUCH", "Index", "Telefonbuch/Index")</li>
-                </ul>
-
-                if (Request.IsAuthenticated)
-                {
-                    <ul class="nav navbar-nav">
-                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-
-                // #################  FÜR DIE SUCHE YO
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
-                </ul>
-
-                // #################  FÜR DIE SUCHE YO
-
-            }
-
-            else if (Request.Url.AbsoluteUri.ToLower().Contains("ausbildung"))
-            {
-
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("HOME", "Index", "Home/Index")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SERVICE<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
-                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle disabled" tabindex="-1" href="#">
-                                    Ausbildungsbegleitende Dienste
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
-                                            Psychologischer Dienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
-                                            Kundendienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
-                                            Wohnheim
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
-                                            Integrationsberatung
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown active">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            AUSBILDUNG<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
-                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
-                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("TELEFONBUCH", "Index", "TELEFONBUCH/Index")</li>
-                </ul>
-
-                if (Request.IsAuthenticated)
-                {
-                    <ul class="nav navbar-nav">
-                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-
-                // #################  FÜR DIE SUCHE YO
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
-                </ul>
-
-                // #################  FÜR DIE SUCHE YO
-
-            }
-
-            else if (Request.Url.AbsoluteUri.ToLower().Contains("telefonbuch"))
-            {
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("HOME", "Index", "Home/Index")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SERVICE<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
-                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle disabled" tabindex="-1" href="#">
-                                    Ausbildungsbegleitende Dienste
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
-                                            Psychologischer Dienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
-                                            Kundendienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
-                                            Wohnheim
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
-                                            Integrationsberatung
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            AUSBILDUNG<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
-                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
-                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
-                        </ul>
-                    </li>
-                    <li class="active">@Html.ActionLink("TELEFONBUCH", "Index", "TELEFONBUCH/Index")</li>
-                </ul>
-
-                if (Request.IsAuthenticated)
-                {
-                    <ul class="nav navbar-nav">
-                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-
-                // #################  FÜR DIE SUCHE YO
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
-                </ul>
-
-                // #################  FÜR DIE SUCHE YO
-
-            }
-
-            else if (Request.Url.AbsoluteUri.ToLower().Contains("login"))
-            {
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("HOME", "Index", "Home/Index")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SERVICE<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
-                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle disabled" tabindex="-1" href="#">
-                                    Ausbildungsbegleitende Dienste
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
-                                            Psychologischer Dienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
-                                            Kundendienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
-                                            Wohnheim
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
-                                            Integrationsberatung
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            AUSBILDUNG<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
-                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
-                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("TELEFONBUCH", "Index", "Telefonbuch/Index")</li>
-                </ul>
-
-                if (Request.IsAuthenticated)
-                {
-                    <ul class="nav navbar-nav">
-                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-
-                // #################  FÜR DIE SUCHE YO
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
-                </ul>
-
-                // #################  FÜR DIE SUCHE YO
-
-            }
-
-
-
-            else
-            {
-                <ul class="nav navbar-nav">
-                    <li class="active">@Html.ActionLink("HOME", "Index", "Home/Index")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SERVICE<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Öffnungszeiten", "Index", "Oeffnungszeiten/Index")</li>
-                            <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-toggle disabled" tabindex="-1" href="#">
-                                    Ausbildungsbegleitende Dienste
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
-                                            Psychologischer Dienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Kundendienst")">
-                                            Kundendienst
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
-                                            Wohnheim
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
-                                            Integrationsberatung
-                                        </a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            AUSBILDUNG<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
-                            <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
-                            <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("TELEFONBUCH", "Index", "Telefonbuch/Index")</li>
-                </ul>
-
-                if (Request.IsAuthenticated)
-                {
-                    <ul class="nav navbar-nav">
-                        <li style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
-                    </ul>
-                }
-
-// #################  FÜR DIE SUCHE YO
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li style="padding-top: 5px"><a href="@Url.Action("Index", "Logout/Index")"><span class="glyphicon glyphicon-search"></span> SUCHEN!</a></li>
-                </ul>
-
-// #################  FÜR DIE SUCHE YO
-
-            }
-                        
+    
 
         </div>
       </nav>
