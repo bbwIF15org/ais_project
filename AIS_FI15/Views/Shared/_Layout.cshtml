@@ -308,7 +308,7 @@
             else if (Request.Url.AbsoluteUri.ToLower().Contains("telefonbuch"))
             {
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home/Index")</li>
+                    <li>@Html.ActionLink("HOME", "Index", "Home/Index")</li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">SERVICE<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -355,7 +355,7 @@
                             <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
                         </ul>
                     </li>
-                    <li class="active">@Html.ActionLink("Telefonbuch", "Index", "TELEFONBUCH/Index")</li>
+                    <li class="active">@Html.ActionLink("TELEFONBUCH", "Index", "TELEFONBUCH/Index")</li>
                 </ul>
 
                 if (Request.IsAuthenticated)
