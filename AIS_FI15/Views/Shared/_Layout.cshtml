@@ -16,6 +16,45 @@
     <link href="~/Content/Styles/HOME.css" rel="stylesheet" />
 
     @*############ Styles ############*@
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+            $( function() {
+            var availableTags = [
+              "ActionScript",
+              "AppleScript",
+              "Asp",
+              "BASIC",
+              "C",
+              "C++",
+              "Clojure",
+              "COBOL",
+              "ColdFusion",
+              "Erlang",
+              "Fortran",
+              "Groovy",
+              "Haskell",
+              "Java",
+              "JavaScript",
+              "Lisp",
+              "Perl",
+              "PHP",
+              "Python",
+              "Ruby",
+              "Scala",
+              "Scheme"
+            ];
+            $( "#tags" ).autocomplete({
+              source: availableTags
+            });
+          } );
+    </script>
+
+
+
+
+
 
 </head>
 <body style="padding-top: 70px">
@@ -90,20 +129,30 @@
                     <li>
                         <form id="Searchbar">
 
-                            @model AIS_FI15.Controllers.SuchenController
+                            @*@model AIS_FI15.Controllers.SuchenController*@
 
-                            @Html.TextBox("Suchwort", null, new { @class = "input", @list = "users", @onkeypress = "onchangeevent();" })
+                            @*<input type="text" name="input" class="input"  id="tags">*@
 
-                       
+                     
+                          
+                            
+                             @Html.TextBox("Suchwort", null, new { @id = "tags", @class = "input", @list = "users", @onkeypress = "return runScript(event)" })
 
-                            @*<script>
+                            <script>
 
-                                function onchangeevent() {
+                                function runScript(e) {
+                                        if (e.keyCode == 13) {
+                                            var test = $("#tags").val();
 
-                                   window.location = "@Html.Action("Index", "Suchen")";
 
-                                }
-                            </script>*@
+                                            window.location.href = "/" + test;  
+
+                                            alert(test);
+
+                                            return false;
+                                        }
+}
+                            </script>
 
                             @*<input type="text" name="input" class="input">*@
                             <button type="reset" class="search"></button>

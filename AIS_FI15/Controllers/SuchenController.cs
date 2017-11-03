@@ -12,7 +12,11 @@ namespace AIS_FI15.Controllers
         // GET: Suchen
         public ActionResult Index(SuchenModel model)
         {
-           return View();
+            string get = Request["input"];
+
+            Response.Redirect("~/" + get);
+
+            return View();
         }
 
         [HttpPost]
