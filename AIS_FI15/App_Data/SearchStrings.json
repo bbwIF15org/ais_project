@@ -1,0 +1,58 @@
+﻿{
+  "SearchStrings": {
+    "SearchString": [
+      {
+        "word": "home",
+        "Site": "Home/Index"
+      },
+      {
+        "word": "öffnungszeiten",
+        "Site": "Oeffnungszeiten/Index"
+      },
+      {
+        "word": "mensa",
+        "Site": "Mensa/Index"
+      },
+      {
+        "word": "psychologischer dienst",
+        "Site": "PsychologischerDienst"
+      },
+      {
+        "word": "kundendienst",
+        "Site": "Kundendienst"
+      },
+      {
+        "word": "wohnheim",
+        "Site": "Wohnheim"
+      },
+      {
+        "word": "integrationsberatung",
+        "Site": "Integrationsberatung"
+      },
+      {
+        "word": "teilnehmervertretung",
+        "Site": "Teilnehmervertretung/Index"
+      },
+      {
+        "word": "dokumente",
+        "Site": "Dokumente/Index"
+      },
+      {
+        "word": "formulare",
+        "Site": "Formulare/Index"
+      },
+      {
+        "word": "belehrungen",
+        "Site": "Belehrungen/Index"
+      },
+      {
+        "word": "telefonbuch",
+        "Site": "Belehrungen/Index"
+      },
+      {
+        "word": "impressum",
+        "Site": "Impressum/Index"
+      }
+    ]
+  }
+}

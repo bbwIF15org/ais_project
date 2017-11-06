@@ -144,6 +144,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="App_Data\SearchStrings.json" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
     <Content Include="pictures\logo_bbwd.gif" />
     <Content Include="pictures\vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg" />
@@ -254,7 +255,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties Content_4bootstrap_1css_1map__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
