@@ -8,6 +8,7 @@
   font-size: 22px;
   /*border:  10px 0 10px 0px; */
   color : #ffffff;        
+  z-index: 1;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -52,6 +53,7 @@ ul.nav.navbar-nav .dropdown.open .dropdown-toggle{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 #Searchbar.on {
