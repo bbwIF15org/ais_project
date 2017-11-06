@@ -62,17 +62,12 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             @{ 
-                string home, service, ausbildung, telefonbuch, verwaltung, impressum="";
+                string home="", service= "dropdown", ausbildung= "dropdown", telefonbuch="", verwaltung="", impressum="";
              }
 
             @if (Request.Url.AbsoluteUri.ToLower().Contains("home") || Request.Url.PathAndQuery == "/")    // TODO In der if Abfrage gibt es viele Redundanzen. -> Muss geändert werden yo. 
             {
-                home = "active";
-                service = "dropdown";
-                ausbildung = "dropdown";
-                telefonbuch = "";
-                verwaltung = "";
-                impressum = "";
+                home = "active";                
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("service") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("oeffnungszeiten") ||
@@ -82,65 +77,35 @@
                 Request.Url.AbsoluteUri.ToLower().Contains("wohnheim") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("integrationsberatung") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("teilnehmervertretung"))
-            {
-                home = "";
-                service = "dropdown active";
-                ausbildung = "dropdown";
-                telefonbuch = "";
-                verwaltung = "";
+            {                
+                service = "dropdown active";              
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("ausbildung") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("dokumente") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("formulare") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("belehrungen"))
-            {
-                home = "";
-                service = "dropdown";
+            {     
                 ausbildung = "dropdown active";
-                telefonbuch = "";
-                verwaltung = "";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("telefonbuch"))
-            {
-                home = "";
-                service = "dropdown";
-                ausbildung = "dropdown";
+            {               
                 telefonbuch = "active";
-                verwaltung = "";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("login"))
             {
                 home = "active";
-                service = "dropdown";
-                ausbildung = "dropdown";
-                telefonbuch = "";
-                verwaltung = "";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("verwaltung"))
-            {
-                home = "";
-                service = "dropdown";
-                ausbildung = "dropdown";
-                telefonbuch = "";
+            {               
                 verwaltung = "active";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("impressum"))
-            {
-                home = "";
-                service = "dropdown";
-                ausbildung = "dropdown";
-                telefonbuch = "";
-                verwaltung = "";
+            {                
                 impressum = "active";
             }
             else
             {
-                home = "active";
-                service = "dropdown";
-                ausbildung = "dropdown";
-                telefonbuch = "";
-                verwaltung = "";
-                impressum = "";
+                home = "active";                
             }
 
 
