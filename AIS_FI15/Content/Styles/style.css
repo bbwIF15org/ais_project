@@ -285,16 +285,12 @@ footer a {
       color: black;      
     }
 
-    footer active a {
-        color: aqua;
-    }
-
 .footer>ul>li>a:focus, .footer>ul>li>a:hover {
     color : #ffffff;
     background-color: transparent;
 }
 
-.footer .navbar-default .navbar-fixed-bottom .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+.nav>.active>a, .nav>.active>a:focus, .nav>.active>a:hover {
   font-weight: bold;  
   background-color: transparent;
   color : black;
