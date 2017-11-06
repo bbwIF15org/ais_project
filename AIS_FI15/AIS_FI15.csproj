@@ -220,6 +220,7 @@
     <Content Include="Views\Logout\Index.cshtml" />
     <Content Include="Views\Impressum\Index.cshtml" />
     <Content Include="Views\Flyer\Index.cshtml" />
+    <Content Include="Views\Suchen\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -229,8 +230,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Profile\" />
-    <Folder Include="Views\Suchen\" />
-    <Folder Include="Views\Suche\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

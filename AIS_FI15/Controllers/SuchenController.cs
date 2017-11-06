@@ -10,30 +10,13 @@ namespace AIS_FI15.Controllers
     public class SuchenController : Controller
     {
         // GET: Suchen
-        public ActionResult Index(SuchenModel model)
+        public ActionResult Index(string Suchwort)
         {
-            string get = Request["input"];
 
-            Response.Redirect("~/" + get);
+            Console.Write(Suchwort);
 
             return View();
         }
 
-        [HttpPost]
-        public ActionResult CheckTerm(SuchenModel model)
-        {
-            /* MySql-Verweis muss eingefügt werden!! */
-            /* MySql.data.dll sowie ein Tutorial zum Einfügen liegen auf der 25 */
-
-            string Suchwort = model.Suchwort;
-
-            string conString = "server=localhost;uid=root;pwd=;database=ais_fi15;";
-            MySqlConnection con = new MySqlConnection(conString);
-
-            return null;
-        }
-
-
-
-        }
+    }
 }
