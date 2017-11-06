@@ -1,8 +1,4 @@
-﻿{
-  "SearchStrings": {
-    "SearchString": [
-      {
-        "word": "home",
+﻿[{"word": "home",
         "Site": "Home/Index"
       },
       {
@@ -54,5 +50,3 @@
         "Site": "Impressum/Index"
       }
     ]
-  }
-}
