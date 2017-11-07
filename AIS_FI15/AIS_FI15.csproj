@@ -186,6 +186,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SuchwortModel.cs" />
     <Compile Include="Models\PhysioModel.cs" />
     <Compile Include="Models\SuchenModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
