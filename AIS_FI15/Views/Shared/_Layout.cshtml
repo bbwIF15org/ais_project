@@ -19,36 +19,38 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
+    @using System.Web.Script.Serialization;
+
+   @{ 
+       string json = AIS_FI15.Controllers.SuchenModel.Auslesen(Server.MapPath("/App_Data/SearchStrings.json"));
+
+       JavaScriptSerializer js = new JavaScriptSerializer();
+       AIS_FI15.Controllers.SuchenModel.Navigation[] Navi = js.Deserialize<AIS_FI15.Controllers.SuchenModel.Navigation[]>(json);
+
+       string ATags = "";
+
+       for (int l = 0; l < Navi.Length; l++)
+       {
+           if (!Navi[l].word.Contains("zeiten") && !Navi[l].word.Contains("dienst"))
+           {
+               ATags = ATags + " '" + Navi[l].word + "',";
+           }
+       }
+
+       ATags = ATags.Substring(0, ATags.Length - 1);
+   }
+
     <script>
-            $( function() {
+        $(function () {
             var availableTags = [
-              "ActionScript",
-              "AppleScript",
-              "Asp",
-              "BASIC",
-              "C",
-              "C++",
-              "Clojure",
-              "COBOL",
-              "ColdFusion",
-              "Erlang",
-              "Fortran",
-              "Groovy",
-              "Haskell",
-              "Java",
-              "JavaScript",
-              "Lisp",
-              "Perl",
-              "PHP",
-              "Python",
-              "Ruby",
-              "Scala",
-              "Scheme"
+                "test",
+                "hallo"
             ];
-            $( "#tags" ).autocomplete({
-              source: availableTags
+            $("#tags").autocomplete({
+                source: availableTags
             });
-          } );
+        });
     </script>
 
 
