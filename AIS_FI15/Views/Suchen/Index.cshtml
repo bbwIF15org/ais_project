@@ -8,7 +8,69 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Die Seite </h2>
+<body onload="myFunction()" style="margin:0;">
+    <div class="container-fluid" style="margin-left: 10px">
+        <h2>Die Seite <b> @Model.SuchwortSend </b> konnte leider nicht gefunden werden.  </h2>
+       
+        <h1><b>:(</b></h1>
+        <br /><br />
+        <h4>Vielleicht finden Sie hier ja was Sie suchen:  </h4>
+    </div>
 
 
-@Model.SuchwortSend
+
+    <div>
+
+        <div id="loader"></div>
+
+        <div style="display:none;" id="myDiv">
+       
+        
+            @using System.Web.Script.Serialization;
+            @{
+                string json = AIS_FI15.Controllers.SuchenModel.Auslesen(Server.MapPath("/App_Data/SearchStrings.json"));
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                AIS_FI15.Controllers.SuchenModel.Navigation[] Navi = js.Deserialize<AIS_FI15.Controllers.SuchenModel.Navigation[]>(json);
+
+
+                string[,] Navigation = new string[Navi.Length +2 ,2];
+
+                for (int l = 0; l < Navi.Length; l++)
+                {
+                    Navigation[l, 0] = Navi[l].word;
+                    Navigation[l, 1] = Navi[l].site;
+                }
+
+                //Array.Sort(Navigation,);
+
+                for (int z = 0; z < Navi.Length; z++)
+                {
+                    <br />
+                    @Html.ActionLink(Navigation[z, 0], "Index", Navigation[z, 1]);
+                }
+            }
+
+            
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+  var myVar;
+
+  function myFunction() {
+            myVar = setTimeout(showPage, 4000);
+    }
+
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("myDiv").style.display = "block";
+    }
+
+    </script>
+ </body>

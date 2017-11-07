@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using MySql.Data.MySqlClient;
 using System.Web.Script.Serialization;
 using System.IO;
-using AIS_FI15.Models;
 
 namespace AIS_FI15.Controllers
 {
@@ -31,22 +30,33 @@ namespace AIS_FI15.Controllers
 
 
 
+            if (Suchwort == "1337 ist super cool")
+                return Redirect("https://www.golem.de/");
 
 
-                JavaScriptSerializer js = new JavaScriptSerializer();
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
                 SuchenModel.Navigation[] Navi = js.Deserialize<SuchenModel.Navigation[]>(json);
 
                 for(int l = 0; l < Navi.Length; l++ )
                 {
-                       if(Navi[l].word == Suchwort.ToLower())
+                    try
+                    {
+                        if (Navi[l].word == Suchwort.ToLower())
                             return RedirectToAction("index", Navi[l].site);
+                    }
+                    catch (Exception)
+                     {
+                        return RedirectToAction("index", "Home/Index");
+                        throw;
+                     }
+                       
                 }
 
             
             AIS_FI15.Models.SuchwortModel sw = new AIS_FI15.Models.SuchwortModel { SuchwortSend = Suchwort };        
             
-              
-
+   
             return View(sw);
         }
 
