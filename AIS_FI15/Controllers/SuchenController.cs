@@ -17,11 +17,7 @@ namespace AIS_FI15.Controllers
         //"[{Name:'Mensa',Link:'Mensa/Index'},{Name:'Kundenservice',Link:'Kundenservice/Index'}]";
 
 
-        public class Navigation
-        {
-            public string Link { get; set; }
-            public string Name { get; set; }
-        }
+    
 
 
         // GET: Suchen
@@ -29,22 +25,25 @@ namespace AIS_FI15.Controllers
         {
 
 
-            using (StreamReader r = new StreamReader(Server.MapPath("/App_Data/SearchStrings.json")))
-            {
-                string json = r.ReadToEnd();
-           
+
+            string json = SuchenModel.Auslesen(Server.MapPath("/App_Data/SearchStrings.json"));
+
+
+
+
+
                 JavaScriptSerializer js = new JavaScriptSerializer();
-                Navigation[] Navi = js.Deserialize<Navigation[]>(json);
+                SuchenModel.Navigation[] Navi = js.Deserialize<SuchenModel.Navigation[]>(json);
 
                 for(int l = 0; l < Navi.Length; l++ )
                 {
-                       if(Navi[l].Name == Suchwort)
-                            return RedirectToAction("index", Navi[l].Link);
+                       if(Navi[l].word == Suchwort.ToLower())
+                            return RedirectToAction("index", Navi[l].site);
                 }
 
 
 
-            }
+            
 
 
             return View();
