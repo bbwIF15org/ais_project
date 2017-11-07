@@ -1,9 +1,14 @@
-﻿
+﻿@using AIS_FI15.Models
+@model AIS_FI15.Models.SuchwortModel
+
+@using AIS_FI15.Controllers
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Die Seite </h2>
 
 
+@Model.SuchwortSend

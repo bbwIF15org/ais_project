@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MySql.Data.MySqlClient;
 using System.Web.Script.Serialization;
 using System.IO;
+using AIS_FI15.Models;
 
 namespace AIS_FI15.Controllers
 {
@@ -41,12 +42,12 @@ namespace AIS_FI15.Controllers
                             return RedirectToAction("index", Navi[l].site);
                 }
 
-
-
             
+            AIS_FI15.Models.SuchwortModel sw = new AIS_FI15.Models.SuchwortModel { SuchwortSend = Suchwort };        
+            
+              
 
-
-            return View();
+            return View(sw);
         }
 
     }
