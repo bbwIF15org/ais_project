@@ -18,7 +18,8 @@
         AIS_FI15.Controllers.SharedAnzeigenModel.Artikel[] Artikel = js.Deserialize<AIS_FI15.Controllers.SharedAnzeigenModel.Artikel[]>(json);
 
 
-        string[,] ArtikelArray = new string[Artikel.Length + 2, 4];
+
+        string[,] ArtikelArray = new string[Artikel.Length + 2, 5];
 
         for (int i = 0; i < Artikel.Length; i++)
         {
@@ -26,19 +27,27 @@
             ArtikelArray[i, 1] = Artikel[i].unterUeberschrift;
             ArtikelArray[i, 2] = Artikel[i].text;
             ArtikelArray[i, 3] = Artikel[i].zeitpunkt.ToString();
+            //ArtikelArray[i, 4] = Artikel[i].id.ToString();
         }
 
         for (int j = 0; j < Artikel.Length; j++)
         {
             <div class="panel panel-default">
                 <div class="panel-body" id="InhaltBearbeiten">
+                    @*//ID: @ArtikelArray[j, 4];<br />*@
                     Überschrift:  @ArtikelArray[j, 0];<br />
                     unterÜberschrift:   @ArtikelArray[j, 1];<br />
                     text:   @ArtikelArray[j, 2];<br />
                     erstellt:   @ArtikelArray[j, 3];<br />
                 </div>
             </div>
-                }
+        }
+
+
+        //foreach (var item in collection)
+        //{
+
+        //}
 
                 }
 
