@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+
+@using (Html.BeginForm(null, "SharedBearbeiten/Index"))
+{
+    <br />
+    <br />
+   
+     <div class="form-group input-group">
+        @Html.TextBox("U1", null, new { @id = "u1", @class = "input" })
+    </div>
+    <div class="form-group input-group">
+        @Html.TextBox("U2", null, new { @id = "u2", @class = "input" })
+    </div>
+
+    <div class="form-group input-group">
+        @Html.TextArea("TextArea1", new { rows = 10, columns = 40 })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Go" class="btn btn-default" />
+        <br /><br />
+     </div>
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
