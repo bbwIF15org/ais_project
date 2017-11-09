@@ -145,6 +145,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="App_Data\SearchStrings.json" />
+    <Content Include="App_Data\Wohnheim.json" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
     <Content Include="pictures\logo_bbwd.gif" />
     <Content Include="pictures\vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg" />
@@ -173,6 +174,7 @@
     <Compile Include="Controllers\LoginFailController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\SaveLoadController.cs" />
+    <Compile Include="Controllers\SharedBearbeitenController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -223,6 +225,7 @@
     <Content Include="Views\Impressum\Index.cshtml" />
     <Content Include="Views\Flyer\Index.cshtml" />
     <Content Include="Views\Suchen\Index.cshtml" />
+    <Content Include="Views\SharedBearbeiten\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
