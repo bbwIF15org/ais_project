@@ -1,45 +1,34 @@
-﻿
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<div>
-
-@using (Html.BeginForm(null, "SharedBearbeiten/Index"))
+﻿@using (Html.BeginForm(null, "SharedBearbeiten/Index"))
 {
-    <br />
-    <br />
-   
-     <div class="form-group input-group">
-        @Html.TextBox("U1", null, new { @id = "u1", @class = "input" })
+
+
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="form-horizontal col-sm-6">
+            <h4>Hinzufügen</h4>
+            <hr />
+            <div class="form-group input-group">
+                <span class="input-group-addon hinzu"><b>Überschrift:</b></span>
+                @Html.TextBox("U1", null, new { @id = "u1", @class = "input form-control" })
+            </div>
+
+            <div class="form-group input-group ">
+                <span class="input-group-addon hinzu"><b>Zusatz:</b></span>
+                @Html.TextBox("U2", null, new { @id = "u2", @class = "input form-control" })
+            </div>
+
+            <div class="form-group input-group">
+                <span class="input-group-addon hinzu"><b>Text-Area:</b></span>
+                @Html.TextArea("TextArea1", new { rows = 10, columns = 40, @class = "input form-control" })
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Hinzufügen" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
     </div>
-    <div class="form-group input-group">
-        @Html.TextBox("U2", null, new { @id = "u2", @class = "input" })
-    </div>
-
-    <div class="form-group input-group">
-        @Html.TextArea("TextArea1", new { rows = 10, columns = 40 })
-    </div>
-
-    <div class="form-group">
-        <input type="submit" value="Go" class="btn btn-default" />
-        <br /><br />
-     </div>
-
-
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    </div>
