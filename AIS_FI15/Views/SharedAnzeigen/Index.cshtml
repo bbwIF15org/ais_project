@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div>
+
+
+    @using System.Web.Script.Serialization;
+
+    @{
+
+
+        string json = AIS_FI15.Controllers.SharedAnzeigenModel.Auslesen(Server.MapPath("/App_Data/Wohnheim.json")); //ToDo: muss sich der aufrufenden Seite anpassen ()
+
+        JavaScriptSerializer js = new JavaScriptSerializer();
+
+        AIS_FI15.Controllers.SharedAnzeigenModel.Artikel[] Artikel = js.Deserialize<AIS_FI15.Controllers.SharedAnzeigenModel.Artikel[]>(json);
+
+
+        string[,] ArtikelArray = new string[Artikel.Length + 2, 4];
+
+        for (int i = 0; i < Artikel.Length; i++)
+        {
+            ArtikelArray[i, 0] = Artikel[i].ueberschrift;
+            ArtikelArray[i, 1] = Artikel[i].unterUeberschrift;
+            ArtikelArray[i, 2] = Artikel[i].text;
+            ArtikelArray[i, 3] = Artikel[i].zeitpunkt.ToString();
+        }
+
+        for (int j = 0; j < Artikel.Length; j++)
+        {
+            <div class="panel panel-default">
+                <div class="panel-body" id="InhaltBearbeiten">
+                    Überschrift:  @ArtikelArray[j, 0];<br />
+                    unterÜberschrift:   @ArtikelArray[j, 1];<br />
+                    text:   @ArtikelArray[j, 2];<br />
+                    erstellt:   @ArtikelArray[j, 3];<br />
+                </div>
+            </div>
+                }
+
+                }
+
+
+
+
+            </div>
