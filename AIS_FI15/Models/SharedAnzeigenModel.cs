@@ -13,6 +13,7 @@ namespace AIS_FI15.Controllers
 
         public class Artikel
         {
+           // public int id { get; set; }
             public string ueberschrift { get; set; }
             public string unterUeberschrift { get; set; }
             public string text { get; set; }
@@ -23,7 +24,7 @@ namespace AIS_FI15.Controllers
         {
                 using (StreamReader r = new StreamReader(p))
                 {
-                    string json = r.ReadToEnd();
+                    string json = r.ReadToEnd();                        
                     json = json.Insert(0, "[");
                     json = json + "]";
                     return json;
