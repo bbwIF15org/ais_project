@@ -358,3 +358,13 @@ footer a {
 }
 
 /*--------------- END - Loader ------------------------- */
+
+/*--------------- Bearbeiten ------------------------- */
+
+.hinzu {
+    min-width:105px;
+    text-align:left;
+    font-style: normal !important;
+}
+
+/*--------------- END - Bearbeiten ------------------------- */
