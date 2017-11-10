@@ -368,3 +368,16 @@ footer a {
 }
 
 /*--------------- END - Bearbeiten ------------------------- */
+
+
+/*--------------- Artiklel anzeigen ------------------------- */
+.panel-heading {
+    font-size: larger;
+}
+
+.panel-body {
+}
+
+.panel-footer {
+    font-size: smaller;
+}

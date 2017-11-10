@@ -74,7 +74,7 @@ namespace AIS_FI15.Controllers
                     {
                         Byte[] info = new UTF8Encoding(true).GetBytes("This is some text in the file.");
                         // Add some information to the file.
-                        fs.Write(info, 0, info.Length);
+                        //fs.Write(info, 0, info.Length);
                     }
                 }
             }
