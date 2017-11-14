@@ -26,7 +26,7 @@ namespace AIS_FI15.Controllers
         public void DbWrite(string us, string uus, string txt, DateTime zp)//ToDo es muss noch die aufrufende Seite übergeben werden (z.B. "Wohnheim")
         {
 
-            //var db = Database.Open("SQLServerConnectionString");
+            var db = Database.Open("SQLServerConnectionString");
 
             //var insertQuery = "INSERT INTO Wohnheim (Title, Addition, Text, Time) VALUES ('" + us + "','" + uus + "','" + txt + "', CURRENT_TIMESTAMP)";
 
