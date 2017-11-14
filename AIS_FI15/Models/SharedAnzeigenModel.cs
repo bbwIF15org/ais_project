@@ -4,12 +4,18 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
+using System.Data.SqlClient;
+using WebMatrix.Data;
 
 namespace AIS_FI15.Controllers
 {
     public class SharedAnzeigenModel
     {
+  
+
         //public string Suchwort { get; set; }
+
+
 
         public class Artikel
         {
@@ -20,16 +26,11 @@ namespace AIS_FI15.Controllers
             public DateTime zeitpunkt { get; set; }
         }
 
-        public static string Auslesen(string p)
-        {
-                using (StreamReader r = new StreamReader(p))
-                {
-                    string json = r.ReadToEnd();                        
-                    json = json.Insert(0, "[");
-                    json = json + "]";
-                    return json;
-                }
-        }
+        //public static void Speichern(Artikel artikel)
+        //{
+        //    var db = Database.Open("SQLServerConnectionString");
+        //    //var selectQueryString = "SELECT * FROM Wohnheim";
+        //}
 
 
     }

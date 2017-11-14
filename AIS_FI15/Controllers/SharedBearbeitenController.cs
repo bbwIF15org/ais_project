@@ -5,8 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using System.Text;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
+using System.Data.SqlClient;
+using WebMatrix.Data;
+
 
 namespace AIS_FI15.Controllers
 {
@@ -15,92 +16,71 @@ namespace AIS_FI15.Controllers
         // GET: SharedBearbeiten
         public ActionResult Index(string U1, string U2, string TextArea1)
         {
-            //Console.WriteLine(U1, U2, TextArea1);
+            
 
-            FileTest();
-            FileWrite(U1, U2, TextArea1, DateTime.Now);
+            
+            DbWrite(U1, U2, TextArea1, DateTime.Now);
 
-            return View();
+            return RedirectToAction("index", "Wohnheim/Index");
         }
-        public void FileWrite(string us, string uus, string txt, DateTime zp)
+        public void DbWrite(string us, string uus, string txt, DateTime zp)//ToDo es muss noch die aufrufende Seite übergeben werden (z.B. "Wohnheim")
         {
-            string path = (Server.MapPath("/App_Data/Wohnheim.json"));
+            
+            var db = Database.Open("SQLServerConnectionString");
+            
+            var insertQuery = "INSERT INTO Wohnheim (Title, Addition, Text, Time) VALUES ('" + us + "','" + uus + "','" + txt + "', CURRENT_TIMESTAMP)";
 
-            Artikel a = new Artikel();
-            a.ueberschrift = us;
-            a.unterUeberschrift = uus;
-            a.text = txt;
-            a.zeitpunkt = zp;
+            db.Execute(insertQuery);
 
-            MemoryStream stream1 = new MemoryStream();
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Artikel));
+            db.Close();
+            
 
-            ser.WriteObject(stream1, a);
-            stream1.Position = 0;
-            StreamReader sr = new StreamReader(stream1);
+            //Artikel a = new Artikel();
+            //a.ueberschrift = us;
+            //a.unterUeberschrift = uus;
+            //a.text = txt;
+            //a.zeitpunkt = zp;
+
+            //MemoryStream stream1 = new MemoryStream();
+            //DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Artikel));
+
+            //ser.WriteObject(stream1, a);
+            //stream1.Position = 0;
+            //StreamReader sr = new StreamReader(stream1);
 
 
-            try
-            {
-                FileStream fs = new FileStream(path, FileMode.Append);
-                StreamWriter sw = new StreamWriter(fs);
-                sw.WriteLine("," + sr.ReadToEnd());
+            //try
+            //{
+            //    FileStream fs = new FileStream(path, FileMode.Append);
+            //    StreamWriter sw = new StreamWriter(fs);
+            //    sw.WriteLine("," + sr.ReadToEnd());
                
-                sw.Close();
-                fs.Close();
-            }
+            //    sw.Close();
+            //    fs.Close();
+            //}
 
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.ToString());
+            //}
         }
-        public void FileTest()
-        {
-            string path = (Server.MapPath("/App_Data/Wohnheim.json"));
+     
 
-            try
-            {
-                // Delete the file if it exists.
-                if (System.IO.File.Exists(path))
-                {
-                    Console.WriteLine("");
-                }
+        //[DataContract]
+        //internal class Artikel
+        //{
+        //    [DataMember]
+        //    internal string ueberschrift;
 
-                else
-                {
-                    // Create the file.
-                    using (FileStream fs = System.IO.File.Create(path))
-                    {
-                        Byte[] info = new UTF8Encoding(true).GetBytes("This is some text in the file.");
-                        // Add some information to the file.
-                        //fs.Write(info, 0, info.Length);
-                    }
-                }
-            }
+        //    [DataMember]
+        //    internal string unterUeberschrift;
 
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+        //    [DataMember]
+        //    internal string text;
 
-        }
-
-        [DataContract]
-        internal class Artikel
-        {
-            [DataMember]
-            internal string ueberschrift;
-
-            [DataMember]
-            internal string unterUeberschrift;
-
-            [DataMember]
-            internal string text;
-
-            [DataMember]
-            internal DateTime zeitpunkt;
-        }
+        //    [DataMember]
+        //    internal DateTime zeitpunkt;
+        //}
 
 
     }

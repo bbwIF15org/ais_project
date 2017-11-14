@@ -5,66 +5,46 @@
 
 <div>
 
+    
+    @using System.Data.SqlClient;
+    @using WebMatrix.Data;
 
-    @using System.Web.Script.Serialization;
-
+    @*@using (Html.BeginForm(null, "SharedAnzeigen/Index"))*@
     @{
+            //ToDo fehler abfangen wenn db-verbindung fehlschlägt (try catch?)
+            var db = Database.Open("SQLServerConnectionString");
 
+            //var db = Database.Open("");
+            var selectQueryString = "SELECT * FROM Wohnheim";
 
-        string json = AIS_FI15.Controllers.SharedAnzeigenModel.Auslesen(Server.MapPath("/App_Data/Wohnheim.json")); //ToDo: muss sich der aufrufenden Seite anpassen ()
-
-        JavaScriptSerializer js = new JavaScriptSerializer();
-
-        AIS_FI15.Controllers.SharedAnzeigenModel.Artikel[] Artikel = js.Deserialize<AIS_FI15.Controllers.SharedAnzeigenModel.Artikel[]>(json);
-
-
-
-        string[,] ArtikelArray = new string[Artikel.Length + 2, 5];
-
-        for (int i = 0; i < Artikel.Length; i++)
-        {
-            ArtikelArray[i, 0] = Artikel[i].ueberschrift;
-            ArtikelArray[i, 1] = Artikel[i].unterUeberschrift;
-            ArtikelArray[i, 2] = Artikel[i].text;
-            ArtikelArray[i, 3] = Artikel[i].zeitpunkt.ToString();
-            //ArtikelArray[i, 4] = Artikel[i].id.ToString();
-        }
-
-        for (int j = 0; j < Artikel.Length; j++)
-        {
-
+            foreach (var row in db.Query(selectQueryString))
+            {
+                Html.BeginForm(null, "SharedAnzeigen/Index")
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><b>@ArtikelArray[j, 0]</b><br />@ArtikelArray[j, 1]</div>
-                        <div class="panel-body">@ArtikelArray[j, 2]</div>
-                        <div class="panel-footer form-control" id="time" name="time">@ArtikelArray[j, 3]</div>                        
+                        <div class="panel-heading"><b>@row.Title</b><br />@row.Addition</div>
+                        <div class="panel-body">@row.Text</div>
+                        <div class="panel-footer form-control">@row.Time</div>
+                        @*@Html.TextArea("sId", row.Id ,new { rows = 1, columns = 30, @class = "input form-control" })*@
+                        @*@Html.TextArea("id", row.Id, 1, 30, new { @class = "hidden" })*@
+                        @*@Html.TextBoxFor(model => model.Destination, new { id = "txtPlace", Value = "3" })*@
+                        Html.TextBox("sId", null, new { Value = row.Id })
+
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Löschen" class="btn btn-default" />
+                        <input type = "submit" value="Löschen" class="btn btn-default" />
                     </div>
                 </div>
                 <div class="col-sm-2"></div>
             </div>
+            
+        }
+        db.Close();          
 
 
-                @*//ID: @ArtikelArray[j, 4]<br />
-                    Überschrift:  @ArtikelArray[j, 0]<br />
-                    unterÜberschrift:   @ArtikelArray[j, 1]<br />
-                    text:   @ArtikelArray[j, 2]<br />
-                    erstellt:   @ArtikelArray[j, 3]<br />*@
-
-
-                }
-
-
-                //foreach (var item in collection)
-                //{
-
-                //}
-
-                }
+    }
 
 
 
