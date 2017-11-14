@@ -1,0 +1,388 @@
+html body{
+  background-color: black !important;
+  color: white;
+}
+.navbar {
+  border-bottom: 8px solid limegreen;
+
+  /* Bild einfÃ¼gen statt URL */
+  background-color: #313131;   
+ /* background: url(../../pictures/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg); */
+  font-size: 22px;
+  /*border:  10px 0 10px 0px; */
+  color : #f92e2e;        
+  z-index: 1;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  font-weight: bold;  
+  background-color: transparent;
+  color : #2098ff;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: white;
+  background-color: transparent;  
+}
+
+.navbar-default .navbar-nav > li > a {
+     color : #ffffff;       
+}
+
+.navbar-nav>li:first-child{
+  padding-right: 5px;
+  border-right: 2px solid #000;
+}
+
+.navbar-nav li {
+  height: 70px;
+  padding-top: 10px;
+}
+
+/*keine ungewollten HintergrundfarbÃ¤nderungen beim anklicken der MenÃ¼punkte*/
+ul.nav.navbar-nav .dropdown.open .dropdown-toggle{  
+  color: white;
+  background-color: transparent;
+}
+
+/* --------- SEARCHBAR ------- */
+/* TODO: Anpassung an Internet Explorer */
+
+#Searchbar { /* Positionierung der Lupe */
+  position: absolute;
+  height: 10px;
+  width: 240px;
+  margin-left: 90px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+#Searchbar.on {
+  -webkit-animation-name: in-out;
+  animation-name: in-out;
+  -webkit-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+
+#Searchbar input { /* Kreis der Lupe */
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Roboto;
+  outline: 0;
+  -webkit-transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+  transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+  -webkit-transform: translate(-100%, -50%);
+  -ms-transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
+}
+
+#Searchbar .search { /* Positionierung Griff */
+  background: none;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 100%;
+  outline: 0;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  -webkit-transform: translate(-100%, -50%);
+  -ms-transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
+}
+
+#Searchbar .search:before { /* Gestaltung Griff */
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 3px;
+  background-color: limegreen;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-top: 22px;
+  margin-left: 17px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+#Searchbar .close {
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  -webkit-transition-delay: 0.4s;
+  transition-delay: 0.4s;
+}
+
+#Searchbar .close:before { /* linksOben -> RechtsUnten Balken vom Kreuz in der Suchleiste */
+  content: "";
+  position: absolute;
+  width: 23px;
+  height: 4px;
+  margin-top: -1px;
+  margin-left: -7px;
+  background-color: limegreen;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+#Searchbar .close:after { /* linksUnten -> RechtsOben Balken vom Kreuz in der Suchleiste */
+  content: "";
+  position: absolute;
+  width: 23px;
+  height: 4px;
+  background-color: #000000;
+  margin-top: -1px;
+  margin-left: -7px;
+  cursor: pointer;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#Searchbar .square { /* ausgefahrene Suchleiste */
+  box-sizing: border-box;
+  padding: 0 40px 0 10px;
+  width: 300px;
+  height: 40px;
+  border: 3px solid #ffffff;
+  border-radius: 0;
+  background: none;
+  color: #28dc00;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  outline: 0;
+  -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+  transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+  -webkit-transition-delay: 0.4s, 0s, 0.4s;
+  transition-delay: 0.4s, 0s, 0.4s;
+  -webkit-transform: translate(-100%, -50%);
+  -ms-transform: translate(-100%, -50%);
+  transform: translate(-100%, -50%);
+}
+
+
+
+/*   ------- UNTERMENÃœ  -----   */
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;    
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    /*border-left-color: #ccc;*/
+    border-left-color: black;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: white;    
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.dropdown-menu {    
+    /*background-color: #f08300;*/
+    /*background: url(../../pictures/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg); */
+    background-color:#313131;
+    background-position: center;
+}
+
+
+.dropdown-menu>li>a:hover {
+    color: white;
+    background-color: transparent;
+    
+}
+
+.dropdown-menu > li > a {
+    color: white;
+}
+
+/*   ------- ENDE -- UNTERMENÃœ  -----   */
+
+#content {
+}
+
+#zeiten {
+  background-color: #ffffff;
+  margin-top: 100px;
+
+}
+
+#speise{
+    margin-top: 20px;
+    background-color: #e9ecef;
+    text-align: center;
+}
+
+#heimfahrt{
+    text-align: center;
+  background-color: #e9ecef;
+}
+
+
+/* Footer */
+footer {
+  height: 50px;
+  /*background: url(../../pictures/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg); */
+  background-color:#313131;
+  border-top: 1px solid #000000;
+  color: black !important;
+}
+
+footer a {
+      color: #f5f5f5;      
+    }
+
+.footer>ul>li>a:focus, .footer>ul>li>a:hover {
+    color : #2798ff;
+    background-color: transparent;
+}
+
+.nav>.active>a, .nav>.active>a:focus, .nav>.active>a:hover {
+  font-weight: bold;  
+  background-color: #2098ff;
+  color : black;
+}
+
+/*   ------- ENDE --- FOOTER  ------- */
+
+/*--------------- Loader ------------------------- */
+
+/* Center the loader */
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  margin-left: 25px;
+  font-size: 22px;
+  /*text-align: center;*/
+}
+
+/*--------------- END - Loader ------------------------- */
+
+/*--------------- Bearbeiten ------------------------- */
+
+.hinzu {
+    min-width:105px;
+    text-align:left;
+    font-style: normal !important;
+}
+
+/*--------------- END - Bearbeiten ------------------------- */
+
+
+/*--------------- Artikel anzeigen ------------------------- */
+.panel-heading {
+    font-size: larger;
+}
+
+.panel-body {
+}
+
+.panel-footer {
+    font-size: smaller;
+}

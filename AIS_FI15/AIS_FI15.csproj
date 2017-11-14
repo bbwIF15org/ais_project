@@ -133,6 +133,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Data\Physio.xml" />
+    <Content Include="Content\Styles\homeDark.css" />
+    <Content Include="Content\Styles\styleDark.css" />
     <Content Include="DokumentationAIS.xml">
       <SubType>Designer</SubType>
     </Content>
