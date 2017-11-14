@@ -7,9 +7,25 @@
 
 <body>
    <center>
-    <iframe height="900" width="1220" src="http://192.168.130.215/~telefonbuch/">
+    <!--<iframe height="900" width="1220" src="http://192.168.130.215/~telefonbuch/">
         < href="http://192.168.130.215/~telefonbuch/">Telefonbuch</>
-    </iframe>
+    </iframe>-->
+
+    <table>
+       @{  AIS_FI15.Models.TelefonbuchModel m = new AIS_FI15.Models.TelefonbuchModel();}
+       @{  string[][] table = m.parsePhonebook(); }
+       @for (int i = 0; i < table.Length; i++)
+       {
+           <tr>
+               @for (int j = 0; j < table[i].Length; j++)
+               {
+                   <td>
+                       @table[i][j]
+                   </td>
+               }
+           </tr>
+       }
+    </table>
     </center>
     <p>.</p>
     <p>.</p>
