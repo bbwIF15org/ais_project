@@ -1,0 +1,16 @@
+﻿#caption  
+{
+    font-size: 20px;
+    color: white;
+    border-bottom: 1px solid;
+    border-color: deepskyblue;
+}
+
+.carousel-inner{
+    border-top: 2px;
+    border-left: 2px;
+    border-right: 2px;
+    border-bottom: 2px;
+    border-color: limegreen;
+    border-style: solid;
+}
