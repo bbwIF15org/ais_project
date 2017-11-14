@@ -21,7 +21,8 @@
                 <span class="input-group-addon hinzu"><b>Text-Area:</b></span>
                 @Html.TextArea("TextArea1", new { rows = 10, columns = 40, @class = "input form-control" })
             </div>
-
+            @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
+                @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
             <div class="form-group">
                 <input type="submit" value="Hinzufügen" class="btn btn-default" />
             </div>
