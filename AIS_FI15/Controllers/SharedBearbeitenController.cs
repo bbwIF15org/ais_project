@@ -34,8 +34,6 @@ namespace AIS_FI15.Controllers
 
             db.Execute(insertQuery, new string[3] { us, uus, txt });
 
-            db.Execute(insertQuery);
-
             db.Close();
             
 
