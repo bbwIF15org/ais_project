@@ -11,23 +11,23 @@ namespace AIS_FI15.Controllers
     public class SharedAnzeigenController : Controller
     {
         // GET: SharedAnzeigen
-        public ActionResult Index(string sId)
-        { 
-            //var pageName = Request.view .ToString();
-            DbDelete(sId);
+        public ActionResult Index(string sId, string callingView)
+        {
+            DbDelete(sId, callingView);
 
-
-            return RedirectToAction("index", "Wohnheim/Index");
+            string controllerToRedirectTo = callingView + "/Index";
+            
+            return RedirectToAction("index", controllerToRedirectTo);
         }
 
-        public void DbDelete(string sId)
+        public void DbDelete(string sId, string callingView)
         {
             ulong uLongId;
             ulong.TryParse(sId, out uLongId);
 
             //ToDo trycatch
             var db = Database.Open("SQLServerConnectionString");           
-            var deleteQueryString = "DELETE FROM Wohnheim WHERE Id = '" + uLongId + "'";
+            var deleteQueryString = "DELETE FROM " + callingView + " WHERE Id = '" + uLongId + "'";
             db.Execute(deleteQueryString);
             db.Close();
         }
