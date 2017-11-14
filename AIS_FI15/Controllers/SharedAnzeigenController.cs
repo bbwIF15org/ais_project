@@ -12,8 +12,8 @@ namespace AIS_FI15.Controllers
     {
         // GET: SharedAnzeigen
         public ActionResult Index(string sId)
-        {
-            var pageName = Request.view .ToString();
+        { 
+            //var pageName = Request.view .ToString();
             DbDelete(sId);
 
 
