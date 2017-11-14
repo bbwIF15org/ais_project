@@ -11,15 +11,15 @@
 
     @*@using (Html.BeginForm(null, "SharedAnzeigen/Index"))*@
     @{
-            //ToDo fehler abfangen wenn db-verbindung fehlschlägt (try catch?)
-            var db = Database.Open("SQLServerConnectionString");
+        //ToDo fehler abfangen wenn db-verbindung fehlschlägt (try catch?)
+        var db = Database.Open("SQLServerConnectionString");
 
-            //var db = Database.Open("");
-            var selectQueryString = "SELECT * FROM Wohnheim";
+        //var db = Database.Open("");
+        var selectQueryString = "SELECT * FROM Wohnheim";
 
-            foreach (var row in db.Query(selectQueryString))
-            {
-                Html.BeginForm(null, "SharedAnzeigen/Index")
+        foreach (var row in db.Query(selectQueryString))
+        {
+            Html.BeginForm(null, "SharedAnzeigen/Index");
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8">
@@ -30,7 +30,7 @@
                         @*@Html.TextArea("sId", row.Id ,new { rows = 1, columns = 30, @class = "input form-control" })*@
                         @*@Html.TextArea("id", row.Id, 1, 30, new { @class = "hidden" })*@
                         @*@Html.TextBoxFor(model => model.Destination, new { id = "txtPlace", Value = "3" })*@
-                        Html.TextBox("sId", null, new { Value = row.Id })
+                        @Html.TextBox("sId", null, new { Value = row.Id });
 
                     </div>
                     <div class="form-group">
@@ -39,6 +39,7 @@
                 </div>
                 <div class="col-sm-2"></div>
             </div>
+            Html.EndForm();
             
         }
         db.Close();          
