@@ -30,12 +30,16 @@
                         @*@Html.TextArea("sId", row.Id ,new { rows = 1, columns = 30, @class = "input form-control" })*@
                         @*@Html.TextArea("id", row.Id, 1, 30, new { @class = "hidden" })*@
                         @*@Html.TextBoxFor(model => model.Destination, new { id = "txtPlace", Value = "3" })*@
-                        @Html.TextBox("sId", null, new { Value = row.Id });
+                        @Html.TextBox("sId", null, new { Value = row.Id, Class = "hidden" })
 
                     </div>
+
+                    @if (Request.IsAuthenticated){
                     <div class="form-group">
                         <input type = "submit" value="Löschen" class="btn btn-default" />
                     </div>
+                    }
+                
                 </div>
                 <div class="col-sm-2"></div>
             </div>
