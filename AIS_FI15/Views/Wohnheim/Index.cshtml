@@ -9,11 +9,14 @@
 
         @Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
 
-<div class="panel panel-default">
-    <div class="panel-body" id="InhaltBearbeiten">
-        @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
+@if (Request.IsAuthenticated)
+{
+    <div class="panel panel-default">
+        <div class="panel-body" id="InhaltBearbeiten">
+            @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
+        </div>
     </div>
-</div>
+}
 
 
 
