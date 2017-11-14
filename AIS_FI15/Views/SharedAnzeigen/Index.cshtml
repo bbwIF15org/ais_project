@@ -28,18 +28,13 @@
                         <div class="panel-body">@row.Text</div>
                         <div class="panel-footer form-control">@row.Time</div>
                         @Html.TextBox("sId", null, new { Value = row.Id, Class = "hidden" })
+                        @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
+                        @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
                         @if (Request.IsAuthenticated)
                         {                           
                                 <input type="submit" value="Löschen" class="btn btn-danger" />                           
                         }
-                    </div>
-
-                    @*@if (Request.IsAuthenticated){
-                    <div class="form-group">
-                        <input type = "submit" value="Löschen" class="btn btn-default" />
-                    </div>
-                    }*@
-                
+                    </div>                
                 </div>
                 <div class="col-sm-2"></div>
             </div>
