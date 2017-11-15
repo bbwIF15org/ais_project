@@ -132,6 +132,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Data\Physio.xml" />
+    <Content Include="Data\Wohnheim\glyphicons-7-user-add.png" />
+    <Content Include="Content\Styles\wohnheimDark.css" />
     <Content Include="Content\Styles\homeDark.css" />
     <Content Include="Content\Styles\phonebook.css" />
     <Content Include="Content\Styles\styleDark.css" />
@@ -200,6 +202,7 @@
     <Compile Include="Models\PhysioModel.cs" />
     <Compile Include="Models\SuchenModel.cs" />
     <Compile Include="Models\TelefonbuchModel.cs" />
+    <Compile Include="Models\WohnheimRssModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +239,7 @@
     <Content Include="Views\Suchen\Index.cshtml" />
     <Content Include="Views\SharedBearbeiten\Index.cshtml" />
     <Content Include="Views\SharedAnzeigen\Index.cshtml" />
+    <Content Include="Views\Wohnheim\Rss.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

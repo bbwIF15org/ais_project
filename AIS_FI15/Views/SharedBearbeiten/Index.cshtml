@@ -1,4 +1,4 @@
-﻿@using (Html.BeginForm(null, "SharedBearbeiten/Index"))
+﻿@using (Html.BeginForm(null, "SharedBearbeiten/Index", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
 
@@ -21,6 +21,15 @@
                 <span class="input-group-addon hinzu"><b>Text-Area:</b></span>
                 @Html.TextArea("TextArea1", new { rows = 10, columns = 40, @class = "input form-control" })
             </div>
+            <div class="form-group input-group">
+               
+                
+                <input type="file" name="file" class="form-control-file" id="" aria-describedby="fileHelp">
+                
+                    
+                    @*<span class="input-group-addon hinzu"><b>Bild-/PDF-Datei hochladen:</b></span>*@
+                    @*<input type="file" name="file" value="Durchsuchen" class="btn btn-default" />*@
+                </div>
             @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
                 @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
             <div class="form-group">
