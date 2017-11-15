@@ -48,7 +48,7 @@ namespace AIS_FI15.Controllers
         {
           
                 string fn = System.IO.Path.GetFileName(file.FileName);
-                string SaveLocation = Server.MapPath("Data") + "\\" + callingView + "\\" + fn;
+                string SaveLocation = Server.MapPath("/Data") + "\\" + callingView + "\\" + fn;
                 try
                 {
                     file.SaveAs(SaveLocation);
