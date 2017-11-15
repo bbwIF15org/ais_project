@@ -13,5 +13,10 @@ namespace AIS_FI15.Controllers
         {
             return View();
         }
+
+        public ActionResult Rss()
+        {
+            return View();
+        }
     }
 }
