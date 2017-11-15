@@ -136,6 +136,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Data\Physio.xml" />
+    <Content Include="Data\Wohnheim\glyphicons-7-user-add.png" />
     <Content Include="Content\Styles\homeDark.css" />
     <Content Include="Content\Styles\styleDark.css" />
     <Content Include="DokumentationAIS.xml">
