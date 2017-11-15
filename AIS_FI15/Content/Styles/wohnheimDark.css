@@ -1,0 +1,28 @@
+﻿.panel-default {
+    border-color: limegreen;
+}
+
+.panel-default>.panel-heading {
+    color: #2098ff;
+    background-color: #313131;
+    border-color: limegreen;
+}
+
+.panel-body {
+    padding: 15px;
+    background-color: black;
+}
+
+.panel-footer, .form-control{
+    border: none;
+    border-radius: 0px;
+    color:white;
+}
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #313131;
+    border-top: 1px solid limegreen;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
