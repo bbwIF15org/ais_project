@@ -31,48 +31,69 @@
                         </td>
                     </tr>
                 </thead>
-                <tr>
-                    <th>Montag</th>
-                    <td>@item.MontagFr</td>
-                    <td> - </td>
-                    <td>@item.MontagSp</td>
-                </tr>
-                <tr>
-                    <th>Dienstag</th>
-                    <td>@item.DienstagFr</td>
-                    <td> - </td>
-                    <td>@item.DienstagSp</td>
-                </tr>
-                <tr>
-                    <th>Mittwoch</th>
-                    <td>@item.MittwochFr</td>
-                    <td> - </td>
-                    <td>@item.MittwochSp</td>
-                </tr>
-                <tr>
-                    <th>Donnerstag</th>
-                    <td>@item.DonnerstagFr</td>
-                    <td> - </td>
-                    <td>@item.DonnerstagSp</td>
-                </tr>
-                <tr>
-                    <th>Freitag</th>
-                    <td>@item.FreitagFr</td>
-                    <td> - </td>
-                    <td>@item.FreitagSp</td>
-                </tr>
-                <tr>
-                    <th>Samstag</th>
-                    <td>@item.SamstagFr</td>
-                    <td> - </td>
-                    <td>@item.SamstagSp</td>
-                </tr>
-                <tr>
-                    <th>Sonntag</th>
-                    <td>@item.SonntagFr</td>
-                    <td> - </td>
-                    <td>@item.SonntagSp</td>
-                </tr>
+                @if (! (item.MontagFr == "" && item.MOntagSp == ""))
+                {
+                    <tr>
+                        <th>Montag</th>
+                        <td>@item.MontagFr</td>
+                        <td>  </td>
+                        <td>@item.MontagSp</td>
+                    </tr>
+                }
+                @if (! (item.DienstagFr == "" && item.DienstagSp == ""))
+                {
+                    <tr>
+                        <th>Dienstag</th>
+                        <td>@item.DienstagFr</td>
+                        <td>  </td>
+                        <td>@item.DienstagSp</td>
+                    </tr>
+                }
+                @if (! (item.MittwochFr == "" && item.MittwochSp == ""))
+                {
+                    <tr>
+                        <th>Mittwoch</th>
+                        <td>@item.MittwochFr</td>
+                        <td>  </td>
+                        <td>@item.MittwochSp</td>
+                    </tr>
+                }
+                @if (! (item.DonnerstagFr == "" && item.DonnerstagSp == ""))
+                {
+                    <tr>
+                        <th>Donnerstag</th>
+                        <td>@item.DonnerstagFr</td>
+                        <td>  </td>
+                        <td>@item.DonnerstagSp</td>
+                    </tr>
+                }
+                @if (! (item.FreitagFr == "" && item.FreitagSp == ""))
+                {
+                    <tr>
+                        <th>Freitag</th>
+                        <td>@item.FreitagFr</td>
+                        <td>  </td>
+                        <td>@item.FreitagSp</td>
+                    </tr>
+                }
+                @if (! (item.SamstagFr == "" && item.SamstagSp == ""))
+                {
+                    <tr>
+                        <th>Samstag</th>
+                        <td>@item.SamstagFr</td>
+                        <td>  </td>
+                        <td>@item.SamstagSp</td>
+                    </tr>
+                }
+                @if (! (item.SonntagFr == "" && item.SonntagSp == ""))
+                {
+                    <tr>
+                        <th>Sonntag</th>
+                        <td>@item.SonntagFr</td>
+                        <td>  </td>
+                        <td>@item.SonntagSp</td>
+                    </tr>
+                }
             </table>
             if (Request.IsAuthenticated)
             {
