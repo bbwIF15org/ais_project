@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Rss";
+    Layout = null;
+    Response.ContentType = "text/xml";
+}
+
+@{ 
+    AIS_FI15.Models.WohnheimRssModel.WohnheimItem[] items = AIS_FI15.Models.WohnheimRssModel.readItems();
+    string wohnLink = "/Wohnheim";
+}
+<rss version="2.0">
+    <channel>
+        <title>
+            Mitteilungen des Wohnheims
+        </title>
+        <description>
+            Hier stehen Mitteilungen die von den Wohnheimbetreurn kommen oder anderweitig das Wohnheim betreffen.
+        </description>
+        <link>/Wohnheim</link>
+        <pubdate>
+
+        </pubdate>
+        <ttl>
+
+        </ttl>
+        @foreach (AIS_FI15.Models.WohnheimRssModel.WohnheimItem item in items)
+        {
+            <item>
+                <title>@item.title</title>
+                <description>@item.text</description>
+                <guid>@item.id</guid>
+                <pubDate>@item.date</pubDate>
+            </item>
+        }
+    </channel>
+</rss>
