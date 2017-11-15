@@ -1,0 +1,9 @@
+﻿.phonebook {
+    font-size: 12px;
+    padding: 40px;
+}
+
+.phonebook table{
+    width: 100%;
+    table-layout: fixed;
+}

@@ -36,7 +36,7 @@ namespace AIS_FI15.Models
             int cols = iec.length / rows + 1;
 
             //create output container
-            string[][] o = new string[rows + 1][];
+            string[][] o = new string[rows][];
             for (int k = 0; k < o.Length; k++)
             {
                 o[k] = new string[cols];
@@ -49,7 +49,12 @@ namespace AIS_FI15.Models
             foreach (IHTMLElement item in iec)
             {
 
-                o[irow][icol] = item.innerHTML.ToString();
+                string put = item.innerHTML.ToString();
+                if (put == "&nbsp;")
+                {
+                    put = "";
+                }
+                o[irow][icol] = put;
 
                 // make sure the data is in the right order.
                 icol = icol + 1;
