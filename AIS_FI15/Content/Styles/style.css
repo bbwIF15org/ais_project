@@ -1,4 +1,8 @@
 
+.input-group .form-control{
+    z-index: 0;
+}
+
 .navbar {
   border-bottom: 8px solid #0c3a78;
 
