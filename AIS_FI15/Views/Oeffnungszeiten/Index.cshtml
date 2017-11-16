@@ -4,5 +4,100 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>oeffnungszeiten</h2>
+@using WebMatrix.Data
 
+<h2>Öffnungszeiten</h2>
+
+@{
+    Database db = Database.Open("SQLServerConnectionString");
+
+    string selectQueryString = "SELECT * FROM Zeiten";
+
+    IEnumerable<dynamic> dbItems = db.Query(selectQueryString);
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        @foreach (var item in dbItems)
+        {
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="3">
+                        <h4>@item.Name</h4>
+                    </td>
+                </tr>
+            </thead>
+            @if (!(item.MontagFr == "" && item.MontagSp == ""))
+            {
+                <tr>
+                    <th>Montag</th>
+                    <td>@item.MontagFr</td>
+                    <td> @if (item.MontagFr != "" && item.MontagSp != "")
+                    { <b>&nbsp;und&nbsp;</b> } </td>
+                    <td>@item.MontagSp</td>
+                </tr>
+            }
+            @if (!(item.DienstagFr == "" && item.DienstagSp == ""))
+            {
+                <tr>
+                    <th>Dienstag</th>
+                    <td>@item.DienstagFr</td>
+                    <td> @if (item.DienstagFr != "" && item.DienstagSp != "")
+                    { <b>&nbsp;und&nbsp;</b> } </td>
+                    <td>@item.DienstagSp</td>
+                </tr>
+            }
+            @if (!(item.MittwochFr == "" && item.MittwochSp == ""))
+            {
+                <tr>
+                    <th>Mittwoch</th>
+                    <td>@item.MittwochFr</td>
+                    <td> @if (item.MittwochFr != "" && item.MittwochSp != "")
+                    { <b>&nbsp;und&nbsp;</b> } </td>
+                    <td>@item.MittwochSp</td>
+                </tr>
+            }
+            @if (!(item.DonnerstagFr == "" && item.DonnerstagSp == ""))
+            {
+                <tr>
+                    <th>Donnerstag</th>
+                    <td>@item.DonnerstagFr</td>
+                    <td> @if (item.DonnerstagFr != "" && item.DonnerstagSp != "")
+                    { <b>&nbsp;und&nbsp;</b> } </td>
+                    <td>@item.DonnerstagSp</td>
+                </tr>
+            }
+            @if (!(item.FreitagFr == "" && item.FreitagSp == ""))
+            {
+                <tr>
+                    <th>Freitag</th>
+                    <td>@item.FreitagFr</td>
+                    <td> @if (item.FreitagFr != "" && item.FreitagSp != "")
+                    { <b>&nbsp;und&nbsp;</b> } </td>
+                    <td>@item.FreitagSp</td>
+                </tr>
+            }
+            @if (!(item.SamstagFr == "" && item.SamstagSp == ""))
+            {
+                <tr>
+                    <th>Samstag</th>
+                    <td>@item.SamstagFr</td>
+                    <td> @if (item.SamstagFr != "" && item.SamstagSp != "")
+                    { <b>&nbsp;und&nbsp;</b> } </td>
+                    <td>@item.SamstagSp</td>
+                </tr>
+            }
+            @if (!(item.SonntagFr == "" && item.SonntagSp == ""))
+            {
+                <tr>
+                    <th>Sonntag</th>
+                    <td>@item.SonntagFr</td>
+                    <td> @if (item.SonntagFr != "" && item.SonntagSp != "")
+                    { <b>&nbsp;und&nbsp;</b> } </td>
+                    <td>@item.SonntagSp</td>
+                </tr>
+            }
+        </table>
+        }
+    </div>
+    <div class="col-sm-2"></div>
+}

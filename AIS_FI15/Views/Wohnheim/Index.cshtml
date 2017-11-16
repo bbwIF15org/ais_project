@@ -16,7 +16,7 @@
                 //ToDo fehler abfangen wenn db-verbindung fehlschlägt (try catch?)
                 var db = Database.Open("SQLServerConnectionString");
 
-                var selectQueryString = "SELECT * FROM Zeiten";
+                var selectQueryString = "SELECT * FROM Zeiten WHERE Name = 'Wohnheim'";
 
                 IEnumerable<dynamic> dbItems = db.Query(selectQueryString);
             }
@@ -38,7 +38,8 @@
                             <tr>
                                 <th>Montag</th>
                                 <td>@item.MontagFr</td>
-                                <td>  </td>
+                                <td>@if (@item.MontagFr != "" && @item.MontagSp != "")
+                                        {<text>&nbsp;und&nbsp;</text>}</td>
                                 <td>@item.MontagSp</td>
                             </tr>
                         }
@@ -47,7 +48,8 @@
                             <tr>
                                 <th>Dienstag</th>
                                 <td>@item.DienstagFr</td>
-                                <td>  </td>
+                                <td>@if (@item.DienstagFr != "" && @item.DienstagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}</td>
                                 <td>@item.DienstagSp</td>
                             </tr>
                         }
@@ -56,7 +58,8 @@
                             <tr>
                                 <th>Mittwoch</th>
                                 <td>@item.MittwochFr</td>
-                                <td>  </td>
+                                <td>@if (@item.MittwochFr != "" && @item.MittwochSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}</td>
                                 <td>@item.MittwochSp</td>
                             </tr>
                         }
@@ -65,7 +68,8 @@
                             <tr>
                                 <th>Donnerstag</th>
                                 <td>@item.DonnerstagFr</td>
-                                <td>  </td>
+                                <td>@if (@item.DonnerstagFr != "" && @item.DonnerstagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}</td>
                                 <td>@item.DonnerstagSp</td>
                             </tr>
                         }
@@ -74,7 +78,8 @@
                             <tr>
                                 <th>Freitag</th>
                                 <td>@item.FreitagFr</td>
-                                <td>  </td>
+                                <td>@if (@item.FreitagFr != "" && @item.FreitagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}</td>
                                 <td>@item.FreitagSp</td>
                             </tr>
                         }
@@ -83,7 +88,8 @@
                             <tr>
                                 <th>Samstag</th>
                                 <td>@item.SamstagFr</td>
-                                <td>  </td>
+                                <td>@if (@item.SamstagFr != "" && @item.SamstagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}</td>
                                 <td>@item.SamstagSp</td>
                             </tr>
                         }
@@ -92,7 +98,8 @@
                             <tr>
                                 <th>Sonntag</th>
                                 <td>@item.SonntagFr</td>
-                                <td>  </td>
+                                <td>@if (@item.SonntagFr != "" && @item.SonntagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}</td>
                                 <td>@item.SonntagSp</td>
                             </tr>
                         }
@@ -118,78 +125,79 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <label for="name">Name</label>
-                                @Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })
+                                @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
+                                @Html.TextBox("Name", "Wohnheim", new { @id = "name", @class = "input required hidden", @required = "required"})
 
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="u1">Montag Vormittag</label>
-                                @Html.TextBox("U1", null, new { @id = "u1", @class = "input" })
+                                @Html.TextBox("U1", null, new { @id = "u1", @class = "input", @placeholder = "z. B. 9:00 - 12:00" })
                             </div>
                             <div class="col-sm-3">
                                 <label for="u2">Montag Nachmittag</label>
-                                @Html.TextBox("U2", null, new { @id = "u2", @class = "input" })
+                                @Html.TextBox("U2", null, new { @id = "u2", @class = "input", @placeholder = "z. B. 13:00 - 16:00" })
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="u1">Dienstag Vormittag</label>
-                                @Html.TextBox("U3", null, new { @id = "u3", @class = "input" })
+                                @Html.TextBox("U3", null, new { @id = "u3", @class = "input", @placeholder = "von - bis" })
                             </div>
                             <div class="col-sm-3">
                                 <label for="u2">Dienstag Nachmittag</label>
-                                @Html.TextBox("U4", null, new { @id = "u4", @class = "input" })
+                                @Html.TextBox("U4", null, new { @id = "u4", @class = "input", @placeholder = "von - bis" })
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="u1">Mittwoch Vormittag</label>
-                                @Html.TextBox("U5", null, new { @id = "u5", @class = "input" })
+                                @Html.TextBox("U5", null, new { @id = "u5", @class = "input", @placeholder = "von - bis" })
                             </div>
                             <div class="col-sm-3">
                                 <label for="u2">Mittwoch Nachmittag</label>
-                                @Html.TextBox("U6", null, new { @id = "u6", @class = "input" })
+                                @Html.TextBox("U6", null, new { @id = "u6", @class = "input", @placeholder = "von - bis" })
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="u1">Donnerstag Vormittag</label>
-                                @Html.TextBox("U7", null, new { @id = "u7", @class = "input" })
+                                @Html.TextBox("U7", null, new { @id = "u7", @class = "input", @placeholder = "von - bis" })
                             </div>
                             <div class="col-sm-3">
                                 <label for="u2">Donnerstag Nachmittag</label>
-                                @Html.TextBox("U8", null, new { @id = "u8", @class = "input" })
+                                @Html.TextBox("U8", null, new { @id = "u8", @class = "input", @placeholder = "von - bis" })
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="u1">Freitag Vormittag</label>
-                                @Html.TextBox("U9", null, new { @id = "u9", @class = "input" })
+                                @Html.TextBox("U9", null, new { @id = "u9", @class = "input", @placeholder = "von - bis" })
                             </div>
                             <div class="col-sm-3">
                                 <label for="u2">Freitag Nachmittag</label>
-                                @Html.TextBox("U10", null, new { @id = "u10", @class = "input" })
+                                @Html.TextBox("U10", null, new { @id = "u10", @class = "input", @placeholder = "von - bis" })
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="u1">Samstag Vormittag</label>
-                                @Html.TextBox("U11", null, new { @id = "u11", @class = "input" })
+                                @Html.TextBox("U11", null, new { @id = "u11", @class = "input", @placeholder = "von - bis" })
                             </div>
                             <div class="col-sm-3">
                                 <label for="u2">Samstag Nachmittag</label>
-                                @Html.TextBox("U12", null, new { @id = "u12", @class = "input" })
+                                @Html.TextBox("U12", null, new { @id = "u12", @class = "input", @placeholder = "von - bis" })
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="u1">Sonntag Vormittag</label>
-                                @Html.TextBox("U13", null, new { @id = "u13", @class = "input" })
+                                @Html.TextBox("U13", null, new { @id = "u13", @class = "input", @placeholder = "von - bis" })
                             </div>
                             <div class="col-sm-3">
                                 <label for="u2">Sonntag Nachmittag</label>
-                                @Html.TextBox("U14", null, new { @id = "u14", @class = "input" })
+                                @Html.TextBox("U14", null, new { @id = "u14", @class = "input", @placeholder = "von - bis" })
                             </div>
                         </div>
                         @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
