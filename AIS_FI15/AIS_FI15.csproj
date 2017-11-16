@@ -131,10 +131,6 @@
     <Content Include="App_Data\Database1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="App_Data\Database1_log.ldf">
-      <DependentUpon>Database1.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="App_Data\Physio.xml" />
     <Content Include="Data\Wohnheim\glyphicons-7-user-add.png" />
     <Content Include="Content\Styles\wohnheimDark.css" />
