@@ -186,6 +186,7 @@
     <Compile Include="Controllers\LoginFailController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\SaveLoadController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SharedAnzeigenController.cs" />
     <Compile Include="Controllers\SharedBearbeitenController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
@@ -242,6 +243,7 @@
     <Content Include="Views\Suchen\Index.cshtml" />
     <Content Include="Views\SharedBearbeiten\Index.cshtml" />
     <Content Include="Views\SharedAnzeigen\Index.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

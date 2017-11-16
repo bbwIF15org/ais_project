@@ -33,8 +33,6 @@
    }
     <link href="~/Content/Styles/phonebook.css" rel="stylesheet" />
 
-  
-
     @*############ Styles ############*@
     @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
    
@@ -57,9 +55,9 @@
        string ATags = "";
 
        for (int l = 0; l < Navi.Length; l++)
-       {          
+       {
            ATags = ATags + "\"" + Navi[l].word + "\",";
-           
+
        }
 
        ATags = ATags.Substring(0, ATags.Length - 1);
@@ -74,8 +72,17 @@
             });
         });
     </script>
+
+@{string background = ""; }
+
+@if (Request.Cookies.AllKeys.Contains("Background"))
+{
+    background = "s";   @*Request.Cookies["Background"].Value;*@
+      
+}
+
 </head>
-<body style="padding-top: 70px">
+<body style="padding-top: 70px; background-image: url(@background)">
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -243,5 +250,8 @@
     <script src="~/scripts/FunctionScripts/searchbar.js" type="text/javascript" language="javascript"></script>
 
 </body>
+
+
+
 
 </html>
