@@ -10,10 +10,19 @@ namespace AIS_FI15.Controllers
 {
     public class SharedAnzeigenController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         // GET: SharedAnzeigen
+        [HttpPost]
         public ActionResult Index(string sId, string callingView)
         {
-            DbDelete(sId, callingView);
+           
+                DbDelete(sId, callingView);
+           
+            
 
             string controllerToRedirectTo = callingView + "/Index";
             

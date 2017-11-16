@@ -1,7 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Benutzer>
   <user>
-    <username>Test</username>
+    <username>Root</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>Mensa</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>Psychologischer_Dienst</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>Kundenservice</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>Arzt</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>Physiotherapie</username>
     <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
   </user>
 </Benutzer>

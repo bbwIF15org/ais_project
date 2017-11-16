@@ -13,6 +13,13 @@ namespace AIS_FI15.Controllers
         {
             if (Request.IsAuthenticated)
             {
+                //if (Request.IsAuthenticated && (System.Web.HttpContext.Current.User.Identity.Name == "Mensa" || System.Web.HttpContext.Current.User.Identity.Name == "Root")) { }
+                //Beispiel zum Abfragen der Authenticated und nach dem Usernamen.
+                //In diesem Beispiel wird der Zugang nur gewährt wenn man:
+                //sich mit richtigem Usernamen und Passwort anmeldet 
+                //*UND*
+                //Man den Usernamen „Mensa“ *ODER* „Root“ besitzt.
+
                 return View();
             }
             else
