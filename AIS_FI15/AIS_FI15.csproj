@@ -255,6 +255,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Speiseplan\Bilder\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
