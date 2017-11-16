@@ -104,7 +104,7 @@
                             </tr>
                         }
                     </table>
-                    if (Request.IsAuthenticated)
+                    if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
                     {
                         using (@Html.BeginForm(null, "Wohnheim/Delete"))
                         {
@@ -116,7 +116,7 @@
                     }
                 }
             }
-            @if (Request.IsAuthenticated)
+            @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
             {
                 using (Html.BeginForm(null, "Wohnheim/Index", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
@@ -215,7 +215,7 @@
 
     @Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
 
-    @if (Request.IsAuthenticated)
+    @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
     {
         <div class="panel panel-default">
             <div class="panel-body" id="InhaltBearbeiten">
