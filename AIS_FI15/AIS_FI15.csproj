@@ -133,7 +133,6 @@
     </Content>
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Data\Physio.xml" />
     <Content Include="Data\Wohnheim\glyphicons-7-user-add.png" />
@@ -158,6 +157,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="App_Data\SearchStrings.json" />
     <Content Include="App_Data\Wohnheim.json" />
+    <Content Include="Data\Speiseplan\Speiseplan_KW36.ppsx" />
+    <Content Include="Data\Speiseplan\Speiseplan_KW37.ppsx" />
+    <Content Include="Data\Speiseplan\Speiseplan_KW38.ppsx" />
+    <Content Include="Data\Speiseplan\Speiseplan_KW39.ppsx" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
     <Content Include="pictures\logo_bbwd.gif" />
     <Content Include="pictures\vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg" />
@@ -207,6 +210,7 @@
     <Compile Include="Models\PhysioModel.cs" />
     <Compile Include="Models\SuchenModel.cs" />
     <Compile Include="Models\TelefonbuchModel.cs" />
+    <Compile Include="Models\WohnheimRssModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,6 +247,7 @@
     <Content Include="Views\Suchen\Index.cshtml" />
     <Content Include="Views\SharedBearbeiten\Index.cshtml" />
     <Content Include="Views\SharedAnzeigen\Index.cshtml" />
+    <Content Include="Views\Wohnheim\Rss.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -252,10 +257,40 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Speiseplan\Bilder\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.PowerPoint">
+      <Guid>{91493440-5A91-11CF-8700-00AA0060263B}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>10</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
