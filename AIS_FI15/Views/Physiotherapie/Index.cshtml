@@ -16,7 +16,7 @@
                 //ToDo fehler abfangen wenn db-verbindung fehlschlägt (try catch?)
                 var db = Database.Open("SQLServerConnectionString");
 
-                var selectQueryString = "SELECT * FROM Zeiten WHERE Name = 'Kundendienst'";
+                var selectQueryString = "SELECT * FROM Zeiten WHERE Name = '" + ViewBag.Title + "'";
 
                 IEnumerable<dynamic> dbItems = db.Query(selectQueryString);
             }
