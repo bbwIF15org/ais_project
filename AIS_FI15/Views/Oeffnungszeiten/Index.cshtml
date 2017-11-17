@@ -11,7 +11,7 @@
 @{
     Database db = Database.Open("SQLServerConnectionString");
 
-    string selectQueryString = "SELECT * FROM Zeiten";
+    string selectQueryString = "SELECT * FROM Zeiten ORDER BY Name ASC";
 
     IEnumerable<dynamic> dbItems = db.Query(selectQueryString);
     <div class="col-sm-2"></div>
