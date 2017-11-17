@@ -1,13 +1,13 @@
 ﻿
-@{
-    //ViewBag.Title = "Index";
-    ViewBag.Title = "Wohnheim";
+@{    
+    ViewBag.Title = "Physiotherapie";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using WebMatrix.Data;
+@using WebMatrix.Data
 
-<h2>Wohnheim</h2>
+<h2>Kundendienst</h2>
+
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
@@ -16,7 +16,7 @@
                 //ToDo fehler abfangen wenn db-verbindung fehlschlägt (try catch?)
                 var db = Database.Open("SQLServerConnectionString");
 
-                var selectQueryString = "SELECT * FROM Zeiten WHERE Name = 'Wohnheim'";
+                var selectQueryString = "SELECT * FROM Zeiten WHERE Name = 'Kundendienst'";
 
                 IEnumerable<dynamic> dbItems = db.Query(selectQueryString);
             }
@@ -38,8 +38,10 @@
                             <tr>
                                 <th>Montag</th>
                                 <td>@item.MontagFr</td>
-                                <td>@if (@item.MontagFr != "" && @item.MontagSp != "")
-                                        {<text>&nbsp;und&nbsp;</text>}</td>
+                                <td>
+                                    @if (@item.MontagFr != "" && @item.MontagSp != "")
+                                    {<text>&nbsp;und&nbsp;</text>}
+                                </td>
                                 <td>@item.MontagSp</td>
                             </tr>
                         }
@@ -48,8 +50,10 @@
                             <tr>
                                 <th>Dienstag</th>
                                 <td>@item.DienstagFr</td>
-                                <td>@if (@item.DienstagFr != "" && @item.DienstagSp != "")
-                                {<text>&nbsp;und&nbsp;</text>}</td>
+                                <td>
+                                    @if (@item.DienstagFr != "" && @item.DienstagSp != "")
+                                    {<text>&nbsp;und&nbsp;</text>}
+                                </td>
                                 <td>@item.DienstagSp</td>
                             </tr>
                         }
@@ -58,8 +62,10 @@
                             <tr>
                                 <th>Mittwoch</th>
                                 <td>@item.MittwochFr</td>
-                                <td>@if (@item.MittwochFr != "" && @item.MittwochSp != "")
-                                {<text>&nbsp;und&nbsp;</text>}</td>
+                                <td>
+                                    @if (@item.MittwochFr != "" && @item.MittwochSp != "")
+                                    {<text>&nbsp;und&nbsp;</text>}
+                                </td>
                                 <td>@item.MittwochSp</td>
                             </tr>
                         }
@@ -68,8 +74,10 @@
                             <tr>
                                 <th>Donnerstag</th>
                                 <td>@item.DonnerstagFr</td>
-                                <td>@if (@item.DonnerstagFr != "" && @item.DonnerstagSp != "")
-                                {<text>&nbsp;und&nbsp;</text>}</td>
+                                <td>
+                                    @if (@item.DonnerstagFr != "" && @item.DonnerstagSp != "")
+                                    {<text>&nbsp;und&nbsp;</text>}
+                                </td>
                                 <td>@item.DonnerstagSp</td>
                             </tr>
                         }
@@ -78,8 +86,10 @@
                             <tr>
                                 <th>Freitag</th>
                                 <td>@item.FreitagFr</td>
-                                <td>@if (@item.FreitagFr != "" && @item.FreitagSp != "")
-                                {<text>&nbsp;und&nbsp;</text>}</td>
+                                <td>
+                                    @if (@item.FreitagFr != "" && @item.FreitagSp != "")
+                                    {<text>&nbsp;und&nbsp;</text>}
+                                </td>
                                 <td>@item.FreitagSp</td>
                             </tr>
                         }
@@ -88,8 +98,10 @@
                             <tr>
                                 <th>Samstag</th>
                                 <td>@item.SamstagFr</td>
-                                <td>@if (@item.SamstagFr != "" && @item.SamstagSp != "")
-                                {<text>&nbsp;und&nbsp;</text>}</td>
+                                <td>
+                                    @if (@item.SamstagFr != "" && @item.SamstagSp != "")
+                                    {<text>&nbsp;und&nbsp;</text>}
+                                </td>
                                 <td>@item.SamstagSp</td>
                             </tr>
                         }
@@ -98,8 +110,10 @@
                             <tr>
                                 <th>Sonntag</th>
                                 <td>@item.SonntagFr</td>
-                                <td>@if (@item.SonntagFr != "" && @item.SonntagSp != "")
-                                {<text>&nbsp;und&nbsp;</text>}</td>
+                                <td>
+                                    @if (@item.SonntagFr != "" && @item.SonntagSp != "")
+                                    {<text>&nbsp;und&nbsp;</text>}
+                                </td>
                                 <td>@item.SonntagSp</td>
                             </tr>
                         }
@@ -110,7 +124,7 @@
                         {
                             @Html.TextBox("sId", null, new { Value = item.Id, Class = "hidden" })
                             @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                            @Html.TextBox("callingView", null, new { Value = "Wohnheim", Class = "hidden" })
+                            @Html.TextBox("callingView", null, new { Value = "Kundendienst", Class = "hidden" })
                             <input type="submit" value="Löschen" class="btn btn-danger" />
                         }
                     }
@@ -126,7 +140,7 @@
                             <div class="col-sm-4">
                                 @*<label for="name">Name</label>*@
                                 @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
-                                @Html.TextBox("Name", "Wohnheim", new { @id = "name", @class = "input required hidden", @required = "required"})
+                                @Html.TextBox("Name", "Kundendienst", new { @id = "name", @class = "input required hidden", @required = "required" })
 
                             </div>
                         </div>
@@ -213,18 +227,15 @@
 </div>
 
 
-    @Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
+@Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
 
-    @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
-    {
-        <div class="panel panel-default">
-            <div class="panel-body" id="InhaltBearbeiten">
-                @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
-            </div>
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    <div class="panel panel-default">
+        <div class="panel-body" id="InhaltBearbeiten">
+            @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
         </div>
-    }
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-
-
-
+    </div>
+}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
