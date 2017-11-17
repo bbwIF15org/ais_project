@@ -22,7 +22,12 @@
             <thead>
                 <tr>
                     <td colspan="3">
-                        <h4>@item.Name<text>&nbsp;-&nbsp;</text>@item.Titel</h4>
+                        <h4>@item.Name
+                        @if (item.Titel != null) {
+                            <text>&nbsp;-&nbsp;</text>
+                            @item.Titel
+                        }
+                        </h4>
                     </td>
                 </tr>
             </thead>
