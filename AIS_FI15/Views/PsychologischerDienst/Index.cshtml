@@ -1,44 +1,241 @@
 ﻿@model AIS_FI15.Controllers.LoginModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Psychologischer Dienst";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <br />
-    <br />
-    <div class="row">
-        <div class="col-sm-3"></div>
-        <div class="form-horizontal col-sm-6">
-            <h4>Physio Zeiteinstellen</h4>
-            <hr />
+@using WebMatrix.Data;
 
+<h2>Wohnheim</h2>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="panel panel-default">
+            @{
+                //ToDo fehler abfangen wenn db-verbindung fehlschlägt (try catch?)
+                var db = Database.Open("SQLServerConnectionString");
 
-            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-            <div class="form-group input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Woche" } })
-            </div>
+                var selectQueryString = "SELECT * FROM Zeiten WHERE Name = '" + ViewBag.Title + "'";
 
+                IEnumerable<dynamic> dbItems = db.Query(selectQueryString);
+            }
+            @if (dbItems.Count() != 0)
+            {
+                <h3>Öffnungszeiten</h3>
+                foreach (var item in dbItems)
+                {
+                    <table>
+                        <thead>
+                            <tr>
+                                <td colspan="3">
+                                    <h4>@item.Name</h4>
+                                </td>
+                            </tr>
+                        </thead>
+                        @if (!(item.MontagFr == "" && item.MontagSp == ""))
+                        {
+                            <tr>
+                                <th>Montag</th>
+                                <td>@item.MontagFr</td>
+                                <td>
+                                    @if (@item.MontagFr != "" && @item.MontagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}
+                            </td>
+                            <td>@item.MontagSp</td>
+                        </tr>
+                        }
+                        @if (!(item.DienstagFr == "" && item.DienstagSp == ""))
+                        {
+                            <tr>
+                                <th>Dienstag</th>
+                                <td>@item.DienstagFr</td>
+                                <td>
+                                    @if (@item.DienstagFr != "" && @item.DienstagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}
+                            </td>
+                            <td>@item.DienstagSp</td>
+                        </tr>
+                        }
+                        @if (!(item.MittwochFr == "" && item.MittwochSp == ""))
+                        {
+                            <tr>
+                                <th>Mittwoch</th>
+                                <td>@item.MittwochFr</td>
+                                <td>
+                                    @if (@item.MittwochFr != "" && @item.MittwochSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}
+                            </td>
+                            <td>@item.MittwochSp</td>
+                        </tr>
+                        }
+                        @if (!(item.DonnerstagFr == "" && item.DonnerstagSp == ""))
+                        {
+                            <tr>
+                                <th>Donnerstag</th>
+                                <td>@item.DonnerstagFr</td>
+                                <td>
+                                    @if (@item.DonnerstagFr != "" && @item.DonnerstagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}
+                            </td>
+                            <td>@item.DonnerstagSp</td>
+                        </tr>
+                        }
+                        @if (!(item.FreitagFr == "" && item.FreitagSp == ""))
+                        {
+                            <tr>
+                                <th>Freitag</th>
+                                <td>@item.FreitagFr</td>
+                                <td>
+                                    @if (@item.FreitagFr != "" && @item.FreitagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}
+                            </td>
+                            <td>@item.FreitagSp</td>
+                        </tr>
+                        }
+                        @if (!(item.SamstagFr == "" && item.SamstagSp == ""))
+                        {
+                            <tr>
+                                <th>Samstag</th>
+                                <td>@item.SamstagFr</td>
+                                <td>
+                                    @if (@item.SamstagFr != "" && @item.SamstagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}
+                            </td>
+                            <td>@item.SamstagSp</td>
+                        </tr>
+                        }
+                        @if (!(item.SonntagFr == "" && item.SonntagSp == ""))
+                        {
+                            <tr>
+                                <th>Sonntag</th>
+                                <td>@item.SonntagFr</td>
+                                <td>
+                                    @if (@item.SonntagFr != "" && @item.SonntagSp != "")
+                                {<text>&nbsp;und&nbsp;</text>}
+                            </td>
+                            <td>@item.SonntagSp</td>
+                        </tr>
+                        }
+                    </table>
+                    if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+                    {
+                        using (@Html.BeginForm(null, "SharedBearbeiten/Delete"))
+                        {
+                            @Html.TextBox("sId", null, new { Value = item.Id, Class = "hidden" })
+                            @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
+                            @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
+                            <input type="submit" value="Löschen" class="btn btn-danger" />
+                        }
+                    }
+                }
+            }
+            @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+            {
+                using (Html.BeginForm(null, "SharedBearbeiten/InsertTime", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <fieldset>
+                        <legend>Neue Öffnungszeit</legend>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                @*<label for="name">Name</label>*@
+                                @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
+                                @Html.TextBox("Name", "Wohnheim", new { @id = "name", @class = "input required hidden", @required = "required" })
 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="u1">Montag Vormittag</label>
+                                @Html.TextBox("U1", null, new { @id = "u1", @class = "input", @placeholder = "z. B. 9:00 - 12:00" })
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="u2">Montag Nachmittag</label>
+                                @Html.TextBox("U2", null, new { @id = "u2", @class = "input", @placeholder = "z. B. 13:00 - 16:00" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="u1">Dienstag Vormittag</label>
+                                @Html.TextBox("U3", null, new { @id = "u3", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="u2">Dienstag Nachmittag</label>
+                                @Html.TextBox("U4", null, new { @id = "u4", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="u1">Mittwoch Vormittag</label>
+                                @Html.TextBox("U5", null, new { @id = "u5", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="u2">Mittwoch Nachmittag</label>
+                                @Html.TextBox("U6", null, new { @id = "u6", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="u1">Donnerstag Vormittag</label>
+                                @Html.TextBox("U7", null, new { @id = "u7", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="u2">Donnerstag Nachmittag</label>
+                                @Html.TextBox("U8", null, new { @id = "u8", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="u1">Freitag Vormittag</label>
+                                @Html.TextBox("U9", null, new { @id = "u9", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="u2">Freitag Nachmittag</label>
+                                @Html.TextBox("U10", null, new { @id = "u10", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="u1">Samstag Vormittag</label>
+                                @Html.TextBox("U11", null, new { @id = "u11", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="u2">Samstag Nachmittag</label>
+                                @Html.TextBox("U12", null, new { @id = "u12", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="u1">Sonntag Vormittag</label>
+                                @Html.TextBox("U13", null, new { @id = "u13", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="u2">Sonntag Nachmittag</label>
+                                @Html.TextBox("U14", null, new { @id = "u14", @class = "input", @placeholder = "von - bis" })
+                            </div>
+                        </div>
+                        @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
+                        @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
+                        <input type="submit" value="Hinzufügen" class="btn btn-default" />
+                    </fieldset>
 
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            <div class="form-group input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @placeholder = "Datum" } })
-            </div>
-
-
-            <div class="form-group">
-                <input type="submit" value="Daten Eingeben:" class="btn btn-default" />
-                <br /><br />
-                @Html.ValidationSummary(true, "Überprüfen sie die Parameter.", new { @class = "text-danger" })
-            </div>
+                }
+            }
         </div>
-        <div class="col-sm-3"></div>
     </div>
+    <div class="col-sm-2"></div>
+</div>
 
+
+@Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
+
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    <div class="panel panel-default">
+        <div class="panel-body" id="InhaltBearbeiten">
+            @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
+        </div>
+    </div>
 }
+<p>&nbsp;</p>
+<p>&nbsp;</p>

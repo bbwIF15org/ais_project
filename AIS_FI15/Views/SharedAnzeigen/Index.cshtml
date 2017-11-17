@@ -15,7 +15,7 @@
         var db = Database.Open("SQLServerConnectionString");
 
         //ToDo prüfen ob ViewBag.Title NULL
-        var selectQueryString = "SELECT * FROM " + ViewBag.Title;
+        var selectQueryString = "SELECT * FROM \"" + ViewBag.Title + "\"";
 
         foreach (var row in db.Query(selectQueryString))
         {
