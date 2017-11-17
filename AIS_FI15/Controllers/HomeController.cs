@@ -26,12 +26,21 @@ namespace AIS_FI15.Controllers
 
             foreach (string file in schedules)
             {
-                app = new Application();
-                pres = app.Presentations.Open(file, MsoTriState.msoTrue, MsoTriState.msoFalse, MsoTriState.msoFalse);
-                string newPath = Server.MapPath("~/Data/Speiseplan/Bilder/" + Path.GetFileNameWithoutExtension(file) + ".png");
-                pres.SaveAs(newPath, PpSaveAsFileType.ppSaveAsPNG, MsoTriState.msoTrue);
-                pres.Close();
-                app.Quit();
+                try
+                {
+                    app = new Application();
+                    pres = app.Presentations.Open(file, MsoTriState.msoTrue, MsoTriState.msoFalse, MsoTriState.msoFalse);
+                    string newPath = Server.MapPath("~/Data/Speiseplan/Bilder/" + Path.GetFileNameWithoutExtension(file) + ".png");
+                    pres.SaveAs(newPath, PpSaveAsFileType.ppSaveAsPNG, MsoTriState.msoTrue);
+                    pres.Close();
+                    app.Quit();
+                }
+                catch (Exception)
+                {
+
+                    
+                }
+              
             }
             return View();
         }
