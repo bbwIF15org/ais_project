@@ -120,7 +120,7 @@
                     </table>
                     if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
                     {
-                        using (@Html.BeginForm(null, "Wohnheim/Delete"))
+                        using (@Html.BeginForm(null, "SharedBearbeiten/Delete"))
                         {
                             @Html.TextBox("sId", null, new { Value = item.Id, Class = "hidden" })
                             @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
@@ -132,7 +132,7 @@
             }
             @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
             {
-                using (Html.BeginForm(null, "Wohnheim/Index", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                using (Html.BeginForm(null, "SharedBearbeiten/InsertTime", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     <fieldset>
                         <legend>Neue Öffnungszeit</legend>
