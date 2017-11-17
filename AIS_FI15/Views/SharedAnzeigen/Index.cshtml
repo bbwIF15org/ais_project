@@ -36,7 +36,7 @@
                         @Html.TextBox("sId", null, new { Value = row.Id, Class = "hidden" })
                         @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
                         @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
-                        @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+                        @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
                         {                           
                                 <input type="submit" value="Löschen" class="btn btn-danger" />                           
                         }
