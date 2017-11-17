@@ -98,6 +98,7 @@
                 Request.Url.AbsoluteUri.ToLower().Contains("oeffnungszeiten") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("mensa") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("psychologischerdienst") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("physiotherapie") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("kundendienst") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("wohnheim") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("integrationsberatung") ||
@@ -149,6 +150,11 @@
                                     <li>
                                         <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
                                             Psychologischer Dienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Physiotherapie")">
+                                            Physiotherapie
                                         </a>
                                     </li>
                                     <li>

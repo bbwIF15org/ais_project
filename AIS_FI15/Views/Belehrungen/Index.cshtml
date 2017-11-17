@@ -1,8 +1,20 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Belehrungen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Belehrungen</h2>
 
+@Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
+
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    <div class="panel panel-default">
+        <div class="panel-body" id="InhaltBearbeiten">
+            @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
+        </div>
+    </div>
+}
+<p>&nbsp;</p>
+<p>&nbsp;</p>

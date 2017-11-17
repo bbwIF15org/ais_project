@@ -259,7 +259,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Belehrungen\" />
+    <Folder Include="Data\Dokumente\" />
+    <Folder Include="Data\Formulare\" />
+    <Folder Include="Data\Integrationsberatung\" />
+    <Folder Include="Data\Kundendienst\" />
+    <Folder Include="Data\Physiotherapie\" />
+    <Folder Include="Data\PsychologischerDienst\" />
     <Folder Include="Data\Speiseplan\Bilder\" />
+    <Folder Include="Data\Teilnehmervertretung\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
