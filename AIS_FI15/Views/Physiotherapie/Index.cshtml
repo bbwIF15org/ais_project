@@ -127,7 +127,7 @@
                         {
                             @Html.TextBox("sId", null, new { Value = item.Id, Class = "hidden" })
                             @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                            @Html.TextBox("callingView", null, new { Value = "Kundendienst", Class = "hidden" })
+                            @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
                             <input type="submit" value="Löschen" class="btn btn-danger" />
                         }
                     }
