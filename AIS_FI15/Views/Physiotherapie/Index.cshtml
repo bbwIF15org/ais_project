@@ -26,13 +26,16 @@
                 foreach (var item in dbItems)
                 {
                     <table>
-                        <thead>
-                            <tr>
-                                <td colspan="3">
-                                    <h4>@item.Name</h4>
-                                </td>
-                            </tr>
-                        </thead>
+                        @if (item.Titel != "")
+                        {
+                            <thead>
+                                <tr>
+                                    <td colspan="3">
+                                        <h4>@item.Titel</h4>
+                                    </td>
+                                </tr>
+                            </thead>
+                        }
                         @if (!(item.MontagFr == "" && item.MontagSp == ""))
                         {
                             <tr>
@@ -124,7 +127,7 @@
                         {
                             @Html.TextBox("sId", null, new { Value = item.Id, Class = "hidden" })
                             @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                            @Html.TextBox("callingView", null, new { Value = "Kundendienst", Class = "hidden" })
+                            @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
                             <input type="submit" value="Löschen" class="btn btn-danger" />
                         }
                     }
@@ -142,6 +145,12 @@
                                 @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
                                 @Html.TextBox("Name", "Physiotherapie", new { @id = "name", @class = "input required hidden", @required = "required" })
 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="titel">Titel</label>
+                                @Html.TextBox("Titel", null, new { @id = "titel", @class = "input", @placeholder = "Titel" })
                             </div>
                         </div>
                         <div class="row">
