@@ -26,7 +26,7 @@ namespace AIS_FI15.Controllers
             db.Execute(deleteQueryString);
             db.Close();
 
-            return RedirectToAction("index", "Wohnheim/Index");
+            return RedirectToAction("index", callingView + "/Index");
         }
 
         //POST: Wohnheim
@@ -45,7 +45,7 @@ namespace AIS_FI15.Controllers
 
             db.Close();
 
-            return RedirectToAction("index", "Wohnheim/Index");
+            return RedirectToAction("index", callingView + "/Index");
         }
 
         public ActionResult Rss()

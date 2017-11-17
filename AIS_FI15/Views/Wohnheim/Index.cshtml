@@ -110,7 +110,7 @@
                         {
                             @Html.TextBox("sId", null, new { Value = item.Id, Class = "hidden" })
                             @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                            @Html.TextBox("callingView", null, new { Value = "Zeiten", Class = "hidden" })
+                            @Html.TextBox("callingView", null, new { Value = "Wohnheim", Class = "hidden" })
                             <input type="submit" value="Löschen" class="btn btn-danger" />
                         }
                     }
@@ -124,7 +124,7 @@
                         <legend>Neue Öffnungszeit</legend>
                         <div class="row">
                             <div class="col-sm-4">
-                                <label for="name">Name</label>
+                                @*<label for="name">Name</label>*@
                                 @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
                                 @Html.TextBox("Name", "Wohnheim", new { @id = "name", @class = "input required hidden", @required = "required"})
 
@@ -201,7 +201,7 @@
                             </div>
                         </div>
                         @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                        @Html.TextBox("callingView", null, new { Value = "Zeiten", Class = "hidden" })
+                        @Html.TextBox("callingView", null, new { Value = "Wohnheim", Class = "hidden" })
                         <input type="submit" value="Hinzufügen" class="btn btn-default" />
                     </fieldset>
 
