@@ -45,7 +45,7 @@
                                 Uri reference = new Uri(Server.MapPath("~/Data"));
                                 string relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
                             }
-                            <img src=@relPath >
+                            <a href=@relPath><img src=@relPath></a>
                         </div>
                         for (int i = 1; i < allPaths.Length; i++)
                         {
@@ -55,7 +55,7 @@
                                     reference = new Uri(Server.MapPath("~/Data"));
                                     relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
                                 }
-                                <img src=@relPath >
+                                <a href=@relPath><img src=@relPath></a>
                             </div>
                         }
                     }
