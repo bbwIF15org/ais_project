@@ -30,9 +30,31 @@
                             @if (@row.Link != "" && @row.Link != null)
                             {
                                 <div class="panel-body">
-
-                                    <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
-                                    <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                    @{string ext = (string)Path.GetExtension(row.Link);}
+                                    @switch (ext.ToLower())
+                                    {
+                                        case ".pdf":
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                            break;
+                                        case ".png":
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                            break;
+                                        case ".jpg":
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                            break;
+                                        case ".bmp":
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                            break;
+                                        default:
+                                            <a class="btn btn-info" href=@row.Link>Datei herunterladen</a>
+                                            break;
+                                    }
+                                    @*<object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                    <a class="btn btn-info" href=@row.Link>Öffnen</a>*@
                                 </div>
                             }
                             <div class="panel-footer form-control">@row.Time</div>

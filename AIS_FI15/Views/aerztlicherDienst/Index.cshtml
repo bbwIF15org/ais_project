@@ -23,8 +23,9 @@
             @if (dbItems.Count() != 0)
             {
                 <h3>Öffnungszeiten</h3>
-                foreach (var item in dbItems)
-                {
+                    int today = (int) DateTime.Today.DayOfWeek;
+                    foreach (var item in dbItems)
+                    {
                     <table class="table table-sm table-responsive table-striped">
                         <thead>
                             <tr>
@@ -35,84 +36,92 @@
                         </thead>
                         @if (!(item.MontagFr == "" && item.MontagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 1)
+                            {<text>class="warning"</text>}
+                            >
                                 <th>Montag</th>
                                 <td>@item.MontagFr</td>
                                 <td>
                                     @if (@item.MontagFr != "" && @item.MontagSp != "")
-                                    {<text>&nbsp;und&nbsp;</text>}
+                    {<text>&nbsp;und&nbsp;</text>}
                                 </td>
                                 <td>@item.MontagSp</td>
                             </tr>
                         }
                         @if (!(item.DienstagFr == "" && item.DienstagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 2)
+                            {<text>class="warning"</text>}>
                                 <th>Dienstag</th>
                                 <td>@item.DienstagFr</td>
                                 <td>
                                     @if (@item.DienstagFr != "" && @item.DienstagSp != "")
-                                    {<text>&nbsp;und&nbsp;</text>}
+                {<text>&nbsp;und&nbsp;</text>}
                                 </td>
                                 <td>@item.DienstagSp</td>
                             </tr>
                         }
                         @if (!(item.MittwochFr == "" && item.MittwochSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 3)
+                            {<text>class="warning"</text>}>
                                 <th>Mittwoch</th>
                                 <td>@item.MittwochFr</td>
                                 <td>
                                     @if (@item.MittwochFr != "" && @item.MittwochSp != "")
-                                    {<text>&nbsp;und&nbsp;</text>}
+            {<text>&nbsp;und&nbsp;</text>}
                                 </td>
                                 <td>@item.MittwochSp</td>
                             </tr>
                         }
                         @if (!(item.DonnerstagFr == "" && item.DonnerstagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 4)
+                            {<text>class="warning"</text>}>
                                 <th>Donnerstag</th>
                                 <td>@item.DonnerstagFr</td>
                                 <td>
                                     @if (@item.DonnerstagFr != "" && @item.DonnerstagSp != "")
-                                    {<text>&nbsp;und&nbsp;</text>}
+            {<text>&nbsp;und&nbsp;</text>}
                                 </td>
                                 <td>@item.DonnerstagSp</td>
                             </tr>
                         }
                         @if (!(item.FreitagFr == "" && item.FreitagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 5)
+                            {<text>class="warning"</text>}>
                                 <th>Freitag</th>
                                 <td>@item.FreitagFr</td>
                                 <td>
                                     @if (@item.FreitagFr != "" && @item.FreitagSp != "")
-                                    {<text>&nbsp;und&nbsp;</text>}
+            {<text>&nbsp;und&nbsp;</text>}
                                 </td>
                                 <td>@item.FreitagSp</td>
                             </tr>
                         }
                         @if (!(item.SamstagFr == "" && item.SamstagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 6)
+                            {<text>class="warning"</text>}>
                                 <th>Samstag</th>
                                 <td>@item.SamstagFr</td>
                                 <td>
                                     @if (@item.SamstagFr != "" && @item.SamstagSp != "")
-                                    {<text>&nbsp;und&nbsp;</text>}
+            {<text>&nbsp;und&nbsp;</text>}
                                 </td>
                                 <td>@item.SamstagSp</td>
                             </tr>
                         }
                         @if (!(item.SonntagFr == "" && item.SonntagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 0)
+                            {<text>class="warning"</text>}>
                                 <th>Sonntag</th>
                                 <td>@item.SonntagFr</td>
                                 <td>
                                     @if (@item.SonntagFr != "" && @item.SonntagSp != "")
-                                    {<text>&nbsp;und&nbsp;</text>}
+            {<text>&nbsp;und&nbsp;</text>}
                                 </td>
                                 <td>@item.SonntagSp</td>
                             </tr>
