@@ -35,7 +35,22 @@ namespace AIS_FI15.Controllers
             ulong.TryParse(sId, out uLongId);
 
             //ToDo trycatch
-            var db = Database.Open("SQLServerConnectionString");           
+            var db = Database.Open("SQLServerConnectionString");
+            var items = db.Query("SELECT * FROM " + callingView + " WHERE Id = '" + uLongId + "'");
+            foreach (var item in items)
+            {
+                if (item.Link != "" && item.Link != null)
+                {
+                    try
+                    {
+                        System.IO.File.Delete(Server.MapPath(item.Link));
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write("Error: " + ex.Message);
+                    }
+                }
+            }
             var deleteQueryString = "DELETE FROM " + callingView + " WHERE Id = '" + uLongId + "'";
             db.Execute(deleteQueryString);
             db.Close();
