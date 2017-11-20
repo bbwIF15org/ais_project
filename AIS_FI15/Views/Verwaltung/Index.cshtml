@@ -1,8 +1,77 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Verwaltung";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Verwaltung</h2>
 
-Willkommen im Upload bereich :)
+
+
+
+@{
+    string mensa = "btn btn-primary disabled",
+            teilnehmervertretung = "btn btn-primary disabled",
+            aerztlicherDienst = "btn btn-primary disabled",
+            physiotherapie = "btn btn-primary disabled",
+            psychologischerdienst = "btn btn-primary disabled",
+            integrationsberatung = "btn btn-primary disabled",
+            kundendienst = "btn btn-primary disabled",
+            wohnheim = "btn btn-primary disabled";
+}
+
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    mensa = "btn btn-primary active";
+}
+else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Teilnehmervertretung" || HttpContext.Current.User.Identity.Name == "Root") )
+{
+    teilnehmervertretung = "btn btn-primary active";
+}
+else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "ÄrztlicherDienst" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    aerztlicherDienst = "btn btn-primary active";
+}
+else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Physiotherapie" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    physiotherapie = "btn btn-primary active";
+}
+else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "PsychologischerDienst" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    psychologischerdienst = "btn btn-primary active";
+}
+else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Integrationsberatung" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    integrationsberatung = "btn btn-primary active";
+}
+else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Kundendienst" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    kundendienst = "btn btn-primary active";
+}
+else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Wohnheim" || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    wohnheim = "btn btn-primary active";
+}
+
+    Hier haben Sie die Übersicht, welche Seiten Sie als <b>@HttpContext.Current.User.Identity.Name</b> bearbeiten dürfen:
+<br /><br />
+<a href="@Url.Action("Index", "Mensa")" class="@mensa" role="button">Mensa</a>
+<br /><br />
+<a href="@Url.Action("Index", "Mensa")" class="@aerztlicherDienst" role="button">Ärztlicher Dienst</a>
+<br /><br />
+<a href="@Url.Action("Index", "Mensa")" class="@physiotherapie" role="button">Physiotherapie</a>
+<br /><br />
+<a href="@Url.Action("Index", "Mensa")" class="@psychologischerdienst" role="button">Psychologischer Dienst</a>
+<br /><br />
+<a href="@Url.Action("Index", "Mensa")" class="@integrationsberatung" role="button">Integrationsberatung</a>
+<br /><br />
+<a href="@Url.Action("Index", "Mensa")" class="@kundendienst" role="button">Kundendienst</a>
+<br /><br />
+<a href="@Url.Action("Index", "Mensa")" class="@wohnheim" role="button">Wohnheim</a>
+<br /><br />
+<a href="@Url.Action("Index", "Mensa")" class="@teilnehmervertretung" role="button">Teilnehmervertretung</a>
+
+    
+
+
+
+
