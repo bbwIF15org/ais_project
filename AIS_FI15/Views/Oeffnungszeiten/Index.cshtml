@@ -22,10 +22,17 @@
             <thead>
                 <tr>
                     <td colspan="3">
-                        <h4>@if (item.Name == "aerztlicherDienst") {
-                            <text>Ärztlicher Dienst</text>
-                        } else {
-                            @item.Name
+                        <h4>@switch ((string)item.Name)
+                        {
+                            case "aerztlicherDienst":
+                                <text>Ärztlicher Dienst</text>
+                                break;
+                            case "psychologischerDienst":
+                                <text>Psychologischer Dienst</text>
+                                break;
+                            default:
+                                @item.Name
+                                break;
                         }
                         @if (item.Titel != null) {
                             <text>&nbsp;-&nbsp;</text>
@@ -45,7 +52,7 @@
                     <td>@item.MontagSp</td>
                 </tr>
             }
-            @if (!(item.DienstagFr == "" && item.DienstagSp == ""))
+                                    @if (!(item.DienstagFr == "" && item.DienstagSp == ""))
             {
                 <tr>
                     <th>Dienstag</th>
@@ -55,7 +62,7 @@
                     <td>@item.DienstagSp</td>
                 </tr>
             }
-            @if (!(item.MittwochFr == "" && item.MittwochSp == ""))
+                                    @if (!(item.MittwochFr == "" && item.MittwochSp == ""))
             {
                 <tr>
                     <th>Mittwoch</th>
@@ -65,7 +72,7 @@
                     <td>@item.MittwochSp</td>
                 </tr>
             }
-            @if (!(item.DonnerstagFr == "" && item.DonnerstagSp == ""))
+                                    @if (!(item.DonnerstagFr == "" && item.DonnerstagSp == ""))
             {
                 <tr>
                     <th>Donnerstag</th>
@@ -75,7 +82,7 @@
                     <td>@item.DonnerstagSp</td>
                 </tr>
             }
-            @if (!(item.FreitagFr == "" && item.FreitagSp == ""))
+                                    @if (!(item.FreitagFr == "" && item.FreitagSp == ""))
             {
                 <tr>
                     <th>Freitag</th>
@@ -85,7 +92,7 @@
                     <td>@item.FreitagSp</td>
                 </tr>
             }
-            @if (!(item.SamstagFr == "" && item.SamstagSp == ""))
+                                    @if (!(item.SamstagFr == "" && item.SamstagSp == ""))
             {
                 <tr>
                     <th>Samstag</th>
@@ -95,7 +102,7 @@
                     <td>@item.SamstagSp</td>
                 </tr>
             }
-            @if (!(item.SonntagFr == "" && item.SonntagSp == ""))
+                                    @if (!(item.SonntagFr == "" && item.SonntagSp == ""))
             {
                 <tr>
                     <th>Sonntag</th>
