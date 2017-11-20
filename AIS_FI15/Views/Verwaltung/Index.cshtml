@@ -19,56 +19,68 @@
             wohnheim = "btn btn-primary disabled";
 }
 
-@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+@if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Mensa")
 {
     mensa = "btn btn-primary active";
 }
-else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Teilnehmervertretung" || HttpContext.Current.User.Identity.Name == "Root") )
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Teilnehmervertretung")
 {
     teilnehmervertretung = "btn btn-primary active";
 }
-else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "ÄrztlicherDienst" || HttpContext.Current.User.Identity.Name == "Root"))
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "ÄrztlicherDienst")
 {
     aerztlicherDienst = "btn btn-primary active";
 }
-else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Physiotherapie" || HttpContext.Current.User.Identity.Name == "Root"))
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Physiotherapie")
 {
     physiotherapie = "btn btn-primary active";
 }
-else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "PsychologischerDienst" || HttpContext.Current.User.Identity.Name == "Root"))
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "PsychologischerDienst")
 {
     psychologischerdienst = "btn btn-primary active";
 }
-else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Integrationsberatung" || HttpContext.Current.User.Identity.Name == "Root"))
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Integrationsberatung")
 {
     integrationsberatung = "btn btn-primary active";
 }
-else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Kundendienst" || HttpContext.Current.User.Identity.Name == "Root"))
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Kundendienst")
 {
     kundendienst = "btn btn-primary active";
 }
-else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Wohnheim" || HttpContext.Current.User.Identity.Name == "Root"))
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Wohnheim")
 {
     wohnheim = "btn btn-primary active";
+}
+else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Root"))
+{
+    mensa = "btn btn-primary active";
+    teilnehmervertretung = "btn btn-primary active";
+    aerztlicherDienst = "btn btn-primary active";
+    physiotherapie = "btn btn-primary active";
+    psychologischerdienst = "btn btn-primary active";
+    integrationsberatung = "btn btn-primary active";
+    kundendienst = "btn btn-primary active";
+    wohnheim = "btn btn-primary active";
+    
 }
 
     Hier haben Sie die Übersicht, welche Seiten Sie als <b>@HttpContext.Current.User.Identity.Name</b> bearbeiten dürfen:
 <br /><br />
 <a href="@Url.Action("Index", "Mensa")" class="@mensa" role="button">Mensa</a>
 <br /><br />
-<a href="@Url.Action("Index", "Mensa")" class="@aerztlicherDienst" role="button">Ärztlicher Dienst</a>
+<a href="@Url.Action("Index", "aerztlicherDienst")" class="@aerztlicherDienst" role="button">Ärztlicher Dienst</a>
 <br /><br />
-<a href="@Url.Action("Index", "Mensa")" class="@physiotherapie" role="button">Physiotherapie</a>
+<a href="@Url.Action("Index", "Physiotherapie")" class="@physiotherapie" role="button">Physiotherapie</a>
 <br /><br />
-<a href="@Url.Action("Index", "Mensa")" class="@psychologischerdienst" role="button">Psychologischer Dienst</a>
+<a href="@Url.Action("Index", "PsychologischerDienst")" class="@psychologischerdienst" role="button">Psychologischer Dienst</a>
 <br /><br />
-<a href="@Url.Action("Index", "Mensa")" class="@integrationsberatung" role="button">Integrationsberatung</a>
+<a href="@Url.Action("Index", "Integrationsberatung")" class="@integrationsberatung" role="button">Integrationsberatung</a>
 <br /><br />
-<a href="@Url.Action("Index", "Mensa")" class="@kundendienst" role="button">Kundendienst</a>
+<a href="@Url.Action("Index", "Kundendienst")" class="@kundendienst" role="button">Kundendienst</a>
 <br /><br />
-<a href="@Url.Action("Index", "Mensa")" class="@wohnheim" role="button">Wohnheim</a>
+<a href="@Url.Action("Index", "Wohnheim")" class="@wohnheim" role="button">Wohnheim</a>
 <br /><br />
-<a href="@Url.Action("Index", "Mensa")" class="@teilnehmervertretung" role="button">Teilnehmervertretung</a>
+<a href="@Url.Action("Index", "Teilnehmervertretung")" class="@teilnehmervertretung" role="button">Teilnehmervertretung</a>
 
     
 
