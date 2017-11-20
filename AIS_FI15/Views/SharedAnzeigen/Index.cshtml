@@ -29,7 +29,9 @@
                             @if (@row.Link != "" && @row.Link != null)
                             {
                                 <div class="panel-body">
-                                    <object data=@row.Link max-width="100%" height="auto" ></object>                                    
+                                    
+                                    <object data=@row.Link width="100%"></object>
+                                    <a  class="btn btn-info" href=@row.Link>Öffnen</a>                                    
                                 </div>
                             }
                         <div class="panel-footer form-control">@row.Time</div>
