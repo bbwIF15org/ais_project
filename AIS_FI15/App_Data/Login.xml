@@ -1,7 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Benutzer>
   <user>
-    <username>Root</username>
+    <username>ÄrztlicherDienst</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>Physiotherapie</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>PsychologischerDienst</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>Integrationsberatung</username>
+    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
+  </user>
+  <user>
+    <username>Kundendienst</username>
     <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
   </user>
   <user>
@@ -9,19 +25,15 @@
     <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
   </user>
   <user>
-    <username>Psychologischer_Dienst</username>
+    <username>Root</username>
     <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
   </user>
   <user>
-    <username>Kundenservice</username>
+    <username>Teilnehmervertretung</username>
     <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
   </user>
   <user>
-    <username>Arzt</username>
+    <username>Wohnheim</username>
     <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
-  </user>
-  <user>
-    <username>Physiotherapie</username>
-    <password>xoHh4kAs/uJZRA2Nriy7nwRal3O9GqY9JsEARy8+witZWDpi</password>
-  </user>
+  </user> 
 </Benutzer>

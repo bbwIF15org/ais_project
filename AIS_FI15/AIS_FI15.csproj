@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\aerztlicherDienstController.cs" />
     <Compile Include="Controllers\AusbildungController.cs" />
     <Compile Include="Controllers\BelehrungenController.cs" />
     <Compile Include="Controllers\DokumenteController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginFailController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
+    <Compile Include="Controllers\PhysiotherapieController.cs" />
     <Compile Include="Controllers\SaveLoadController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SharedAnzeigenController.cs" />
@@ -249,6 +251,8 @@
     <Content Include="Views\SharedAnzeigen\Index.cshtml" />
     <Content Include="Views\Wohnheim\Rss.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Physiotherapie\Index.cshtml" />
+    <Content Include="Views\aerztlicherDienst\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -257,7 +261,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\aerztlicherDienst\" />
+    <Folder Include="Data\Belehrungen\" />
+    <Folder Include="Data\Dokumente\" />
+    <Folder Include="Data\Formulare\" />
+    <Folder Include="Data\Integrationsberatung\" />
+    <Folder Include="Data\Kundendienst\" />
+    <Folder Include="Data\Mensa\" />
+    <Folder Include="Data\Physiotherapie\" />
+    <Folder Include="Data\PsychologischerDienst\" />
     <Folder Include="Data\Speiseplan\Bilder\" />
+    <Folder Include="Data\Teilnehmervertretung\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>

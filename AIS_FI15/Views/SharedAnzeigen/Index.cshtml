@@ -15,41 +15,69 @@
         var db = Database.Open("SQLServerConnectionString");
 
         //ToDo prüfen ob ViewBag.Title NULL
-        var selectQueryString = "SELECT * FROM " + ViewBag.Title;
-
-        foreach (var row in db.Query(selectQueryString))
+        if (ViewBag.Title != "" && ViewBag.Title != null)
         {
-            Html.BeginForm(null, "SharedAnzeigen/Index", FormMethod.Post);
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><b>@row.Title</b><br />@row.Addition</div>
-                        <div class="panel-body">@row.Text</div>                        
+            string selectQueryString = "SELECT * FROM " + ViewBag.Title;
+            foreach (var row in db.Query(selectQueryString))
+            {
+                Html.BeginForm(null, "SharedAnzeigen/Index", FormMethod.Post);
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><b>@row.Title</b><br />@row.Addition</div>
+                            <div class="panel-body">@row.Text</div>
                             @if (@row.Link != "" && @row.Link != null)
                             {
                                 <div class="panel-body">
-                                    <object data=@row.Link max-width="100%" height="auto" ></object>                                    
+                                    @{string ext = (string)Path.GetExtension(row.Link);}
+                                    @switch (ext.ToLower())
+                                    {
+                                        case ".pdf":
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
+                                            break;
+                                        case ".png":
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
+                                            break;
+                                        case ".jpg":
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
+                                            break;
+                                        case ".bmp":
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
+                                            break;
+                                        default:
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Datei herunterladen</a>
+                                            break;
+                                    }
+                                    @*<object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                    <a class="btn btn-info" href=@row.Link>Öffnen</a>*@
                                 </div>
                             }
-                        <div class="panel-footer form-control">@row.Time</div>
-                        @Html.TextBox("sId", null, new { Value = row.Id, Class = "hidden" })
-                        @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                        @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
-                        @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
-                        {                           
-                                <input type="submit" value="Löschen" class="btn btn-danger" />                           
-                        }
-                    </div>                
+                            <div class="panel-footer form-control">@row.Time</div>
+                            @Html.TextBox("sId", null, new { Value = row.Id, Class = "hidden" })
+                            @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
+                            @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
+                            @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
+                            {
+                                <input type="submit" value="Löschen" class="btn btn-danger" />
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
                 </div>
-                <div class="col-sm-2"></div>
-            </div>
-            Html.EndForm();
-            
+                Html.EndForm();
+
+            }
+            db.Close();
         }
-        db.Close();          
-
-
+        else
+        {
+            Response.Redirect("/");
+        }
     }
 
 

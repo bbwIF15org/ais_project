@@ -93,28 +93,30 @@
 
             @if (Request.Url.AbsoluteUri.ToLower().Contains("home") || Request.Url.PathAndQuery == "/")    // TODO In der if Abfrage gibt es viele Redundanzen. -> Muss geändert werden yo. 
             {
-                home = "active";                
+                home = "active";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("service") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("oeffnungszeiten") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("mensa") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("psychologischerdienst") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("aerztlicherDienst") ||
+                Request.Url.AbsoluteUri.ToLower().Contains("physiotherapie") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("kundendienst") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("wohnheim") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("integrationsberatung") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("teilnehmervertretung"))
-            {                
-                service = "dropdown active";              
+            {
+                service = "dropdown active";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("ausbildung") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("dokumente") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("formulare") ||
                 Request.Url.AbsoluteUri.ToLower().Contains("belehrungen"))
-            {     
+            {
                 ausbildung = "dropdown active";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("telefonbuch"))
-            {               
+            {
                 telefonbuch = "active";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("login"))
@@ -122,16 +124,16 @@
                 home = "active";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("verwaltung"))
-            {               
+            {
                 verwaltung = "active";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("impressum"))
-            {                
+            {
                 impressum = "active";
             }
             else
             {
-                home = "active";                
+                home = "active";
             }
 
 
@@ -148,8 +150,18 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "aerztlicherDienst")">
+                                            ÄrztlicherDienst
+                                        </a>
+                                    </li>                                    
+                                    <li>
                                         <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
                                             Psychologischer Dienst
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="@Url.Action("Index", "Physiotherapie")">
+                                            Physiotherapie
                                         </a>
                                     </li>
                                     <li>
@@ -189,7 +201,7 @@
                 @if (Request.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav">
-                        <li class=@verwaltung style="border: none">@Html.ActionLink("Verwaltung", "Index", "Verwaltung/Index")</li>
+                        <li class=@verwaltung style="border: none">@Html.ActionLink("VERWALTUNG", "Index", "Verwaltung/Index")</li>
                     </ul>
                 }
 

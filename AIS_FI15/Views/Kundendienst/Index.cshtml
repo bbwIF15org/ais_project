@@ -16,26 +16,31 @@
                 //ToDo fehler abfangen wenn db-verbindung fehlschlägt (try catch?)
                 var db = Database.Open("SQLServerConnectionString");
 
-                var selectQueryString = "SELECT * FROM Zeiten WHERE Name = 'Kundendienst'";
+                var selectQueryString = "SELECT * FROM Zeiten WHERE Name = '" + ViewBag.Title + "'";
 
                 IEnumerable<dynamic> dbItems = db.Query(selectQueryString);
             }
             @if (dbItems.Count() != 0)
             {
                 <h3>Öffnungszeiten</h3>
+                int today = (int)DateTime.Today.DayOfWeek;
                 foreach (var item in dbItems)
                 {
-                    <table>
-                        <thead>
-                            <tr>
-                                <td colspan="3">
-                                    <h4>@item.Name</h4>
-                                </td>
-                            </tr>
-                        </thead>
+                    <table class="table table-sm table-responsive table-striped">
+                        @if (item.Titel != "")
+                        {
+                            <thead>
+                                <tr>
+                                    <td colspan="3">
+                                        <h4>@item.Titel</h4>
+                                    </td>
+                                </tr>
+                            </thead>
+                        }
                         @if (!(item.MontagFr == "" && item.MontagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 1)
+                            {<text>class="warning"</text>}>
                                 <th>Montag</th>
                                 <td>@item.MontagFr</td>
                                 <td>
@@ -47,7 +52,8 @@
                         }
                         @if (!(item.DienstagFr == "" && item.DienstagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 2)
+                            {<text>class="warning"</text>}>
                                 <th>Dienstag</th>
                                 <td>@item.DienstagFr</td>
                                 <td>
@@ -59,7 +65,8 @@
                         }
                         @if (!(item.MittwochFr == "" && item.MittwochSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 3)
+                            {<text>class="warning"</text>}>
                                 <th>Mittwoch</th>
                                 <td>@item.MittwochFr</td>
                                 <td>
@@ -71,7 +78,8 @@
                         }
                         @if (!(item.DonnerstagFr == "" && item.DonnerstagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 4)
+                            {<text>class="warning"</text>}>
                                 <th>Donnerstag</th>
                                 <td>@item.DonnerstagFr</td>
                                 <td>
@@ -83,7 +91,8 @@
                         }
                         @if (!(item.FreitagFr == "" && item.FreitagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 5)
+                            {<text>class="warning"</text>}>
                                 <th>Freitag</th>
                                 <td>@item.FreitagFr</td>
                                 <td>
@@ -95,7 +104,8 @@
                         }
                         @if (!(item.SamstagFr == "" && item.SamstagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 6)
+                            {<text>class="warning"</text>}>
                                 <th>Samstag</th>
                                 <td>@item.SamstagFr</td>
                                 <td>
@@ -107,7 +117,8 @@
                         }
                         @if (!(item.SonntagFr == "" && item.SonntagSp == ""))
                         {
-                            <tr>
+                            <tr @if (today == 0)
+                            {<text>class="warning"</text>}>
                                 <th>Sonntag</th>
                                 <td>@item.SonntagFr</td>
                                 <td>
@@ -118,21 +129,21 @@
                         </tr>
                         }
                     </table>
-                    if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+                    if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
                     {
-                        using (@Html.BeginForm(null, "Wohnheim/Delete"))
+                        using (@Html.BeginForm(null, "SharedBearbeiten/Delete"))
                         {
                             @Html.TextBox("sId", null, new { Value = item.Id, Class = "hidden" })
                             @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                            @Html.TextBox("callingView", null, new { Value = "Kundendienst", Class = "hidden" })
+                            @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
                             <input type="submit" value="Löschen" class="btn btn-danger" />
                         }
                     }
                 }
             }
-            @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+            @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
             {
-                using (Html.BeginForm(null, "Wohnheim/Index", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                using (Html.BeginForm(null, "SharedBearbeiten/InsertTime", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     <fieldset>
                         <legend>Neue Öffnungszeit</legend>
@@ -142,6 +153,12 @@
                                 @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
                                 @Html.TextBox("Name", "Kundendienst", new { @id = "name", @class = "input required hidden", @required = "required" })
 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="titel">Titel</label>
+                                @Html.TextBox("Titel", null, new { @id = "titel", @class = "input", @placeholder = "Titel" })
                             </div>
                         </div>
                         <div class="row">
@@ -215,7 +232,7 @@
                             </div>
                         </div>
                         @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                        @Html.TextBox("callingView", null, new { Value = "Kundendienst", Class = "hidden" })
+                        @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
                         <input type="submit" value="Hinzufügen" class="btn btn-default" />
                     </fieldset>
 
@@ -229,7 +246,7 @@
 
 @Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
 
-@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
 {
     <div class="panel panel-default">
         <div class="panel-body" id="InhaltBearbeiten">
