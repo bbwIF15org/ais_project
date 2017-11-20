@@ -267,6 +267,7 @@
     <Folder Include="Data\Formulare\" />
     <Folder Include="Data\Integrationsberatung\" />
     <Folder Include="Data\Kundendienst\" />
+    <Folder Include="Data\Mensa\" />
     <Folder Include="Data\Physiotherapie\" />
     <Folder Include="Data\PsychologischerDienst\" />
     <Folder Include="Data\Speiseplan\Bilder\" />
