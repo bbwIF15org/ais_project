@@ -35,22 +35,22 @@
                                     {
                                         case ".pdf":
                                             <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
-                                            <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
                                             break;
                                         case ".png":
                                             <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
-                                            <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
                                             break;
                                         case ".jpg":
                                             <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
-                                            <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
                                             break;
                                         case ".bmp":
                                             <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
-                                            <a class="btn btn-info" href=@row.Link>Öffnen</a>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
                                             break;
                                         default:
-                                            <a class="btn btn-info" href=@row.Link>Datei herunterladen</a>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Datei herunterladen</a>
                                             break;
                                     }
                                     @*<object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
