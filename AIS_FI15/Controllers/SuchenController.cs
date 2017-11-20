@@ -11,28 +11,10 @@ namespace AIS_FI15.Controllers
 {
     public class SuchenController : Controller
     {
-
-   
-
-        //"[{Name:'Mensa',Link:'Mensa/Index'},{Name:'Kundenservice',Link:'Kundenservice/Index'}]";
-
-
-    
-
-
         // GET: Suchen
         public ActionResult Index(string Suchwort)
         {
-
-
-
             string json = SuchenModel.Auslesen(Server.MapPath("/App_Data/SearchStrings.json"));
-
-
-
-            if (Suchwort == "1337 ist super cool")
-                return Redirect("https://www.golem.de/");
-
 
             if (Suchwort.ToLower() == "darkmode = true")
             {
@@ -51,7 +33,6 @@ namespace AIS_FI15.Controllers
                 return RedirectToAction("index", "Home/Index");
             }
 
-
             JavaScriptSerializer js = new JavaScriptSerializer();
                 SuchenModel.Navigation[] Navi = js.Deserialize<SuchenModel.Navigation[]>(json);
 
@@ -69,11 +50,8 @@ namespace AIS_FI15.Controllers
                      }
                        
                 }
-
             
-            AIS_FI15.Models.SuchwortModel sw = new AIS_FI15.Models.SuchwortModel { SuchwortSend = Suchwort };        
-            
-   
+            AIS_FI15.Models.SuchwortModel sw = new AIS_FI15.Models.SuchwortModel { SuchwortSend = Suchwort };             
             return View(sw);
         }
 
