@@ -22,7 +22,11 @@
             <thead>
                 <tr>
                     <td colspan="3">
-                        <h4>@item.Name
+                        <h4>@if (item.Name == "aerztlicherDienst") {
+                            <text>Ärztlicher Dienst</text>
+                        } else {
+                            @item.Name
+                        }
                         @if (item.Titel != null) {
                             <text>&nbsp;-&nbsp;</text>
                             @item.Titel
