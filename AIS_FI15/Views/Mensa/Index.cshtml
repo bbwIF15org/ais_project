@@ -81,22 +81,23 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <object data="@Server.UrlPathEncode("/Data/Mensa/Öffnungszeiten Mensa.pdf")" style="width:100%;height: 650px;" class="center-block">Hier sollten Öffnungszeiten sein :(</object>
-            @Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
-
-            @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
-            {
-                <div class="panel panel-default">
-                    <div class="panel-body" id="InhaltBearbeiten">
-                        @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
-                    </div>
-                </div>
-            }
+        <object data="@Server.UrlPathEncode("/Data/Mensa/Öffnungszeiten Mensa.pdf")" style="width:100%;height: 650px;" class="center-block">Hier sollten Öffnungszeiten sein :(</object>           
      </div>
      <div class="col-sm-2"></div>
 </div>
     
 <!-- ########################################################## Space ############################################################################### -->
+
+@Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
+
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
+            {
+    <div class="panel panel-default">
+        <div class="panel-body" id="InhaltBearbeiten">
+            @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
+        </div>
+    </div>
+}
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
