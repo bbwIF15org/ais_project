@@ -29,6 +29,11 @@ namespace AIS_FI15.Controllers
             return RedirectToAction("index", controllerToRedirectTo);
         }
 
+        /// <summary>
+        /// delete a single news entry from the database
+        /// </summary>
+        /// <param name="sId">The id of the Datarow in the Database</param>
+        /// <param name="callingView">Table name from which to delete.</param>
         public void DbDelete(string sId, string callingView)
         {
             ulong uLongId;
@@ -39,6 +44,7 @@ namespace AIS_FI15.Controllers
             var items = db.Query("SELECT * FROM " + callingView + " WHERE Id = '" + uLongId + "'");
             foreach (var item in items)
             {
+                // If a file was uploaded in the news, delete also the file.
                 if (item.Link != "" && item.Link != null)
                 {
                     try
