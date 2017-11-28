@@ -15,12 +15,22 @@ namespace AIS_FI15.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+        // GET: 
+        /// <summary>
+        /// Didplay default view.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// authenticate Players' unsername and proceeds Log the user in.
+        /// 
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Index(LoginModel model)
         {

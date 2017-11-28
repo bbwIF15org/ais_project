@@ -195,6 +195,7 @@
     <Compile Include="Controllers\SharedAnzeigenController.cs" />
     <Compile Include="Controllers\SharedBearbeitenController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
+    <Compile Include="Controllers\UeberController.cs" />
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\MensaController.cs" />
@@ -253,6 +254,7 @@
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Physiotherapie\Index.cshtml" />
     <Content Include="Views\aerztlicherDienst\Index.cshtml" />
+    <Content Include="Views\Ueber\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -261,6 +263,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Images\Ueber\" />
     <Folder Include="Data\aerztlicherDienst\" />
     <Folder Include="Data\Belehrungen\" />
     <Folder Include="Data\Dokumente\" />

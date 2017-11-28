@@ -13,7 +13,21 @@ namespace AIS_FI15.Controllers
 {
     public class SharedBearbeitenController : Controller
     {
-        // GET: SharedBearbeiten
+        /// <summary>
+        /// Function to write news articles to database.
+        /// </summary>
+        /// <param name="U1">Title fo te mkt</param>
+        /// <param name="U2">Addition to the title</param>
+        /// <param name="TextArea1">Additional Informtaion</tpfor Timers<param>
+        /// <param name="file">Additional uploded Fuke</param>
+        /// 
+        /// 
+        /// 
+        /// 
+        /// 
+        /// 
+        /// <param name="callingView"></param>
+        /// <returns></returns>
         public ActionResult Index(string U1, string U2, string TextArea1, HttpPostedFileBase file, string callingView)
         {
             string savedPath = "";
