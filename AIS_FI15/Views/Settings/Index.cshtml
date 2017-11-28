@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<div class="container-fluid">
+    <div class="col-md-6" id="caption">
+        <p class="pull-left">Willkommen in den Einstellung</p>
+    </div>
+    <div class="col-md-6" id="caption">
+    <p class="pull-right" style="color: red"><b>BETA</b></p>
+    </div>
+    <div class="col-md-12" >
+        <br />
+        <h2><b>Design: </b><br /></h2>  
+       @using (Html.BeginForm(null, "Settings/Index"))
+       {  
+       <input name="action:standard" type="submit" value="Standard" class="btn btn-default" style="background-color: #f0932c">
+       <input name="action:black" type="submit" value="Dunkel" class="btn btn-default" style="background-color: black; color:limegreen">
+       }      
+    </div>
+</div>
+
+
+@*    //Für ein Background Pic
+ 
+       <div class="col-md-12">
+        <br />
+        <h2><b>Hintergrundbild: </b></h2>
+        <input name="SelfBackgroundPathString"> <input name="5" type="submit" value="Anwenden" />
+    </div>
+ *@

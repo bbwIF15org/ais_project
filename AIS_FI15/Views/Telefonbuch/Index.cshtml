@@ -6,11 +6,33 @@
 <h2>Telefonbuch</h2>
 
 <body>
-   <center>
-    <iframe height="900" width="1220" src="http://192.168.130.215/~telefonbuch/">
+   <div class="phonebook">
+    <!--<iframe height="900" width="1220" src="http://192.168.130.215/~telefonbuch/">
         < href="http://192.168.130.215/~telefonbuch/">Telefonbuch</>
-    </iframe>
-    </center>
-    <p>  </p>
-    <p>  </p>
+    </iframe>-->
+
+    <table class="table table-sm table-responsive table-striped">
+        @{  AIS_FI15.Models.TelefonbuchModel m = new AIS_FI15.Models.TelefonbuchModel();}
+        @{  string[][] table = m.parsePhonebook(); }
+        <thead>
+            <tr>
+                @for (int j = 0; j < table[0].Length; j++)
+                {
+                    <th>@table[0][j]</th>
+                }
+            </tr>
+        </thead>
+        @for (int i = 1; i < table.Length - 1; i++)
+        {
+            <tr>
+                @for (int j = 0; j < table[i].Length; j++)
+                {
+                    <td>@table[i][j]</td>
+                }
+            </tr>
+        }
+    </table>
+    </div>
+    <p>.</p>
+    <p>.</p>
 </body>

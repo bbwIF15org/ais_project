@@ -27,56 +27,44 @@ namespace AIS_FI15.Controllers
 
             if (ModelState.IsValid)
             {
+
                 XmlDocument doc = new XmlDocument();
-
                 doc.Load(Server.MapPath("/App_Data/Physio.xml"));
-
-                foreach (XmlNode node in doc.SelectNodes("//user"))
+                foreach (XmlNode node in doc.SelectNodes("//wochentag"))
 
                 {
-                    String Username = node.SelectSingleNode("username").InnerText;
-                    String Password = node.SelectSingleNode("password").InnerText;
+                    String Wochentag = node.SelectSingleNode("wochentag").InnerText;
+                    String Uhrzeit = node.SelectSingleNode("uhrzeit").InnerText;
 
                     //Crypto
 
-                    byte[] hashBytes = Convert.FromBase64String(Password);  //Extract
+                    //Instanz eines XML Dokuments in den RAM laden, XML Konten und XML Attribute reservieren
+                    
+                    XmlNode myRoot, myNode;
+                    XmlAttribute myAttribute;
+                    //Root Element einfügen
+                    myRoot = doc.CreateElement("/App_Data/Physio.xml");
+                    doc.AppendChild(myRoot);
 
-                    byte[] salt = new byte[16];                             //Salt nehmen
-                    Array.Copy(hashBytes, 0, salt, 0, 16);
+                    myNode = doc.CreateElement("Wochenende");               //Unterknoten einfügen
+                    myNode.InnerText = "Montag";                         //Text in den Knoten laden
 
-                    var pbkdf2 = new Rfc2898DeriveBytes(model.Password, salt, 10000);
-                    byte[] hash = pbkdf2.GetBytes(20);
+                    myAttribute = doc.CreateAttribute("Attribute1");    //Attribut aus XML Dokument erstellen
+                    myAttribute.InnerText = "AttributeText1";           //Attribut mit Wert befüllen
+                    myNode.Attributes.Append(myAttribute);              //Attribut an Unterknoten einfügen
 
-                    /* Compare the results */
+                    //Unterknoten an Root Knoten anhängen
+                    myRoot.AppendChild(myNode);
+                    //Das ganze in 2 Zeilen
+                    myRoot.AppendChild(doc.CreateElement("Child2")).InnerText = "Text2";
+                    myRoot.SelectSingleNode("Child2").Attributes.Append(doc.CreateAttribute("Attribute2")).InnerText = "AttributeText2";
 
-                    for (int i = 0; i < 20; i++)
-                    {
-                        if (hashBytes[i + 16] != hash[i])
-                        {
-                            ModelState.AddModelError("", ""); // TODO besser beschreibung 
-                            return View();
-                        }
-
-                    }
-
-
-                    if (model.Username == Username)
-                    {
-                        FormsAuthentication.SetAuthCookie(model.Username, false);
-                        return RedirectToAction("index", "Verwaltung/Index");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", ""); // TODO besser beschreibung 
-                    }
+                    //XML Dokument speichern
+                    doc.Save(@"App_Data\HelloXMLWorldAttribute.xml");
 
                 }
-
             }
-
             return View();
         }
-
     }
 }
-

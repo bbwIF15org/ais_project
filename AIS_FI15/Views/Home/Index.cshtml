@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <br />
 
 <div class="container-fluid">
@@ -33,6 +34,35 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
+                @{
+                    string[] allPaths = new string[Directory.GetDirectories(Server.MapPath("~/Data/Speiseplan/Bilder")).Length];
+                    if (allPaths.Length != 0)
+                    {
+                        allPaths = Directory.GetDirectories(Server.MapPath("~/Data/Speiseplan/Bilder"));
+                        <div class="item active">
+                            @{
+                                Uri absUri = new Uri(allPaths[0] + "/Folie1.PNG");
+                                Uri reference = new Uri(Server.MapPath("~/Data"));
+                                string relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
+                            }
+                            <a href=@relPath><img src=@relPath style="width: 100%"></a>
+                        </div>
+                        for (int i = 1; i < allPaths.Length; i++)
+                        {
+                            <div class="item">
+                                @{
+                                    absUri = new Uri(allPaths[i] + "/Folie1.PNG");
+                                    reference = new Uri(Server.MapPath("~/Data"));
+                                    relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
+                                }
+                                <a href=@relPath><img src=@relPath style="width: 100%"></a>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+            <!--
+            <div class="carousel-inner">
                 <div class="item active">
                     <img src="~/pictures/Speise.PNG" alt="Tok_KEk" />
                 </div>
@@ -40,7 +70,7 @@
                 <div class="item">
                     <img src="~/pictures/Speise.PNG" alt="Tok_KEk" />
                 </div>
-            </div>
+            </div>-->
 
             <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -53,8 +83,18 @@
             </a>
         </div>
 
+        <div>
+            @*<iframe System.Diagnostics.Process.Start(@"C:\WebApplication1\DSE desk_worksurface_work env_routine 2010.ppsx");></iframe>*@
+            @*<iframe src="\Data\Speiseplan\Speiseplan_KW37.ppsx"></iframe>*@
+        </div>
+
+
+
     </div>
 
     <div class="col-md-2"></div>
 
 </div>
+
+<br />
+<br />

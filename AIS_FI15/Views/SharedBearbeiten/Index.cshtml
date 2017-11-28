@@ -1,0 +1,46 @@
+﻿
+
+@using (Html.BeginForm(null, "SharedBearbeiten/Index", FormMethod.Post, new {@enctype = "multipart/form-data" }))
+{
+
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="form-horizontal col-sm-8">
+            <h4>Hinzufügen</h4>
+            <hr />
+            <div class="form-group input-group">
+                <span class="input-group-addon hinzu"><b>Überschrift:</b></span>
+                @Html.TextBox("U1", null, new { @id = "u1", @class = "input form-control" })
+            </div>
+
+            <div class="form-group input-group ">
+                <span class="input-group-addon hinzu"><b>Zusatz:</b></span>
+                @Html.TextBox("U2", null, new { @id = "u2", @class = "input form-control" })
+            </div>
+
+            <div class="form-group input-group">
+                <span class="input-group-addon hinzu"><b>Text-Area:</b></span>
+                @Html.TextArea("TextArea1", new { rows = 10, columns = 40, @class = "input form-control" })
+            </div>
+            <div class="form-group input-group">
+               
+                
+                <input type="file" name="file" class="form-control-file" id="" aria-describedby="fileHelp">
+                
+                    
+                    @*<span class="input-group-addon hinzu"><b>Bild-/PDF-Datei hochladen:</b></span>*@
+                    @*<input type="file" name="file" value="Durchsuchen" class="btn btn-default" />*@
+                </div>
+            @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
+                @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
+            <div class="form-group">
+                <input type="submit" value="Hinzufügen" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+}
+
+
+

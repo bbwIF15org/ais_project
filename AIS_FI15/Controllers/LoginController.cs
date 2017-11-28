@@ -60,7 +60,7 @@ namespace AIS_FI15.Controllers
 
 
                     if (model.Username == Username)
-                    {
+                    { 
                         FormsAuthentication.SetAuthCookie(model.Username, false);
                         return RedirectToAction("index", "Verwaltung/Index");
                     }

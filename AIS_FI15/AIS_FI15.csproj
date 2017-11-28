@@ -76,9 +76,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.mshtml">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
     <Reference Include="mysql.data">
       <HintPath>\\10.4.54.25\data\IT15\AIS Projekt\MySQL_Einbindung\dll_inside\mysql.data.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -95,6 +99,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -120,13 +128,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Physio.xml" />
+    <Content Include="Data\Wohnheim\glyphicons-7-user-add.png" />
+    <Content Include="Content\Styles\wohnheimDark.css" />
+    <Content Include="Content\Styles\homeDark.css" />
+    <Content Include="Content\Styles\phonebook.css" />
+    <Content Include="Content\Styles\styleDark.css" />
+    <Content Include="DokumentationAIS.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="pictures\Speise.PNG" />
-    <Content Include="App_Data\Login.xml" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="App_Data\Login.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\Styles\home.css" />
     <Content Include="Content\Styles\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -135,10 +155,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="App_Data\SearchStrings.json" />
+    <Content Include="App_Data\Wohnheim.json" />
+    <Content Include="Data\Speiseplan\Speiseplan_KW36.ppsx" />
+    <Content Include="Data\Speiseplan\Speiseplan_KW37.ppsx" />
+    <Content Include="Data\Speiseplan\Speiseplan_KW38.ppsx" />
+    <Content Include="Data\Speiseplan\Speiseplan_KW39.ppsx" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
     <Content Include="pictures\logo_bbwd.gif" />
     <Content Include="pictures\vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg" />
@@ -153,10 +175,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Data\App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\aerztlicherDienstController.cs" />
     <Compile Include="Controllers\AusbildungController.cs" />
     <Compile Include="Controllers\BelehrungenController.cs" />
     <Compile Include="Controllers\DokumenteController.cs" />
+    <Compile Include="Controllers\FlyerController.cs" />
     <Compile Include="Controllers\FormulareController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImpressumController.cs" />
@@ -165,6 +189,11 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginFailController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
+    <Compile Include="Controllers\PhysiotherapieController.cs" />
+    <Compile Include="Controllers\SaveLoadController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\SharedAnzeigenController.cs" />
+    <Compile Include="Controllers\SharedBearbeitenController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -178,8 +207,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SharedAnzeigenModel.cs" />
+    <Compile Include="Models\SuchwortModel.cs" />
     <Compile Include="Models\PhysioModel.cs" />
     <Compile Include="Models\SuchenModel.cs" />
+    <Compile Include="Models\TelefonbuchModel.cs" />
+    <Compile Include="Models\WohnheimRssModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +245,14 @@
     <Content Include="Views\LoginFail\Index.cshtml" />
     <Content Include="Views\Logout\Index.cshtml" />
     <Content Include="Views\Impressum\Index.cshtml" />
+    <Content Include="Views\Flyer\Index.cshtml" />
+    <Content Include="Views\Suchen\Index.cshtml" />
+    <Content Include="Views\SharedBearbeiten\Index.cshtml" />
+    <Content Include="Views\SharedAnzeigen\Index.cshtml" />
+    <Content Include="Views\Wohnheim\Rss.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Physiotherapie\Index.cshtml" />
+    <Content Include="Views\aerztlicherDienst\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -220,9 +261,50 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\aerztlicherDienst\" />
+    <Folder Include="Data\Belehrungen\" />
+    <Folder Include="Data\Dokumente\" />
+    <Folder Include="Data\Formulare\" />
+    <Folder Include="Data\Integrationsberatung\" />
+    <Folder Include="Data\Kundendienst\" />
+    <Folder Include="Data\Mensa\" />
+    <Folder Include="Data\Physiotherapie\" />
+    <Folder Include="Data\PsychologischerDienst\" />
+    <Folder Include="Data\Speiseplan\Bilder\" />
+    <Folder Include="Data\Teilnehmervertretung\" />
     <Folder Include="Views\Profile\" />
-    <Folder Include="Views\Suchen\" />
-    <Folder Include="Views\Suche\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.PowerPoint">
+      <Guid>{91493440-5A91-11CF-8700-00AA0060263B}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>10</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

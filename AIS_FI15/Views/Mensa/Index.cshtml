@@ -1,8 +1,103 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Mensa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Mensa</h2>
+<!-- ########################################################## Caption ############################################################################### -->
 
+<br />
+<div class="container-fluid">
+    <div class="col-md-12" id="caption">
+        <p class="pull-left">Mensa</p>
+    </div>
+</div>
+<br />
+
+<!-- ########################################################## Speiseplan ############################################################################### -->
+
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div id="myCarousel" class="carousel slide" data-interval="false">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @{
+                    string[] allPaths = new string[Directory.GetDirectories(Server.MapPath("~/Data/Speiseplan/Bilder")).Length];
+                    if (allPaths.Length != 0)
+                    {
+                        allPaths = Directory.GetDirectories(Server.MapPath("~/Data/Speiseplan/Bilder"));
+                        <div class="item active">
+                            @{
+                                Uri absUri = new Uri(allPaths[0] + "/Folie1.PNG");
+                                Uri reference = new Uri(Server.MapPath("~/Data"));
+                                string relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
+                            }
+                            <a href=@relPath><img src=@relPath style="width: 100%"></a>
+                        </div>
+                                for (int i = 1; i < allPaths.Length; i++)
+                                {
+                                    <div class="item">
+                                        @{
+                                            absUri = new Uri(allPaths[i] + "/Folie1.PNG");
+                                            reference = new Uri(Server.MapPath("~/Data"));
+                                            relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
+                                        }
+                                        <a href=@relPath><img src=@relPath style="width: 100%"></a>
+                                    </div>
+                                                }
+                                            }
+                }
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<!-- ########################################################## Space ############################################################################### -->
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+<!-- ########################################################## Oeffnungszeiten ############################################################################### -->
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <object data="@Server.UrlPathEncode("/Data/Mensa/Öffnungszeiten Mensa.pdf")" style="width:100%;height: 650px;" class="center-block">Hier sollten Öffnungszeiten sein :(</object>           
+     </div>
+     <div class="col-sm-2"></div>
+</div>
+    
+<!-- ########################################################## Space ############################################################################### -->
+
+@Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
+
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
+            {
+    <div class="panel panel-default">
+        <div class="panel-body" id="InhaltBearbeiten">
+            @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
+        </div>
+    </div>
+}
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
