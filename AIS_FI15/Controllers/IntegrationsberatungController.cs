@@ -7,14 +7,19 @@ using WebMatrix.Data;
 
 namespace AIS_FI15.Controllers
 {
+
     public class IntegrationsberatungController : Controller
     {
+
         // GET: Integrationsberatung
         [HttpGet]
         public ActionResult Index()
         {
+
             return View();
+
         }
                
     }
+
 }

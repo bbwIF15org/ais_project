@@ -6,12 +6,18 @@ using System.Web.Mvc;
 
 namespace AIS_FI15.Controllers
 {
+
     public class DokumenteController : Controller
     {
+
         // GET: Dokumente
         public ActionResult Index()
         {
+
             return View();
+
         }
+
     }
+
 }

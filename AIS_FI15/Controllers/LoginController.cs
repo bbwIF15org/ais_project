@@ -22,7 +22,9 @@ namespace AIS_FI15.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
+
             return View();
+
         }
 
         /// <summary>

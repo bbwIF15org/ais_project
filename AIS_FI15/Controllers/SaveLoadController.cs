@@ -7,9 +7,11 @@ using System.Xml.Serialization;
 
 namespace AIS_FI15.Controllers
 {
+
     [XmlRoot("Wochen")]
     public class SaveLoadController
     {
+
         [XmlElement("Benutzername")]
         [Required(ErrorMessage = "Der Benutzername ist erforderlich.")]
         public string Username { get; set; }
@@ -17,5 +19,7 @@ namespace AIS_FI15.Controllers
         [XmlElement("Passwort-Hash")]
         [Required(ErrorMessage = "Das Passwort ist erforderlich.")]
         public string Password { get; set; }
+
     }
+
 }

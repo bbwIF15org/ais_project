@@ -8,10 +8,15 @@ namespace AIS_FI15.Controllers
 {
     public class aerztlicherDienstController : Controller
     {
+        
         // GET: aerztlicherDienst
         public ActionResult Index()
         {
+
             return View();
+
         }
+
     }
+
 }
