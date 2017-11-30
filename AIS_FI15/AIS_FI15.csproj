@@ -143,6 +143,10 @@
     <Content Include="DokumentationAIS.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Doku\Dokumentation_AIS.xml" />
+    <Content Include="Doku\Dokumentation_AIS_Lipp2.xml" />
+    <Content Include="Doku\Dokumentation_AIS_nek0.xml" />
+    <Content Include="Doku\Dokumentation_AIS_Zylens.xml" />
     <Content Include="pictures\Speise.PNG" />
     <Content Include="App_Data\Login.xml">
       <SubType>Designer</SubType>
@@ -275,7 +279,6 @@
     <Folder Include="Data\PsychologischerDienst\" />
     <Folder Include="Data\Speiseplan\Bilder\" />
     <Folder Include="Data\Teilnehmervertretung\" />
-    <Folder Include="Doku\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
