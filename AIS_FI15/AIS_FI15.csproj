@@ -275,6 +275,7 @@
     <Folder Include="Data\PsychologischerDienst\" />
     <Folder Include="Data\Speiseplan\Bilder\" />
     <Folder Include="Data\Teilnehmervertretung\" />
+    <Folder Include="Doku\" />
     <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
