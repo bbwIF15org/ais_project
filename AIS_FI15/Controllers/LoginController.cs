@@ -59,7 +59,7 @@ namespace AIS_FI15.Controllers
 
                     for (int i = 0; i < 32; i++)
                     {
-                        if (hashBytes[i] != hashpw[i])
+                        if (hash[i] != hashpw[i])
                         { 
                             ModelState.AddModelError("", ""); // TODO besser beschreibung 
                             return View();
