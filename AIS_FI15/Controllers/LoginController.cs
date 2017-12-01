@@ -56,10 +56,9 @@ namespace AIS_FI15.Controllers
                     byte[] hash = sha256.ComputeHash(hashBytes);
 
                     /* Compare the results */
-
                     for (int i = 0; i < 32; i++)
                     {
-                        if (hash[i] != hashpw[i])
+                        if (hash[i] != hashpw[i]) //test
                         { 
                             ModelState.AddModelError("", ""); // TODO besser beschreibung 
                             return View();
