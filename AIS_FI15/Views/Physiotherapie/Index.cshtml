@@ -129,7 +129,7 @@
                             </tr>
                         }
                     </table>
-                    if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+                    if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
                     {
                         using (@Html.BeginForm(null, "SharedBearbeiten/Delete"))
                         {
@@ -141,7 +141,7 @@
                     }
                 }
             }
-            @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Mensa" || HttpContext.Current.User.Identity.Name == "Root"))
+            @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
             {
                 using (Html.BeginForm(null, "SharedBearbeiten/InsertTime", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {

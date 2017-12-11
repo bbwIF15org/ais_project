@@ -54,8 +54,8 @@ namespace AIS_FI15.Models
                 {
                     put = "";
                 }
-                o[irow][icol] = put;
-
+                if(icol != 6)
+                o[irow][icol] = put;                
                 // make sure the data is in the right order.
                 icol = icol + 1;
 
