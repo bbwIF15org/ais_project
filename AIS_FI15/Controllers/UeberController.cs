@@ -6,17 +6,12 @@ using System.Web.Mvc;
 
 namespace AIS_FI15.Controllers
 {
-    public class FlyerController : Controller
+    public class UeberController : Controller
     {
-
-        // GET: Flyer
+        // GET: Ueber
         public ActionResult Index()
         {
-
             return View();
-
         }
-
     }
-
 }

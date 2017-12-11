@@ -8,10 +8,15 @@ namespace AIS_FI15.Controllers
 {
     public class BelehrungenController : Controller
     {
+
         // GET: Belehrungen
         public ActionResult Index()
         {
+
             return View();
+
         }
+
     }
+
 }

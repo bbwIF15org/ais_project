@@ -13,12 +13,16 @@ using AIS_FI15.Models;
 
 namespace AIS_FI15.Controllers
 {
+
     public class PsychologischerDienstController : Controller
     {
+
         // GET: Login
         public ActionResult Index()
         {
+
             return View();
+
         }
 
         [HttpPost]
@@ -63,8 +67,12 @@ namespace AIS_FI15.Controllers
                     doc.Save(@"App_Data\HelloXMLWorldAttribute.xml");
 
                 }
+
             }
+
             return View();
         }
+
     }
+
 }

@@ -11,7 +11,11 @@ namespace AIS_FI15.Controllers
         // GET: Ausbildung
         public ActionResult Index()
         {
+
             return View();
+
         }
+
     }
+
 }

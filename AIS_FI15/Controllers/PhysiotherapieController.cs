@@ -8,10 +8,15 @@ namespace AIS_FI15.Controllers
 {
     public class PhysiotherapieController : Controller
     {
+
         // GET: Physiotherapie
         public ActionResult Index()
         {
+
             return View();
+
         }
+
     }
+
 }
