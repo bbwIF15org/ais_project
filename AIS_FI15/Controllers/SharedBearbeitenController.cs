@@ -102,9 +102,11 @@ namespace AIS_FI15.Controllers
 
             //var insertQuery = "INSERT INTO Wohnheim (Title, Addition, Text, Time) VALUES ('" + us + "','" + uus + "','" + txt + "', CURRENT_TIMESTAMP)";
 
-            string insertQuery = "INSERT INTO Zeiten (Name, Titel, MontagFr, MOntagSp, DienstagFr, DienstagSp, MittwochFr, MittwochSp, DonnerstagFr, DonnerstagSp, FreitagFr, FreitagSp, SamstagFr, SamstagSp, SonntagFr, SonntagSp) VALUES (@0, @1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15)";
+            //string insertQuery = "INSERT INTO Zeiten (Name, Titel, MontagFr, MOntagSp, DienstagFr, DienstagSp, MittwochFr, MittwochSp, DonnerstagFr, DonnerstagSp, FreitagFr, FreitagSp, SamstagFr, SamstagSp, SonntagFr, SonntagSp) VALUES (@0, @1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15)";
 
-            db.Execute(insertQuery, new string[16] { Name, Titel, U1, U2, U3, U4, U5, U6, U7, U8, U9, U10, U11, U12, U13, U14 });
+            string updateQuery = "UPDATE Zeiten SET MontagFr = @0, MontagSp = @1, DienstagFr = @2, DienstagSp = @3, MittwochFr = @4, MittwochSp = @5, DonnerstagFr = @6, DonnerstagSp = @7, FreitagFr = @8, FreitagSp = @9, SamstagFr = @10, SamstagSp = @11, SonntagFr = @12, SonntagSp = @13 WHERE Name = @14 AND Titel = @15";
+
+            db.Execute(updateQuery, new string[16] { U1, U2, U3, U4, U5, U6, U7, U8, U9, U10, U11, U12, U13, U14, Name, Titel });
 
 
             db.Close();

@@ -129,114 +129,130 @@
                             </tr>
                         }
                     </table>
-                    if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
-                    {
-                        using (@Html.BeginForm(null, "SharedBearbeiten/Delete"))
-                        {
-                            @Html.TextBox("sId", null, new { Value = item.Id, Class = "hidden" })
-                            @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                            @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
-                            <input type="submit" value="Löschen" class="btn btn-danger" />
-                        }
-                    }
                 }
             }
             @if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
             {
-                using (Html.BeginForm(null, "SharedBearbeiten/InsertTime", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                if (dbItems.Count() != 0)
                 {
-                    <fieldset>
-                        <legend>Neue Öffnungszeit</legend>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                @*<label for="name">Name</label>*@
-                                @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
-                                @Html.TextBox("Name", "Physiotherapie", new { @id = "name", @class = "input required hidden", @required = "required" })
+                    foreach (var item in dbItems)
+                    {
+                        string ti = (item.Titel != "") ? item.Titel : "";
+                        string mov = (item.MontagFr != "") ? item.MontagFr : "";
+                        string mon = (item.MontagSp != "") ? item.MontagSp : "";
+                        string div = (item.DienstagFr != "") ? item.DienstagFr : "";
+                        string din = (item.DienstagSp != "") ? item.DienstagSp : "";
+                        string miv = (item.MittwochFr != "") ? item.MittwochFr : "";
+                        string min = (item.MittwochSp != "") ? item.MittwochSp : "";
+                        string dov = (item.DonnerstagFr != "") ? item.DonnerstagFr : "";
+                        string don = (item.DonnerstagSp != "") ? item.DonnerstagSp : "";
+                        string frv = (item.FreitagFr != "") ? item.FreitagFr : "";
+                        string frn = (item.FreitagSp != "") ? item.FreitagSp : "";
+                        string sav = (item.SamstagFr != "") ? item.SamstagFr : "";
+                        string san = (item.SamstagSp != "") ? item.SamstagSp : "";
+                        string sov = (item.SonntagFr != "") ? item.SonntagFr : "";
+                        string son = (item.SonntagSp != "") ? item.SonntagSp : "";
 
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <label for="titel">Titel</label>
-                                @Html.TextBox("Titel", null, new { @id = "titel", @class = "input", @placeholder = "Titel" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="u1">Montag Vormittag</label>
-                                @Html.TextBox("U1", null, new { @id = "u1", @class = "input", @placeholder = "z. B. 9:00 - 12:00" })
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="u2">Montag Nachmittag</label>
-                                @Html.TextBox("U2", null, new { @id = "u2", @class = "input", @placeholder = "z. B. 13:00 - 16:00" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="u1">Dienstag Vormittag</label>
-                                @Html.TextBox("U3", null, new { @id = "u3", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="u2">Dienstag Nachmittag</label>
-                                @Html.TextBox("U4", null, new { @id = "u4", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="u1">Mittwoch Vormittag</label>
-                                @Html.TextBox("U5", null, new { @id = "u5", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="u2">Mittwoch Nachmittag</label>
-                                @Html.TextBox("U6", null, new { @id = "u6", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="u1">Donnerstag Vormittag</label>
-                                @Html.TextBox("U7", null, new { @id = "u7", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="u2">Donnerstag Nachmittag</label>
-                                @Html.TextBox("U8", null, new { @id = "u8", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="u1">Freitag Vormittag</label>
-                                @Html.TextBox("U9", null, new { @id = "u9", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="u2">Freitag Nachmittag</label>
-                                @Html.TextBox("U10", null, new { @id = "u10", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="u1">Samstag Vormittag</label>
-                                @Html.TextBox("U11", null, new { @id = "u11", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="u2">Samstag Nachmittag</label>
-                                @Html.TextBox("U12", null, new { @id = "u12", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="u1">Sonntag Vormittag</label>
-                                @Html.TextBox("U13", null, new { @id = "u13", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="u2">Sonntag Nachmittag</label>
-                                @Html.TextBox("U14", null, new { @id = "u14", @class = "input", @placeholder = "von - bis" })
-                            </div>
-                        </div>
-                        @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
-                        @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
-                        <input type="submit" value="Hinzufügen" class="btn btn-default" />
-                    </fieldset>
 
+                        using (Html.BeginForm(null, "SharedBearbeiten/InsertTime", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <fieldset>
+                                <legend>Öffnungszeiten bearbeiten</legend>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        @*<label for="name">Name</label>*@
+                                        @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
+                                        @Html.TextBox("Name", "Physiotherapie", new { @id = "name", @class = "input required hidden", @required = "required" })
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label for="titel">Titel</label>
+                                        @Html.TextBox("Titel", ti, new { @id = "titel", @class = "input", @placeholder = "Titel", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="u1">Montag Vormittag</label>
+                                        
+                                        @Html.TextBox("U1", mov , new { @id = "u1", @class = "input", @placeholder = "z. B. 9:00 - 12:00" })
+                                        
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="u2">Montag Nachmittag</label>
+                                        @Html.TextBox("U2", mon, new { @id = "u2", @class = "input", @placeholder = "z. B. 13:00 - 16:00" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="u1">Dienstag Vormittag</label>
+                                        @Html.TextBox("U3", div, new { @id = "u3", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="u2">Dienstag Nachmittag</label>
+                                        @Html.TextBox("U4", din, new { @id = "u4", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="u1">Mittwoch Vormittag</label>
+                                        @Html.TextBox("U5", miv, new { @id = "u5", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="u2">Mittwoch Nachmittag</label>
+                                        @Html.TextBox("U6", min, new { @id = "u6", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="u1">Donnerstag Vormittag</label>
+                                        @Html.TextBox("U7", dov, new { @id = "u7", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="u2">Donnerstag Nachmittag</label>
+                                        @Html.TextBox("U8", don, new { @id = "u8", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="u1">Freitag Vormittag</label>
+                                        @Html.TextBox("U9", frv, new { @id = "u9", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="u2">Freitag Nachmittag</label>
+                                        @Html.TextBox("U10", frn, new { @id = "u10", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="u1">Samstag Vormittag</label>
+                                        @Html.TextBox("U11", sav, new { @id = "u11", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="u2">Samstag Nachmittag</label>
+                                        @Html.TextBox("U12", san, new { @id = "u12", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="u1">Sonntag Vormittag</label>
+                                        @Html.TextBox("U13", sov, new { @id = "u13", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="u2">Sonntag Nachmittag</label>
+                                        @Html.TextBox("U14", son, new { @id = "u14", @class = "input", @placeholder = "von - bis" })
+                                    </div>
+                                </div>
+                                @*Titel des aufrufenden Views(z.B. Wohnheim/Index.cshtml) an den Controller(SharedAnzeigenController) weitergeben:*@
+                                @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
+                                <input type="submit" value="Aktualisieren" class="btn btn-default" />
+                            </fieldset>
+
+                        }
+                    }
                 }
+
             }
         </div>
     </div>
