@@ -147,7 +147,6 @@
     <Content Include="Doku\Dokumentation_AIS_Lipp2.xml" />
     <Content Include="Doku\Dokumentation_AIS_nek0.xml" />
     <Content Include="Doku\Dokumentation_AIS_Zylens.xml" />
-    <Content Include="pictures\Speise.PNG" />
     <Content Include="App_Data\Login.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -166,8 +165,6 @@
     <Content Include="Data\Speiseplan\Speiseplan_KW38.ppsx" />
     <Content Include="Data\Speiseplan\Speiseplan_KW39.ppsx" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
-    <Content Include="pictures\logo_bbwd.gif" />
-    <Content Include="pictures\vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\FunctionScripts\searchbar.js" />
