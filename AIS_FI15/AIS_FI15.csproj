@@ -201,7 +201,6 @@
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\MensaController.cs" />
-    <Compile Include="Controllers\OeffnungszeitenController.cs" />
     <Compile Include="Controllers\PsychologischerDienstController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\TeilnehmervertretungController.cs" />
@@ -233,7 +232,6 @@
     </Content>
     <Content Include="Views\Telefonbuch\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Oeffnungszeiten\Index.cshtml" />
     <Content Include="Views\PsychologischerDienst\Index.cshtml" />
     <Content Include="Views\Kundendienst\Index.cshtml" />
     <Content Include="Views\Wohnheim\Index.cshtml" />
