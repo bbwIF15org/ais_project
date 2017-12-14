@@ -192,6 +192,7 @@
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\PhysiotherapieController.cs" />
     <Compile Include="Controllers\SaveLoadController.cs" />
+    <Compile Include="Controllers\SeelsorgeController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SharedAnzeigenController.cs" />
     <Compile Include="Controllers\SharedBearbeitenController.cs" />
@@ -256,6 +257,7 @@
     <Content Include="Views\Physiotherapie\Index.cshtml" />
     <Content Include="Views\aerztlicherDienst\Index.cshtml" />
     <Content Include="Views\Ueber\Index.cshtml" />
+    <Content Include="Views\Seelsorge\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
