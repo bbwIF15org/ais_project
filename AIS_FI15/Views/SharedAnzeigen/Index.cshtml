@@ -34,7 +34,7 @@
                                     @switch (ext.ToLower())
                                     {
                                         case ".pdf":
-                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
+                                            <object data=@Server.UrlPathEncode(row.Link) width="100%" height="500px"></object>
                                             <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
                                             break;
                                         case ".png":

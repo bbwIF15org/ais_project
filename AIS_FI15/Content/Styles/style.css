@@ -17,7 +17,7 @@
   background: url(../../pictures/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg); 
   font-size: 22px;
   /*border:  10px 0 10px 0px; */
-  color : #ffffff;        
+  color : #ffffff;          
   z-index: 1;
 }
 
@@ -250,7 +250,11 @@ ul.nav.navbar-nav .dropdown.open .dropdown-toggle{
     background: url(../../pictures/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg);
     background-position: center;
 }
-
+/*dropdown-submenu (Ausbildungsbegleitende Dienste >)*/
+.dds 
+{
+    background-size:cover;
+}
 
 .dropdown-menu>li>a:hover {
     color: white;
