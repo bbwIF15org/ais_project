@@ -20,24 +20,34 @@
     </iframe>-->
 
     <table class="table table-sm table-responsive table-striped">
-        @{  AIS_FI15.Models.TelefonbuchModel m = new AIS_FI15.Models.TelefonbuchModel();}
-        @{  string[][] table = m.parsePhonebook(); }
-        <thead>
-            <tr>
-                @for (int j = 0; j < table[0].Length; j++)
-                {
-                    <th>@table[0][j]</th>
-                }
-            </tr>
-        </thead>
-        @for (int i = 1; i < table.Length - 1; i++)
+        @{AIS_FI15.Models.TelefonbuchModel m = new AIS_FI15.Models.TelefonbuchModel();}
+         
+        @{string[][] table = m.parsePhonebook(); }
+        @if (table != null)
         {
-            <tr>
-                @for (int j = 0; j < table[i].Length; j++)
-                {
-                    <td>@table[i][j]</td>
-                }
-            </tr>
+            <thead>
+                <tr>
+                    @for (int j = 0; j < table[0].Length; j++)
+                    {
+                        <th>@table[0][j]</th>
+                    }
+                </tr>
+            </thead>
+            for (int i = 1; i < table.Length - 1; i++)
+            {
+                <tr>
+                    @for (int j = 0; j < table[i].Length; j++)
+                    {
+                        <td>@table[i][j]</td>
+                    }
+                </tr>
+            }
+        }
+        else
+        {
+            <thead>
+               Es ist ein Fehler beim Verbinden zum Telefonbuch aufgetreten! @Html.ActionLink("noch einmal versuchen", "Index", "Telefonbuch/Index")
+            </thead>
         }
     </table>
     </div>
