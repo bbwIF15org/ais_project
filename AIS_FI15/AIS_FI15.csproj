@@ -186,7 +186,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImpressumController.cs" />
     <Compile Include="Controllers\IntegrationsberatungController.cs" />
-    <Compile Include="Controllers\KundendienstController.cs" />
+    <Compile Include="Controllers\KundenserviceController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginFailController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
@@ -197,7 +197,6 @@
     <Compile Include="Controllers\SharedAnzeigenController.cs" />
     <Compile Include="Controllers\SharedBearbeitenController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
-    <Compile Include="Controllers\UeberController.cs" />
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\MensaController.cs" />
@@ -233,7 +232,7 @@
     <Content Include="Views\Telefonbuch\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\PsychologischerDienst\Index.cshtml" />
-    <Content Include="Views\Kundendienst\Index.cshtml" />
+    <Content Include="Views\Kundenservice\Index.cshtml" />
     <Content Include="Views\Wohnheim\Index.cshtml" />
     <Content Include="Views\Integrationsberatung\Index.cshtml" />
     <Content Include="Views\Teilnehmervertretung\Index.cshtml" />
@@ -254,7 +253,6 @@
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Physiotherapie\Index.cshtml" />
     <Content Include="Views\aerztlicherDienst\Index.cshtml" />
-    <Content Include="Views\Ueber\Index.cshtml" />
     <Content Include="Views\Seelsorge\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

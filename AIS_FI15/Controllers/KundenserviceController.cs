@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace AIS_FI15.Controllers
 {
-    public class KundendienstController : Controller
+    public class KundenserviceController : Controller
     {
-        // GET: Kundendienst
+        // GET: Kundenservice
         public ActionResult Index()
         {
 
