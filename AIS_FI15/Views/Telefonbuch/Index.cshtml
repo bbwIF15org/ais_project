@@ -7,7 +7,7 @@
 <br />
 <div class="container-fluid">
     <div class="col-md-12" id="caption">
-        <p class="pull-left">Telefonbuch</p>
+        <p class="pull-left">Telefonbuch</p><p class="pull-right">zum Suchen <button type="button" class="btn btn-info btn-xs">Strg</button> + <button type="button" class="btn btn-info btn-xs">F</button> drücken.</p>
     </div>
 </div>
 <br />
@@ -46,7 +46,8 @@
         else
         {
             <thead>
-               Es ist ein Fehler beim Verbinden zum Telefonbuch aufgetreten! @Html.ActionLink("noch einmal versuchen", "Index", "Telefonbuch/Index")
+               Es ist ein Fehler beim Verbinden zum Telefonbuch aufgetreten! <br />
+                <a href="@Url.Action("Index", "Telefonbuch")" class="btn btn-success" role="button">erneut versuchen</a>
             </thead>
         }
     </table>

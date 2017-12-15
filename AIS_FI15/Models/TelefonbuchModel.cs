@@ -22,7 +22,7 @@ namespace AIS_FI15.Models
 
             // grab external resource
             
-                string raw = client.DownloadString("http://192.168.130.215/~telefonbuch/status.php");
+                string raw = client.DownloadString("http://192.168.130.215/~telefonbuch/statuss.php");
 
 
                 // prepare parsing (type conversion mostly)
