@@ -17,7 +17,7 @@
             physiotherapie = "btn btn-success disabled btn-block",
             psychologischerdienst = "btn btn-success disabled btn-block",
             integrationsberatung = "btn btn-success disabled btn-block",
-            kundendienst = "btn btn-success disabled btn-block",
+            kundenservice = "btn btn-success disabled btn-block",
             seelsorge = "btn btn-success disabled btn-block",
             wohnheim = "btn btn-success disabled btn-block";
 }
@@ -46,9 +46,9 @@ else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "I
 {
     integrationsberatung = "btn btn-success active btn-block";
 }
-else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Kundendienst")
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Kundenservice")
 {
-    kundendienst = "btn btn-success active btn-block";
+    kundenservice = "btn btn-success active btn-block";
 }
 else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Seelsorge")
 {
@@ -66,7 +66,7 @@ else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "
     physiotherapie = "btn btn-success active btn-block";
     psychologischerdienst = "btn btn-success active btn-block";
     integrationsberatung = "btn btn-success active btn-block";
-    kundendienst = "btn btn-success active btn-block";
+    kundenservice = "btn btn-success active btn-block";
     wohnheim = "btn btn-success active btn-block";
     seelsorge = "btn btn-success active btn-block";
 
@@ -98,7 +98,7 @@ else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "
                 <br /><br />
                 <a href="@Url.Action("Index", "Integrationsberatung")" class="@integrationsberatung" role="button">Integrationsberatung</a>
                 <br /><br />
-                <a href="@Url.Action("Index", "Kundendienst")" class="@kundendienst" role="button">Kundendienst</a>
+                <a href="@Url.Action("Index", "Kundenservice")" class="@kundenservice" role="button">Kundenservice</a>
                 <br /><br />
                 <a href="@Url.Action("Index", "Seelsorge")" class="@seelsorge" role="button">Seelsorge</a>
                 <br /><br />
