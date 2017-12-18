@@ -15,11 +15,12 @@
             teilnehmervertretung = "btn btn-success disabled btn-block",
             aerztlicherDienst = "btn btn-success disabled btn-block",
             physiotherapie = "btn btn-success disabled btn-block",
-            psychologischerdienst = "btn btn-success disabled btn-block",
-            integrationsberatung = "btn btn-success disabled btn-block",
+            psychologischerdienst = "btn btn-success disabled btn-block",            
             kundenservice = "btn btn-success disabled btn-block",
             seelsorge = "btn btn-success disabled btn-block",
             wohnheim = "btn btn-success disabled btn-block";
+
+    string kundenserviceUnterpunkt = "btn btn-success active btn-block hidden";
 }
 
 @if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Mensa")
@@ -42,13 +43,10 @@ else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "P
 {
     psychologischerdienst = "btn btn-success active btn-block";
 }
-else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Integrationsberatung")
-{
-    integrationsberatung = "btn btn-success active btn-block";
-}
 else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Kundenservice")
 {
     kundenservice = "btn btn-success active btn-block";
+    kundenserviceUnterpunkt = "btn btn-success active btn-block";
 }
 else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Seelsorge")
 {
@@ -65,8 +63,8 @@ else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "
     aerztlicherDienst = "btn btn-success active btn-block";
     physiotherapie = "btn btn-success active btn-block";
     psychologischerdienst = "btn btn-success active btn-block";
-    integrationsberatung = "btn btn-success active btn-block";
     kundenservice = "btn btn-success active btn-block";
+    kundenserviceUnterpunkt = "btn btn-success active btn-block";
     wohnheim = "btn btn-success active btn-block";
     seelsorge = "btn btn-success active btn-block";
 
@@ -88,28 +86,38 @@ else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
-                <a href="@Url.Action("Index", "Mensa")" class="@mensa" role="button">Mensa</a>
-                <br /><br />
-                <a href="@Url.Action("Index", "aerztlicherDienst")" class="@aerztlicherDienst" role="button">Ärztlicher Dienst</a>
-                <br /><br />
-                <a href="@Url.Action("Index", "Physiotherapie")" class="@physiotherapie" role="button">Physiotherapie</a>
-                <br /><br />
-                <a href="@Url.Action("Index", "PsychologischerDienst")" class="@psychologischerdienst" role="button">Psychologischer Dienst</a>
-                <br /><br />
-                <a href="@Url.Action("Index", "Integrationsberatung")" class="@integrationsberatung" role="button">Integrationsberatung</a>
-                <br /><br />
-                <a href="@Url.Action("Index", "Kundenservice")" class="@kundenservice" role="button">Kundenservice</a>
-                <br /><br />
-                <a href="@Url.Action("Index", "Seelsorge")" class="@seelsorge" role="button">Seelsorge</a>
-                <br /><br />
-                <a href="@Url.Action("Index", "Wohnheim")" class="@wohnheim" role="button">Wohnheim</a>
-                <br /><br />
-                <a href="@Url.Action("Index", "Teilnehmervertretung")" class="@teilnehmervertretung" role="button">Teilnehmervertretung</a>
+                    <a href="@Url.Action("Index", "Mensa")" class="@mensa" role="button">Mensa</a>
+                    <br /><br />
+                    <a href="@Url.Action("Index", "aerztlicherDienst")" class="@aerztlicherDienst" role="button">Ärztlicher Dienst</a>
+                    <br /><br />
+                    <a href="@Url.Action("Index", "Physiotherapie")" class="@physiotherapie" role="button">Physiotherapie</a>
+                    <br /><br />
+                    <a href="@Url.Action("Index", "PsychologischerDienst")" class="@psychologischerdienst" role="button">Psychologischer Dienst</a>
+                    <br /><br />                   
+                    <a href="#" class="@kundenservice" role="button">Kundenservice</a>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Allgemeines")" class="@kundenserviceUnterpunkt" role="button">Allgemeines</a>                            
+                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Integrationsberatung")" class="@kundenserviceUnterpunkt" role="button">Integrationsberatung</a>                            
+                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "RehaKoordination")" class="@kundenserviceUnterpunkt" role="button">Reha-Koordination</a>                            
+                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Stellenboerse")" class="@kundenserviceUnterpunkt" role="button">Stellenbörse</a>                            
+                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Aktuelles")" class="@kundenserviceUnterpunkt" role="button">Aktuelles</a>                            
+                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "VAmB")" class="@kundenserviceUnterpunkt" role="button">VAmB</a>
+                            <br />
+                        </div>
+                    </div>
+                    <br />
+                    <a href="@Url.Action("Index", "Seelsorge")" class="@seelsorge" role="button">Seelsorge</a>
+                    <br /><br />
+                    <a href="@Url.Action("Index", "Wohnheim")" class="@wohnheim" role="button">Wohnheim</a>
+                    <br /><br />
+                    <a href="@Url.Action("Index", "Teilnehmervertretung")" class="@teilnehmervertretung" role="button">Teilnehmervertretung</a>
+                    <div class="col-sm-3"></div>
                 </div>
-                <div class="col-sm-3"></div>
-             </div>
 
-           </div>
+                </div>
 
     </div>
 

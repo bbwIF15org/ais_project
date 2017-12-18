@@ -178,6 +178,8 @@
   <ItemGroup>
     <Compile Include="App_Data\App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\aerztlicherDienstController.cs" />
+    <Compile Include="Controllers\AktuellesController.cs" />
+    <Compile Include="Controllers\AllgemeinesController.cs" />
     <Compile Include="Controllers\AusbildungController.cs" />
     <Compile Include="Controllers\BelehrungenController.cs" />
     <Compile Include="Controllers\DokumenteController.cs" />
@@ -186,17 +188,19 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImpressumController.cs" />
     <Compile Include="Controllers\IntegrationsberatungController.cs" />
-    <Compile Include="Controllers\KundenserviceController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginFailController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\PhysiotherapieController.cs" />
+    <Compile Include="Controllers\RehaKoordinationController.cs" />
     <Compile Include="Controllers\SaveLoadController.cs" />
     <Compile Include="Controllers\SeelsorgeController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SharedAnzeigenController.cs" />
     <Compile Include="Controllers\SharedBearbeitenController.cs" />
+    <Compile Include="Controllers\StellenboerseController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
+    <Compile Include="Controllers\VAmBController.cs" />
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\MensaController.cs" />
@@ -232,7 +236,6 @@
     <Content Include="Views\Telefonbuch\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\PsychologischerDienst\Index.cshtml" />
-    <Content Include="Views\Kundenservice\Index.cshtml" />
     <Content Include="Views\Wohnheim\Index.cshtml" />
     <Content Include="Views\Integrationsberatung\Index.cshtml" />
     <Content Include="Views\Teilnehmervertretung\Index.cshtml" />
@@ -254,6 +257,11 @@
     <Content Include="Views\Physiotherapie\Index.cshtml" />
     <Content Include="Views\aerztlicherDienst\Index.cshtml" />
     <Content Include="Views\Seelsorge\Index.cshtml" />
+    <Content Include="Views\Allgemeines\Index.cshtml" />
+    <Content Include="Views\RehaKoordination\Index.cshtml" />
+    <Content Include="Views\Stellenboerse\Index.cshtml" />
+    <Content Include="Views\Aktuelles\Index.cshtml" />
+    <Content Include="Views\VAmB\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

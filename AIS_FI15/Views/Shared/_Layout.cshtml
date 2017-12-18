@@ -166,10 +166,49 @@
                                         Physiotherapie
                                     </a>
                                 </li>
-                                <li>
-                                    <a tabindex="-1" href="@Url.Action("Index", "Kundenservice")">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-toggle disabled" tabindex="-2" href="#">
                                         Kundenservice
                                     </a>
+                                    <ul class="dropdown-menu dds">
+                                        <li>
+                                            <a tabindex="-2" href="@Url.Action("Index", "Allgemeines")">
+                                                Allgemeines
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-2" href="@Url.Action("Index", "Integrationsberatung")">
+                                                Integrationsberatung
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-2" href="@Url.Action("Index", "RehaKoordination")">
+                                                Reha-Koordination
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-toggle disabled" tabindex="-3" href="#">
+                                                Arbeitgeberservice
+                                            </a>
+                                            <ul class="dropdown-menu dds">
+                                                <li>
+                                                    <a tabindex="-3" href="@Url.Action("Index", "Aktuelles")">
+                                                        Aktuelles
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a tabindex="-3" href="@Url.Action("Index", "VAmB")">
+                                                        VAmB
+                                                    </a>
+                                                </li>                                                
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a tabindex="-2" href="@Url.Action("Index", "Stellenboerse")">
+                                                Stellenbörse
+                                            </a>
+                                        </li>                                        
+                                    </ul>
                                 </li>
                                 <li>
                                     <a tabindex="-1" href="@Url.Action("Index", "Seelsorge")">
@@ -180,12 +219,7 @@
                                     <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
                                         Wohnheim
                                     </a>
-                                </li>
-                                <li>
-                                    <a tabindex="-1" href="@Url.Action("Index", "Integrationsberatung")">
-                                        Integrationsberatung
-                                    </a>
-                                </li>
+                                </li>                                
                             </ul>
 
                         </li>
