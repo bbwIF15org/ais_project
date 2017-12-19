@@ -25,6 +25,7 @@
         @{string[][] table = m.parsePhonebook(); }
         @if (table != null)
         {
+            <p style="font-size:larger; font-weight: bold;">Telefonverzeichnis BBW</p>
             <thead>
                 <tr>
                     @for (int j = 0; j < table[0].Length; j++)
@@ -51,6 +52,41 @@
             </thead>
         }
     </table>
+       
+       <table class="table table-sm table-responsive table-striped">
+           @{AIS_FI15.Models.TelefonbuchModel mA = new AIS_FI15.Models.TelefonbuchModel();}
+
+           @{string[][] tableA = mA.parseAdditionalPhonebook(); }
+           @if (tableA != null)
+           {
+               <p style="font-size:larger; font-weight: bold;">Partnerfirmen</p>
+               <thead>
+                   <tr>
+                       @for (int j = 0; j < tableA[0].Length; j++)
+                       {
+                           <th>@tableA[0][j]</th>
+                       }
+                   </tr>
+               </thead>
+               for (int i = 1; i < tableA.Length - 1; i++)
+               {
+                   <tr>
+                       @for (int j = 0; j < tableA[i].Length; j++)
+                    {
+                           <td>@tableA[i][j]</td>
+                       }
+                   </tr>
+               }
+           }
+           else
+           {
+               <thead>
+                   Es ist ein Fehler beim Verbinden zum Telefonbuch aufgetreten!
+                   <br />
+                   <a href="@Url.Action("Index", "Telefonbuch")" class="btn btn-success" role="button">erneut versuchen</a>
+               </thead>
+           }
+       </table>
     </div>
     <p>.</p>
     <p>.</p>
