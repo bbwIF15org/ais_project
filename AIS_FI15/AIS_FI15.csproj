@@ -181,10 +181,12 @@
     <Compile Include="Controllers\AktuellesController.cs" />
     <Compile Include="Controllers\AllgemeinesController.cs" />
     <Compile Include="Controllers\AusbildungController.cs" />
+    <Compile Include="Controllers\AusbildungsnachweisController.cs" />
     <Compile Include="Controllers\BelehrungenController.cs" />
-    <Compile Include="Controllers\DokumenteController.cs" />
+    <Compile Include="Controllers\ECDLController.cs" />
     <Compile Include="Controllers\FlyerController.cs" />
-    <Compile Include="Controllers\FormulareController.cs" />
+    <Compile Include="Controllers\FreistellungController.cs" />
+    <Compile Include="Controllers\HeimfahrtsplanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImpressumController.cs" />
     <Compile Include="Controllers\IntegrationsberatungController.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="Controllers\SharedBearbeitenController.cs" />
     <Compile Include="Controllers\StellenboerseController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
+    <Compile Include="Controllers\TherapieplanController.cs" />
     <Compile Include="Controllers\VAmBController.cs" />
     <Compile Include="Controllers\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -239,8 +242,6 @@
     <Content Include="Views\Wohnheim\Index.cshtml" />
     <Content Include="Views\Integrationsberatung\Index.cshtml" />
     <Content Include="Views\Teilnehmervertretung\Index.cshtml" />
-    <Content Include="Views\Dokumente\Index.cshtml" />
-    <Content Include="Views\Formulare\Index.cshtml" />
     <Content Include="Views\Belehrungen\Index.cshtml" />
     <Content Include="Views\Mensa\Index.cshtml" />
     <Content Include="Views\Verwaltung\Index.cshtml" />
@@ -262,6 +263,11 @@
     <Content Include="Views\Stellenboerse\Index.cshtml" />
     <Content Include="Views\Aktuelles\Index.cshtml" />
     <Content Include="Views\VAmB\Index.cshtml" />
+    <Content Include="Views\Freistellung\Index.cshtml" />
+    <Content Include="Views\Ausbildungsnachweis\Index.cshtml" />
+    <Content Include="Views\Therapieplan\Index.cshtml" />
+    <Content Include="Views\ECDL\Index.cshtml" />
+    <Content Include="Views\Heimfahrtsplan\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

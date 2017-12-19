@@ -6,18 +6,12 @@ using System.Web.Mvc;
 
 namespace AIS_FI15.Controllers
 {
-
-    public class DokumenteController : Controller
+    public class TherapieplanController : Controller
     {
-
-        // GET: Dokumente
+        // GET: Therapieplan
         public ActionResult Index()
         {
-
             return View();
-
         }
-
     }
-
 }

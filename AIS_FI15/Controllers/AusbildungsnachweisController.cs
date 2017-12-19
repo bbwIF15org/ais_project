@@ -6,18 +6,12 @@ using System.Web.Mvc;
 
 namespace AIS_FI15.Controllers
 {
-
-    public class FormulareController : Controller
+    public class AusbildungsnachweisController : Controller
     {
-
-        // GET: Formulare
+        // GET: Ausbildungsnachweis
         public ActionResult Index()
         {
-
             return View();
-
         }
-
     }
-
 }
