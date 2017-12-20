@@ -14,3 +14,7 @@
     border-color: limegreen;
     border-style: solid;
 }
+
+.well{
+        padding-bottom: 10px;
+}

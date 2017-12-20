@@ -59,6 +59,16 @@ namespace AIS_FI15.Controllers
             return View();
         }
 
-    }
+        public void DbWrite(string us, string uus, string txt, string filePath, string callingView)
+        {
+
+
+
+        }
+
+
+
+
+        }
 
 }

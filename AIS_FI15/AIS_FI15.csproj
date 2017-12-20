@@ -201,7 +201,7 @@
     <Compile Include="Controllers\StellenboerseController.cs" />
     <Compile Include="Controllers\SuchenController.cs" />
     <Compile Include="Controllers\VAmBController.cs" />
-    <Compile Include="Controllers\VerwaltungController.cs" />
+    <Compile Include="Data\VerwaltungController.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Controllers\MensaController.cs" />
     <Compile Include="Controllers\PsychologischerDienstController.cs" />
