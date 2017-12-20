@@ -96,8 +96,7 @@ else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "
                     <br /><br />                   
                     <a href="#" class="@kundenservice" role="button">Kundenservice</a>
                     <div class="row">
-                        <div class="col-sm-2"></div>
-                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2"></div>                       
                         <div class="col-sm-8">
                             &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Allgemeines")" class="@kundenserviceUnterpunkt" role="button">Allgemeines</a>                            
                             &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Integrationsberatung")" class="@kundenserviceUnterpunkt" role="button">Integrationsberatung</a>                            
@@ -107,6 +106,7 @@ else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "
                             &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "VAmB")" class="@kundenserviceUnterpunkt" role="button">VAmB</a>
                             <br />
                         </div>
+                        <div class="col-sm-2"></div>
                     </div>
                     <br />
                     <a href="@Url.Action("Index", "Seelsorge")" class="@seelsorge" role="button">Seelsorge</a>
