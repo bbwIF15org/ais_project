@@ -10,7 +10,7 @@
     <script src="~/scripts/jquery-3.2.1.min.js"></script>
    
     <script src="~/scripts/bootstrap.min.js"></script>	
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">*@ 
     @{ // TODO Downloaden damit es auch Offline verfügbar ist.
     }
    
@@ -231,9 +231,36 @@
                         AUSBILDUNG<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Dokumente", "Index", "Dokumente/Index")</li>
-                        <li>@Html.ActionLink("Formulare", "Index", "Formulare/Index")</li>
-                        <li>@Html.ActionLink("Belehrungen", "Index", "Belehrungen/Index")</li>
+                        <li>@Html.ActionLink("Heimfahrtsplan", "Index", "Heimfahrtsplan/Index")</li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-toggle disabled" tabindex="-1" href="#">
+                                Formulare
+                            </a>
+                            <ul class="dropdown-menu dds">
+                                <li>
+                                    <a tabindex="-1" href="@Url.Action("Index", "Freistellung")">
+                                        Freistellung
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="@Url.Action("Index", "Ausbildungsnachweis")">
+                                        Ausbildungsnachweis
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="@Url.Action("Index", "Therapieplan")">
+                                        Therapieplan
+                                    </a>
+                                </li>                                
+                                <li>
+                                    <a tabindex="-1" href="@Url.Action("Index", "ECDL")">
+                                        ECDL
+                                    </a>
+                                </li>                                
+                            </ul>
+
+                        </li>
+                        <li>@Html.ActionLink("Belehrungen/Informationen", "Index", "Belehrungen/Index")</li>
                     </ul>
                 </li>
                 <li class="@telefonbuch">@Html.ActionLink("TELEFONBUCH", "Index", "Telefonbuch/Index")</li>

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Heimfahrtsplan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="container-fluid">
+    <div class="col-md-12" id="caption">
+        <p class="pull-left">Heimfahrtsplan</p>
+    </div>
+</div>
+<br />
+
+@Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
+
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == ViewBag.Title || HttpContext.Current.User.Identity.Name == "Root"))
+{
+    <div class="panel panel-default">
+        <div class="panel-body" id="InhaltBearbeiten">
+            @Html.Partial("~/Views/SharedBearbeiten/Index.cshtml")
+        </div>
+    </div>
+}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
