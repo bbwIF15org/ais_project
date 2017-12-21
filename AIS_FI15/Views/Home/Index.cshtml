@@ -32,11 +32,17 @@
                         "UNION " +
                         "SELECT Time, Title, 'Aktuelles' AS 'table' FROM Aktuelles " +
                         "UNION " +
+                        "SELECT Time, Title, 'Allgemeines' AS 'table' FROM Allgemeines " +
+                        "UNION " +
+                        "SELECT Time, Title, 'Ausbildungsnachweis' AS 'table' FROM Ausbildungsnachweis " +
+                        "UNION " +
                          "SELECT Time, Title, 'Belehrungen' AS 'table' FROM Belehrungen " +
                         "UNION " +
-                         "SELECT Time, Title, 'Dokumente' AS 'table' FROM Dokumente " +
+                        "SELECT Time, Title, 'ECDL' AS 'table' FROM ECDL " +
                         "UNION " +
-                         "SELECT Time, Title, 'Formulare' AS 'table' FROM Formulare " +
+                         "SELECT Time, Title, 'Freistellung' AS 'table' FROM Freistellung " +
+                        "UNION " +
+                         "SELECT Time, Title, 'Heimfahrtsplan' AS 'table' FROM Heimfahrtsplan " +
                         "UNION " +
                          "SELECT Time, Title, 'Integrationsberatung' AS 'table' FROM Integrationsberatung " +
                         "UNION " +
@@ -53,12 +59,12 @@
                          "SELECT Time, Title, 'Stellenboerse' AS 'table' FROM Stellenboerse " +
                         "UNION " +
                          "SELECT Time, Title, 'Teilnehmervertretung' AS 'table' FROM Teilnehmervertretung " +
+                         "UNION " +
+                         "SELECT Time, Title, 'Therapieplan' AS 'table' FROM Therapieplan " +
                         "UNION " +
                          "SELECT Time, Title, 'VamB' AS 'table' FROM VamB " +
                         "UNION " +
-                         "SELECT Time, Title, 'Wohnheim' AS 'table' FROM Wohnheim " +
-                        "UNION " +
-                         "SELECT Time, Title, 'Allgemeines' AS 'table' FROM Allgemeines " +
+                         "SELECT Time, Title, 'Wohnheim' AS 'table' FROM Wohnheim " +                        
                          "ORDER BY Time DESC";
 
                     int y = 0;
