@@ -8,31 +8,18 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
-using System.Text;
 using System.Security.Cryptography;
 
 namespace AIS_FI15.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: 
-        /// <summary>
-        /// Didplay default view.
-        /// </summary>
-        /// <returns></returns>
+        // GET: Login
         public ActionResult Index()
         {
-
             return View();
-
         }
 
-        /// <summary>
-        /// authenticate Players' unsername and proceeds Log the user in.
-        /// 
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         [HttpPost]
         public ActionResult Index(LoginModel model)
         {
@@ -48,18 +35,23 @@ namespace AIS_FI15.Controllers
                 {
                     String Username = node.SelectSingleNode("username").InnerText;
                     String Password = node.SelectSingleNode("password").InnerText;
-                    byte[] hashpw = { (81), (197), (169), (248), (40), (225), (114), (230), (29), (113), (109), (18), (206), (96), (57), (3), (123), (50), (3), (152), (107), (191), (101), (62), (183), (133), (87), (64), (76), (201), (45), (182)};
+
                     //Crypto
 
-                    SHA256 sha256 = SHA256Managed.Create();
-                    byte[] hashBytes = Encoding.UTF8.GetBytes(Password);
-                    byte[] hash = sha256.ComputeHash(hashBytes);
+                    byte[] hashBytes = Convert.FromBase64String(Password);  //Extract
+
+                    byte[] salt = new byte[16];                             //Salt nehmen
+                    Array.Copy(hashBytes, 0, salt, 0, 16);
+
+                    var pbkdf2 = new Rfc2898DeriveBytes(model.Password, salt, 10000);
+                    byte[] hash = pbkdf2.GetBytes(20);
 
                     /* Compare the results */
-                    for (int i = 0; i < 32; i++)
+
+                    for (int i = 0; i < 20; i++)
                     {
-                        if (hash[i] != hashpw[i]) //test
-                        { 
+                        if (hashBytes[i + 16] != hash[i])
+                        {
                             ModelState.AddModelError("", ""); // TODO besser beschreibung 
                             return View();
                         }
@@ -68,7 +60,7 @@ namespace AIS_FI15.Controllers
 
 
                     if (model.Username == Username)
-                    { 
+                    {
                         FormsAuthentication.SetAuthCookie(model.Username, false);
                         return RedirectToAction("index", "Verwaltung/Index");
                     }
@@ -76,7 +68,7 @@ namespace AIS_FI15.Controllers
                     {
                         ModelState.AddModelError("", ""); // TODO besser beschreibung 
                     }
-  
+
                 }
 
             }
