@@ -30,7 +30,7 @@ namespace AIS_FI15.Controllers
 
                 doc.Load(Server.MapPath("/App_Data/Login.xml"));
                 XmlNodeList UserList = doc.SelectSingleNode("Benutzer").ChildNodes;
-                //foreach (XmlNode node in doc.SelectNodes("user"))               
+
                 foreach (XmlNode User in UserList)
                 {
 
@@ -46,7 +46,7 @@ namespace AIS_FI15.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", ""); // TODO besser beschreibung 
+                        ModelState.AddModelError("", ""); // Meldung das Nutzername oder Passwort nicht richtig sind
                     }
 
                 }
