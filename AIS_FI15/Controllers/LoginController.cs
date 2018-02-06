@@ -28,7 +28,7 @@ namespace AIS_FI15.Controllers
             {
                 XmlDocument doc = new XmlDocument();
 
-                doc.Load(Server.MapPath("/App_Data/Login.xml"));
+                doc.Load(Server.MapPath("~/App_Data/Login.xml"));
                 XmlNodeList UserList = doc.SelectSingleNode("Benutzer").ChildNodes;
 
                 foreach (XmlNode User in UserList)

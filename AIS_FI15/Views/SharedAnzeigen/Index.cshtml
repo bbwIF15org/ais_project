@@ -29,32 +29,33 @@
                             <div class="panel-body">@row.Text</div>
                             @if (@row.Link != "" && @row.Link != null)
                             {
+                                string rowLink = Url.Content("~") + row.Link;
                                 <div class="panel-body">
                                     @{string ext = (string)Path.GetExtension(row.Link);}
                                     @switch (ext.ToLower())
                                     {
                                         case ".pdf":
-                                            <object data=@Server.UrlPathEncode(row.Link) width="100%" height="500px"></object>
-                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
+                                            <object data=@Server.UrlPathEncode(rowLink) width="100%" height="500px"></object>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(rowLink)>Öffnen</a>
                                             break;
                                         case ".png":
-                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
-                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
+                                            <object data=@Server.UrlPathEncode(rowLink) width="100%"></object>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(rowLink)>Öffnen</a>
                                             break;
                                         case ".jpg":
-                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
-                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
+                                            <object data=@Server.UrlPathEncode(rowLink) width="100%"></object>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(rowLink)>Öffnen</a>
                                             break;
                                         case ".bmp":
-                                            <object data=@Server.UrlPathEncode(row.Link) width="100%"></object>
-                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Öffnen</a>
+                                            <object data=@Server.UrlPathEncode(rowLink) width="100%"></object>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(rowLink)>Öffnen</a>
                                             break;
                                         default:
                                             <p style="font-size:small; font-style:italic">
                                                 Für dieses Dateiformat ist keine Vorschau verfügbar.<br />
                                                 Die Datei kann nur direkt heruntergeladen werden.<br />
                                             </p>
-                                            <a class="btn btn-info" href=@Server.UrlPathEncode(row.Link)>Datei herunterladen</a>
+                                            <a class="btn btn-info" href=@Server.UrlPathEncode(rowLink)>Datei herunterladen</a>
                                             break;
                                     }
                                     @*<object data=@Server.UrlPathEncode(row.Link) width="100%"></object>

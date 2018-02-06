@@ -50,7 +50,7 @@
     @using System.Web.Script.Serialization;
 
    @{ 
-       string json = AIS_FI15.Controllers.SuchenModel.Auslesen(Server.MapPath("/App_Data/SearchStrings.json"));
+       string json = AIS_FI15.Controllers.SuchenModel.Auslesen(Server.MapPath("~/App_Data/SearchStrings.json"));
 
        JavaScriptSerializer js = new JavaScriptSerializer();
        AIS_FI15.Controllers.SuchenModel.Navigation[] Navi = js.Deserialize<AIS_FI15.Controllers.SuchenModel.Navigation[]>(json);

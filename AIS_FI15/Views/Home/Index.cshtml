@@ -64,7 +64,7 @@
                         "UNION " +
                          "SELECT Time, Title, 'VamB' AS 'table' FROM VamB " +
                         "UNION " +
-                         "SELECT Time, Title, 'Wohnheim' AS 'table' FROM Wohnheim " +                        
+                         "SELECT Time, Title, 'Wohnheim' AS 'table' FROM Wohnheim " +
                          "ORDER BY Time DESC";
 
                     int y = 0;
@@ -72,9 +72,8 @@
                     {
                         y++;
                         if (y <= 4)
-                        {
-
-                            <a href="\@row.table\index" style="color:black; font-size:21px">
+                        {                            
+                            <a href="@Url.Content("~")@row.table\index" style="color:black; font-size:21px">
                                 <div class="well" style="line-height: 21px">
                                     <div class="row">
                                         <div class="col-xs-8">
@@ -123,7 +122,7 @@
                                         @{
                                             Uri absUri = new Uri(allPaths[0] + "/Folie1.PNG");
                                             Uri reference = new Uri(Server.MapPath("~/Data"));
-                                            string relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
+                                            string relPath = Url.Content("~") + reference.MakeRelativeUri(absUri).ToString();
                                         }
                                         <a href=@relPath><img src=@relPath style="width: 100%"></a>
                                     </div>
@@ -133,7 +132,7 @@
                                                     @{
                                                         absUri = new Uri(allPaths[i] + "/Folie1.PNG");
                                                         reference = new Uri(Server.MapPath("~/Data"));
-                                                        relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
+                                                        relPath = Url.Content("~") + reference.MakeRelativeUri(absUri).ToString();
                                                     }
                                                     <a href=@relPath><img src=@relPath style="width: 100%"></a>
                                                 </div>

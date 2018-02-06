@@ -38,7 +38,7 @@
                             @{
                                 Uri absUri = new Uri(allPaths[0] + "/Folie1.PNG");
                                 Uri reference = new Uri(Server.MapPath("~/Data"));
-                                string relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
+                                string relPath = Url.Content("~") + reference.MakeRelativeUri(absUri).ToString();
                             }
                             <a href=@relPath><img src=@relPath style="width: 100%"></a>
                         </div>
@@ -48,7 +48,7 @@
                                         @{
                                             absUri = new Uri(allPaths[i] + "/Folie1.PNG");
                                             reference = new Uri(Server.MapPath("~/Data"));
-                                            relPath = "/" + reference.MakeRelativeUri(absUri).ToString();
+                                            relPath = Url.Content("~") + reference.MakeRelativeUri(absUri).ToString();
                                         }
                                         <a href=@relPath><img src=@relPath style="width: 100%"></a>
                                     </div>
@@ -81,7 +81,8 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <object data="@Server.UrlPathEncode("/Data/Mensa/Öffnungszeiten Mensa.pdf")" style="width:100%;height: 650px;" class="center-block">Hier sollten Öffnungszeiten sein :(</object>           
+        @{string oeffnungszeiten = Url.Content("~") + "Data/Mensa/Öffnungszeiten.pdf"; }
+      <object data = @oeffnungszeiten style = "width:100%;height: 650px;" class="center-block">Hier sollten eigentlich die Öffnungszeiten angezeigt werden :(</object>           
      </div>
      <div class="col-sm-2"></div>
 </div>

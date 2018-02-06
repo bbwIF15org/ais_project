@@ -49,7 +49,7 @@ namespace AIS_FI15.Controllers
                 {
                     try
                     {
-                        System.IO.File.Delete(Server.MapPath(item.Link));
+                        System.IO.File.Delete(Server.MapPath( Url.Content("~") + item.Link));
                     }
                     catch (Exception ex)
                     {

@@ -14,7 +14,7 @@ namespace AIS_FI15.Controllers
         // GET: Suchen
         public ActionResult Index(string Suchwort)
         {
-            string json = SuchenModel.Auslesen(Server.MapPath("/App_Data/SearchStrings.json"));
+            string json = SuchenModel.Auslesen(Server.MapPath("~/App_Data/SearchStrings.json"));
 
         
             JavaScriptSerializer js = new JavaScriptSerializer();

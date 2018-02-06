@@ -16,11 +16,11 @@
     <RootNamespace>AIS_FI15</RootNamespace>
     <AssemblyName>AIS_FI15</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -140,9 +140,6 @@
     <Content Include="Content\Styles\homeDark.css" />
     <Content Include="Content\Styles\phonebook.css" />
     <Content Include="Content\Styles\styleDark.css" />
-    <Content Include="DokumentationAIS.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Doku\Dokumentation_AIS.xml" />
     <Content Include="Doku\Dokumentation_AIS_Lipp2.xml" />
     <Content Include="Doku\Dokumentation_AIS_nek0.xml" />
@@ -160,10 +157,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="App_Data\SearchStrings.json" />
     <Content Include="App_Data\Wohnheim.json" />
-    <Content Include="Data\Speiseplan\Speiseplan_KW36.ppsx" />
-    <Content Include="Data\Speiseplan\Speiseplan_KW37.ppsx" />
-    <Content Include="Data\Speiseplan\Speiseplan_KW38.ppsx" />
-    <Content Include="Data\Speiseplan\Speiseplan_KW39.ppsx" />
+    <None Include="Properties\PublishProfiles\AIS.pubxml" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />

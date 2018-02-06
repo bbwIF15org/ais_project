@@ -62,7 +62,7 @@ namespace AIS_FI15.Controllers
         {
           
                 string fn = System.IO.Path.GetFileName(file.FileName);
-                string SaveLocation = Server.MapPath("/Data") + "\\" + callingView + "\\" + fn;
+                string SaveLocation = Server.MapPath("~/Data") + "\\" + callingView + "\\" + fn;
                 try
                 {
                     file.SaveAs(SaveLocation);
@@ -75,7 +75,7 @@ namespace AIS_FI15.Controllers
                     //For security reasons, we do not recommend you return Exception.Message to end users in 
                     //production environments. It would be better just to put a generic error message. 
                 }
-            return "\\Data\\" + callingView + "\\" + file.FileName;
+            return "Data\\" + callingView + "\\" + file.FileName;
 
 
         }
