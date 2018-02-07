@@ -16,7 +16,7 @@
     <RootNamespace>AIS_FI15</RootNamespace>
     <AssemblyName>AIS_FI15</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
@@ -135,6 +135,7 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\Physio.xml" />
+    <Content Include="Content\Styles\styleIE.css" />
     <Content Include="Data\Wohnheim\glyphicons-7-user-add.png" />
     <Content Include="Content\Styles\wohnheimDark.css" />
     <Content Include="Content\Styles\homeDark.css" />

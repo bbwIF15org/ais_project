@@ -35,9 +35,20 @@
                                     @switch (ext.ToLower())
                                     {
                                         case ".pdf":
-                                            <object data=@Server.UrlPathEncode(rowLink) width="100%" height="500px"></object>
-                                            <a class="btn btn-info" href=@Server.UrlPathEncode(rowLink)>Öffnen</a>
-                                            break;
+                                            if(Session["Browser"] as String == "IE")
+                                            {
+                                                <p style="font-size:small; font-style:italic">
+                                                Eine Vorschau für PDF Dateien ist mit dem Internet Explorer nicht möglich.<br />
+                                                Die Datei kann nur einzeln geöffnet werden.<br />
+                                            </p>
+                                            
+                                            }
+                                            else
+                                            {
+                                                <object data=@Server.UrlPathEncode(rowLink) width="100%" height="500px"></object>
+                                            }
+                                           <a class="btn btn-info" href=@Server.UrlPathEncode(rowLink)>Öffnen</a>
+                                           break;
                                         case ".png":
                                             <object data=@Server.UrlPathEncode(rowLink) width="100%"></object>
                                             <a class="btn btn-info" href=@Server.UrlPathEncode(rowLink)>Öffnen</a>

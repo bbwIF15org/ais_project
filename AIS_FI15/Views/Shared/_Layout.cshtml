@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<title>Ais_Test</title>
@@ -14,7 +13,25 @@
     @{ // TODO Downloaden damit es auch Offline verfügbar ist.
     }
    
+   @using System.Text.RegularExpressions
+
     @*############ Styles ############*@ 
+    <script>
+        @if (Request.UserAgent.Contains("IE ") || new Regex(@"Trident.*rv\:11\.").Match(Request.UserAgent).Success)
+        {
+            Session["Browser"] = "IE";
+            <Text>
+                $('head').append('<link href="@Url.Content("~")Content/Styles/styleIE.css" rel="stylesheet" />');
+            </Text>
+        }
+        else
+        {
+            Session["Browser"] = "other";
+            <Text>
+                $('head').append('<link href="@Url.Content("~")Content/Styles/style.css" rel="stylesheet" />');
+            </Text>
+        }
+    </script>
 
    @if (Request.Cookies.AllKeys.Contains("DarkMode"))
    {
@@ -28,7 +45,6 @@
    }
    else
    {
-    <link href="~/Content/Styles/style.css" rel="stylesheet" />
     <link href="~/Content/Styles/home.css" rel="stylesheet" />
    }
     <link href="~/Content/Styles/phonebook.css" rel="stylesheet" />
@@ -298,9 +314,9 @@
     
     
  @*############################################## Inhalt ####################################################*@
-
-       @RenderBody()
-               
+    <div class="container">
+        @RenderBody()
+    </div>          
  @*############################################## Inhalt ####################################################*@         
     
 
