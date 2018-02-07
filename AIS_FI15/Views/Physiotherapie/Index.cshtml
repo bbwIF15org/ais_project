@@ -1,5 +1,4 @@
-﻿
-@{    
+﻿@{    
     ViewBag.Title = "Physiotherapie";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -169,7 +168,6 @@
                                         @*<label for="name">Name</label>*@
                                         @*@Html.TextBox("Name", null, new { @id = "name", @class = "input required", @required = "required" })*@
                                         @Html.TextBox("Name", "Physiotherapie", new { @id = "name", @class = "input required hidden", @required = "required" })
-
                                     </div>
                                 </div>
                                 <div class="row">
@@ -180,8 +178,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <label for="u1">Montag Vormittag</label>
-                                        
+                                        <label for="u1">Montag Vormittag</label>                                        
                                         @Html.TextBox("U1", mov , new { @id = "u1", @class = "input form-control", @placeholder = "z. B. 9:00 - 12:00", @maxlength = 25 })
                                         
                                     </div>
@@ -254,11 +251,9 @@
                                 @Html.TextBox("callingView", null, new { Value = ViewBag.Title, Class = "hidden" })
                                 <input type="submit" value="Aktualisieren" class="btn btn-success" />
                             </fieldset>
-
                         }
                     }
                 }
-
             }
         </div>
     </div>
