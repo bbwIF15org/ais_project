@@ -28,43 +28,43 @@
 
                 @{
                     var db = Database.Open("SQLServerConnectionString");
-                    string selectQueryString = "SELECT Time, Title, 'aerztlicherDienst' AS 'table' FROM aerztlicherDienst " +
+                    string selectQueryString = "SELECT Time, Title, Addition, 'aerztlicherDienst' AS 'table' FROM aerztlicherDienst " +
                         "UNION " +
-                        "SELECT Time, Title, 'Aktuelles' AS 'table' FROM Aktuelles " +
+                        "SELECT Time, Title, Addition, 'Aktuelles' AS 'table' FROM Aktuelles " +
                         "UNION " +
-                        "SELECT Time, Title, 'Allgemeines' AS 'table' FROM Allgemeines " +
+                        "SELECT Time, Title, Addition, 'Allgemeines' AS 'table' FROM Allgemeines " +
                         "UNION " +
-                        "SELECT Time, Title, 'Ausbildungsnachweis' AS 'table' FROM Ausbildungsnachweis " +
+                        "SELECT Time, Title, Addition, 'Ausbildungsnachweis' AS 'table' FROM Ausbildungsnachweis " +
                         "UNION " +
-                         "SELECT Time, Title, 'Belehrungen' AS 'table' FROM Belehrungen " +
+                         "SELECT Time, Title, Addition, 'Belehrungen' AS 'table' FROM Belehrungen " +
                         "UNION " +
-                        "SELECT Time, Title, 'ECDL' AS 'table' FROM ECDL " +
+                        "SELECT Time, Title, Addition, 'ECDL' AS 'table' FROM ECDL " +
                         "UNION " +
-                         "SELECT Time, Title, 'Freistellung' AS 'table' FROM Freistellung " +
+                         "SELECT Time, Title, Addition, 'Freistellung' AS 'table' FROM Freistellung " +
                         "UNION " +
-                         "SELECT Time, Title, 'Heimfahrtsplan' AS 'table' FROM Heimfahrtsplan " +
+                         "SELECT Time, Title, Addition, 'Heimfahrtsplan' AS 'table' FROM Heimfahrtsplan " +
                         "UNION " +
-                         "SELECT Time, Title, 'Integrationsberatung' AS 'table' FROM Integrationsberatung " +
+                         "SELECT Time, Title, Addition, 'Integrationsberatung' AS 'table' FROM Integrationsberatung " +
                         "UNION " +
-                         "SELECT Time, Title, 'Mensa' AS 'table' FROM Mensa " +
+                         "SELECT Time, Title, Addition, 'Mensa' AS 'table' FROM Mensa " +
                         "UNION " +
-                         "SELECT Time, Title, 'Physiotherapie' AS 'table' FROM Physiotherapie " +
+                         "SELECT Time, Title, Addition, 'Physiotherapie' AS 'table' FROM Physiotherapie " +
                         "UNION " +
-                         "SELECT Time, Title, 'PsychologischerDienst' AS 'table' FROM PsychologischerDienst " +
+                         "SELECT Time, Title, Addition, 'PsychologischerDienst' AS 'table' FROM PsychologischerDienst " +
                         "UNION " +
-                         "SELECT Time, Title, 'RehaKoordination' AS 'table' FROM RehaKoordination " +
+                         "SELECT Time, Title, Addition, 'RehaKoordination' AS 'table' FROM RehaKoordination " +
                         "UNION " +
-                         "SELECT Time, Title, 'Seelsorge' AS 'table' FROM Seelsorge " +
+                         "SELECT Time, Title, Addition, 'Seelsorge' AS 'table' FROM Seelsorge " +
                         "UNION " +
-                         "SELECT Time, Title, 'Stellenboerse' AS 'table' FROM Stellenboerse " +
+                         "SELECT Time, Title, Addition, 'Stellenboerse' AS 'table' FROM Stellenboerse " +
                         "UNION " +
-                         "SELECT Time, Title, 'Teilnehmervertretung' AS 'table' FROM Teilnehmervertretung " +
+                         "SELECT Time, Title, Addition, 'Teilnehmervertretung' AS 'table' FROM Teilnehmervertretung " +
                          "UNION " +
-                         "SELECT Time, Title, 'Therapieplan' AS 'table' FROM Therapieplan " +
+                         "SELECT Time, Title, Addition, 'Therapieplan' AS 'table' FROM Therapieplan " +
                         "UNION " +
-                         "SELECT Time, Title, 'VamB' AS 'table' FROM VamB " +
+                         "SELECT Time, Title, Addition, 'VamB' AS 'table' FROM VamB " +
                         "UNION " +
-                         "SELECT Time, Title, 'Wohnheim' AS 'table' FROM Wohnheim " +
+                         "SELECT Time, Title, Addition, 'Wohnheim' AS 'table' FROM Wohnheim " +
                          "ORDER BY Time DESC";
 
                     int y = 0;
@@ -73,14 +73,25 @@
                         y++;
                         if (y <= 4)
                         {                            
-                            <a href="@Url.Content("~")@row.table\index" style="color:black; font-size:21px">
+                            <a href="@Url.Content("~")@row.table/index" style="color:black; font-size:21px">
                                 <div class="well" style="line-height: 21px">
                                     <div class="row">
                                         <div class="col-xs-8">
-                                            <b><p class="text-left">@row.Title</p></b>
+                                            <div style="white-space:nowrap; width:100%; text-overflow: ellipsis; overflow:hidden;">
+                                                <b>@row.Title</b>
+                                            </div>
+                                            <div style="font-size:small ;white-space:nowrap; width:100%; text-overflow: ellipsis; overflow:hidden; margin-top: 4px;">
+                                                @row.Addition
+                                            </div>                                            
                                         </div>
                                         <div class="col-xs-4">
-                                            <p style="font-size:small" class="text-right">@row.Time</p>
+                                            <div class="text-right" style="white-space:nowrap; width:100%; text-overflow: ellipsis; overflow:hidden;">
+                                                <b>@row.table</b>
+                                            </div>
+                                            <div class="text-right" style="font-size:small; white-space:nowrap; width:100%; text-overflow: ellipsis; overflow:hidden; margin-top: 4px;">
+                                                @row.Time
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
