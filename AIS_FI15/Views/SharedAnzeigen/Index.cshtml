@@ -81,7 +81,11 @@
                             {
                                 <input type="submit" value="Löschen" class="btn btn-danger" />
                             }
-                            @if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Kundenservice" && (ViewBag.Title == "Allgemeines" || ViewBag.Title == "Integrationsberatung" || ViewBag.Title == "RehaKoordination" || ViewBag.Title == "Stellenboerse" || ViewBag.Title == "Aktuelles" || ViewBag.Title == "VAmB"))
+                            @if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Kundenservice" && (ViewBag.Title == "Allgemeines" || ViewBag.Title == "Integrationsberatung" || ViewBag.Title == "RehaKoordination" || ViewBag.Title == "Stellenboerse"))
+                            {
+                                <input type="submit" value="Löschen" class="btn btn-danger" />
+                            }
+                            @if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Arbeitgeberservice" && (ViewBag.Title == "Aktuelles" || ViewBag.Title == "VAmB"))
                             {
                                 <input type="submit" value="Löschen" class="btn btn-danger" />
                             }
