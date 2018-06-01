@@ -107,36 +107,52 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             @{ 
-                string home="", service= "dropdown", ausbildung= "dropdown", telefonbuch="", verwaltung="", impressum="";
+                string home="", service= "dropdown", dienste= "dropdown", telefonbuch="", verwaltung="", impressum="", arbeitgeberservice="dropdown", sonstiges="dropdown", teilnehmervertretung="", mensa="";
              }
 
-            @if (Request.Url.AbsoluteUri.ToLower().Contains("home") || Request.Url.PathAndQuery == "/")    // TODO In der if Abfrage gibt es viele Redundanzen. -> Muss geändert werden yo. 
+
+            @if (Request.Url.AbsoluteUri.ToLower().Contains("home") || Request.Url.PathAndQuery == "/")
             {
                 home = "active";
             }
-            else if (Request.Url.AbsoluteUri.ToLower().Contains("service") ||                
-                Request.Url.AbsoluteUri.ToLower().Contains("mensa") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("psychologischerdienst") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("aerztlicherDienst") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("physiotherapie") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("kundenservice") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("wohnheim") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("integrationsberatung") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("seelsorge") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("teilnehmervertretung"))
+            else if (ViewBag.Title == "Service" ||
+                ViewBag.Title == "Integrationsberatung" ||
+                ViewBag.Title == "Stellenboerse" ||
+                ViewBag.Title == "Allgemeines" ||
+                ViewBag.Title == "RehaKoordination")
             {
                 service = "dropdown active";
             }
-            else if (Request.Url.AbsoluteUri.ToLower().Contains("ausbildung") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("dokumente") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("formulare") ||
-                Request.Url.AbsoluteUri.ToLower().Contains("belehrungen"))
+            else if (ViewBag.Title == "Seelsorge" ||
+                ViewBag.Title == "PsychologischerDienst" ||
+                ViewBag.Title == "aerztlicherDienst" ||
+                ViewBag.Title == "Physiotherapie" ||
+                ViewBag.Title == "Wohnheim")
             {
-                ausbildung = "dropdown active";
+                dienste = "dropdown active";
             }
-            else if (Request.Url.AbsoluteUri.ToLower().Contains("telefonbuch"))
+            else if (ViewBag.Title == "Aktuelles" ||
+                ViewBag.Title == "VAmB")
             {
-                telefonbuch = "active";
+                arbeitgeberservice = "dropdown active";
+            }
+            else if (ViewBag.Title == "Teilnehmervertretung")
+            {
+                teilnehmervertretung = "active";
+            }
+            else if (ViewBag.Title == "Mensa")
+            {
+                mensa = "active";
+            }
+            else if (ViewBag.Title == "Heimfahrtsplan" ||
+            ViewBag.Title == "Belehrungen" ||
+            ViewBag.Title == "Freistellung" ||
+            ViewBag.Title == "Ausbildungsnachweis" ||
+            ViewBag.Title == "Therapieplan" ||
+            ViewBag.Title == "ECDL" ||
+            ViewBag.Title == "Telefonbuch")
+            {
+                sonstiges = "dropdown active";
             }
             else if (Request.Url.AbsoluteUri.ToLower().Contains("login"))
             {
@@ -150,6 +166,10 @@
             {
                 impressum = "active";
             }
+            //else if (ViewBag.Title == "Archiv")
+            //{
+            //    archiv = "active";
+            //}
             else
             {
                 home = "active";
@@ -159,12 +179,31 @@
             <ul class="nav navbar-nav">
                 <li class="@home">@Html.ActionLink("HOME", "Index", "Home/Index")</li>
                 <li class="@service">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">SERVICE<b class="caret"></b></a>
-                    <ul class="dropdown-menu">                        
-                        <li>@Html.ActionLink("Mensa", "Index", "Mensa/Index")</li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">KUNDEN-<br />SERVICE<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Allgemeines", "Index", "Allgemeines/Index")</li>
+                        <li>@Html.ActionLink("Integrationsberatung", "Index", "Integrationsberatung/Index")</li>
+                        <li>@Html.ActionLink("RehaKoordination", "Index", "RehaKoordination")</li>
+                        <li>@Html.ActionLink("Stellenboerse", "Index", "Stellenboerse/Index")</li>                        
+                    </ul>
+                </li>                
+                <li class="@arbeitgeberservice">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        ARBEITGEBER-<br />SERVICE<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Aktuelles", "Index", "Aktuelles/Index")</li>
+                        <li>@Html.ActionLink("VAmB", "Index", "VAmB/Index")</li>
+                    </ul>
+                </li>
+                <li class="@dienste">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        DIENSTE<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
                             <a class="dropdown-toggle disabled" tabindex="-1" href="#">
-                                Ausbildungsbegleitende Dienste
+                                Fachdienste
                             </a>
                             <ul class="dropdown-menu dds">
                                 <li>
@@ -173,89 +212,49 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
-                                        Psychologischer Dienst
-                                    </a>
-                                </li>
-                                <li>
                                     <a tabindex="-1" href="@Url.Action("Index", "Physiotherapie")">
                                         Physiotherapie
                                     </a>
                                 </li>
-                                <li class="dropdown-submenu">
-                                    <a class="dropdown-toggle disabled" tabindex="-2" href="#">
-                                        Kundenservice
+                                <li>
+                                    <a tabindex="-1" href="@Url.Action("Index", "PsychologischerDienst")">
+                                        Psychologischer Dienst
                                     </a>
-                                    <ul class="dropdown-menu dds">
-                                        <li>
-                                            <a tabindex="-2" href="@Url.Action("Index", "Allgemeines")">
-                                                Allgemeines
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a tabindex="-2" href="@Url.Action("Index", "Integrationsberatung")">
-                                                Integrationsberatung
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a tabindex="-2" href="@Url.Action("Index", "RehaKoordination")">
-                                                Reha-Koordination
-                                            </a>
-                                        </li>
-                                        <li class="dropdown-submenu">
-                                            <a class="dropdown-toggle disabled" tabindex="-3" href="#">
-                                                Arbeitgeberservice
-                                            </a>
-                                            <ul class="dropdown-menu dds">
-                                                <li>
-                                                    <a tabindex="-3" href="@Url.Action("Index", "Aktuelles")">
-                                                        Aktuelles
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a tabindex="-3" href="@Url.Action("Index", "VAmB")">
-                                                        VAmB
-                                                    </a>
-                                                </li>                                                
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a tabindex="-2" href="@Url.Action("Index", "Stellenboerse")">
-                                                Stellenbörse
-                                            </a>
-                                        </li>                                        
-                                    </ul>
                                 </li>
                                 <li>
                                     <a tabindex="-1" href="@Url.Action("Index", "Seelsorge")">
                                         Seelsorge
                                     </a>
                                 </li>
-                                <li>
-                                    <a tabindex="-1" href="@Url.Action("Index", "Wohnheim")">
-                                        Wohnheim
-                                    </a>
-                                </li>                                
                             </ul>
 
                         </li>
-                        <li>@Html.ActionLink("Teilnehmervertretung", "Index", "Teilnehmervertretung/Index")</li>
+                        <li>@Html.ActionLink("Wohnen/Freizeit", "Index", "Wohnheim/Index")</li>
                     </ul>
                 </li>
-                <li class="@ausbildung">
+                <li class="@teilnehmervertretung">@Html.ActionLink("TNV", "Index", "Teilnehmervertretung/Index")</li>
+                <li class="@mensa">@Html.ActionLink("MENSA", "Index", "Mensa/Index")</li>
+
+                <li class="@sonstiges">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        AUSBILDUNG<b class="caret"></b>
+                        SONSTIGES<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("Heimfahrtsplan", "Index", "Heimfahrtsplan/Index")</li>
+                        <li>@Html.ActionLink("Belehrungen/Informationen", "Index", "Belehrungen")</li>
                         <li class="dropdown-submenu">
                             <a class="dropdown-toggle disabled" tabindex="-1" href="#">
                                 Formulare
                             </a>
                             <ul class="dropdown-menu dds">
                                 <li>
-                                    <a tabindex="-1" href="@Url.Action("Index", "Freistellung")">
-                                        Freistellung
+                                    <a tabindex="-1" href="@Url.Action("Index", "Therapieplan")">
+                                        Therapieplan
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="-1" href="@Url.Action("Index", "ECDL")">
+                                        ECDL
                                     </a>
                                 </li>
                                 <li>
@@ -264,30 +263,24 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a tabindex="-1" href="@Url.Action("Index", "Therapieplan")">
-                                        Therapieplan
+                                    <a tabindex="-1" href="@Url.Action("Index", "Freistellung")">
+                                        Freistellung
                                     </a>
-                                </li>                                
-                                <li>
-                                    <a tabindex="-1" href="@Url.Action("Index", "ECDL")">
-                                        ECDL
-                                    </a>
-                                </li>                                
+                                </li>
                             </ul>
-
                         </li>
-                        <li>@Html.ActionLink("Belehrungen/Informationen", "Index", "Belehrungen/Index")</li>
+                        <li>@Html.ActionLink("Telefonbuch", "Index", "Telefonbuch")</li>                        
                     </ul>
-                </li>
-                <li class="@telefonbuch">@Html.ActionLink("TELEFONBUCH", "Index", "Telefonbuch/Index")</li>
+                </li>               
 
 
                 @if (Request.IsAuthenticated)
                 {
-                  <li class=@verwaltung style="border: none">@Html.ActionLink("VERWALTUNG", "Index", "Verwaltung/Index")</li> 
+                    <li class=@verwaltung style="border: none">@Html.ActionLink("VERWALTUNG", "Index", "Verwaltung/Index")</li>
                 }
 
             </ul>
+
 
                 @*// #################  FÜR DIE SUCHE YO*@
 

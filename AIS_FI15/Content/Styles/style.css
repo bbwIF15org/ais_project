@@ -15,7 +15,7 @@
   /* Bild einfügen statt URL */
   /*background-color: #ee7400;*/
   background: url(../../pictures/vhs-assets-css-4c4f744ef3ca986945dc8aca1faf4b56.jpg); 
-  font-size: 22px;
+  font-size: 21px; /*original 22*/
   /*border:  10px 0 10px 0px; */
   color : #ffffff;          
   z-index: 1;

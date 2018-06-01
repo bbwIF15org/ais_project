@@ -17,10 +17,12 @@
             physiotherapie = "btn btn-success disabled btn-block",
             psychologischerdienst = "btn btn-success disabled btn-block",            
             kundenservice = "btn btn-success disabled btn-block",
+            arbeitgeberservice = "btn btn-success disabled btn-block",
             seelsorge = "btn btn-success disabled btn-block",
             wohnheim = "btn btn-success disabled btn-block";
 
     string kundenserviceUnterpunkt = "btn btn-success active btn-block hidden";
+    string arbeitgeberserviceUnterpunkt = "btn btn-success active btn-block hidden";
 }
 
 @if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Mensa")
@@ -48,6 +50,11 @@ else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "K
     kundenservice = "btn btn-success active btn-block";
     kundenserviceUnterpunkt = "btn btn-success active btn-block";
 }
+else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Arbeitgeberservice")
+{
+    arbeitgeberservice = "btn btn-success active btn-block";
+    arbeitgeberserviceUnterpunkt = "btn btn-success active btn-block";
+}
 else if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == "Seelsorge")
 {
     seelsorge = "btn btn-success active btn-block";
@@ -67,7 +74,8 @@ else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "
     kundenserviceUnterpunkt = "btn btn-success active btn-block";
     wohnheim = "btn btn-success active btn-block";
     seelsorge = "btn btn-success active btn-block";
-
+    arbeitgeberservice = "btn btn-success active btn-block";
+    arbeitgeberserviceUnterpunkt = "btn btn-success active btn-block";
 }
 
 
@@ -101,13 +109,21 @@ else if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "
                             &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Integrationsberatung")" class="@kundenserviceUnterpunkt" role="button">Integrationsberatung</a>                            
                             &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "RehaKoordination")" class="@kundenserviceUnterpunkt" role="button">Reha-Koordination</a>                            
                             &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Stellenboerse")" class="@kundenserviceUnterpunkt" role="button">Stellenbörse</a>                            
-                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Aktuelles")" class="@kundenserviceUnterpunkt" role="button">Aktuelles</a>                            
-                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "VAmB")" class="@kundenserviceUnterpunkt" role="button">VAmB</a>
                             <br />
                         </div>
                         <div class="col-sm-2"></div>
                     </div>
                     <br />
+                    <a href="#" class="@arbeitgeberservice" role="button">Arbeitgeberservice</a>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "Aktuelles")" class="@arbeitgeberserviceUnterpunkt" role="button">Aktuelles</a>
+                            &nbsp;&nbsp;&nbsp;<a href="@Url.Action("Index", "VAmB")" class="@arbeitgeberserviceUnterpunkt" role="button">VAmB</a>
+                            <br />
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
                     <a href="@Url.Action("Index", "Seelsorge")" class="@seelsorge" role="button">Seelsorge</a>
                     <br /><br />
                     <a href="@Url.Action("Index", "Wohnheim")" class="@wohnheim" role="button">Wohnheim</a>

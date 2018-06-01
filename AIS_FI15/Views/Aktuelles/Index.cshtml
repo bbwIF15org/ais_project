@@ -13,7 +13,7 @@
 
 @Html.Partial("~/Views/SharedAnzeigen/Index.cshtml")
 
-@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Kundenservice" || HttpContext.Current.User.Identity.Name == "Root"))
+@if (Request.IsAuthenticated && (HttpContext.Current.User.Identity.Name == "Arbeitgeberservice" || HttpContext.Current.User.Identity.Name == "Root"))
 {
     <div class="panel panel-default">
         <div class="panel-body" id="InhaltBearbeiten">
