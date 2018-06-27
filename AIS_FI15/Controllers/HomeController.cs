@@ -40,19 +40,24 @@ namespace AIS_FI15.Controllers
 
                 try
                 {
-
-                    app = new Application();
-                    pres = app.Presentations.Open(file, MsoTriState.msoTrue, MsoTriState.msoFalse, MsoTriState.msoFalse);
-                    string newPath = Server.MapPath("~/Data/Speiseplan/Bilder/" + Path.GetFileNameWithoutExtension(file) + ".png");
-                    pres.SaveAs(newPath, PpSaveAsFileType.ppSaveAsPNG, MsoTriState.msoTrue);
-                    pres.Close();
-                    app.Quit();
+                    string filePath = Server.MapPath("~/Data/Speiseplan/Bilder/" + Path.GetFileNameWithoutExtension(file) + "/");
+                    // open and save the *.ppsx-files if they are not already present
+                    if (!(Directory.Exists(filePath) && Directory.GetFiles(filePath, "*.png").Length > 0) && !filePath.Contains("humbs"))
+                    {                    
+                        app = new Application();
+                        pres = app.Presentations.Open(file, MsoTriState.msoTrue, MsoTriState.msoFalse, MsoTriState.msoFalse);
+                        // i guess the following  + ".png" is ignored because Server.MapPath can't deal with file extensions
+                        string newPath = Server.MapPath("~/Data/Speiseplan/Bilder/" + Path.GetFileNameWithoutExtension(file) + ".png");
+                        pres.SaveAs(newPath, PpSaveAsFileType.ppSaveAsPNG, MsoTriState.msoTrue);
+                        pres.Close();
+                        app.Quit();
+                    }
 
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
 
-                    
+                    string f = e.ToString();  
                 }
               
             }
